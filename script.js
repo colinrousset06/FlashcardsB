@@ -1,55 +1,106 @@
-// Base de données fixe des decks (sans modification possible depuis le site web)
+// Decks basés sur le Chapitre 1 du cours (Espaces Vectoriels Normés)
 const decks = [
     {
-        id: "eco-1",
-        category: "ÉCO-CONCEPTION",
-        icon: "🌱",
-        title: "Écoconception - Cours 1 (L'Homme par nature)",
-        description: "Retrouvez les notions clés, définitions et concepts abordés lors du premier cours...",
+        id: "theoremes-1",
+        category: "THÉORÈMES",
+        icon: "📜",
+        title: "Chapitre 1 : Théorèmes du cours",
+        description: "Hypothèses et énoncés des théorèmes clés (Lemme de Lebesgue, Lebesgue-Borel, Heine, Bolzano-Weierstrass, Équivalence des normes)...",
         cards: [
-            { question: "Qu'est-ce que l'écoconception ?", answer: "Prise en compte de l'environnement dès la conception d'un produit." },
-            { question: "Quel est l'objectif principal ?", answer: "Réduire les impacts environnementaux sur tout le cycle de vie." }
+            {
+                question: "Théorème 3.1 (Lemme de Lebesgue) :\nHypothèses : K ⊂ E compact et (Ui)i∈I recouvrement ouvert de K.",
+                answer: "Fin / Énoncé : Il existe δ > 0 tel que toute boule de rayon < δ et centrée en un point de K est incluse dans un des Ui (∃δ > 0, ∀x ∈ K, ∃i, B(x, δ) ⊂ Ui)[cite: 11]."
+            },
+            {
+                question: "Théorème 3.2 (Lebesgue-Borel) :\nHypothèses : K ⊂ E espace vectoriel normé.",
+                answer: "Fin / Équivalence : K est un compact si et seulement si de tout recouvrement d'ouverts de K on peut en extraire un recouvrement fini[cite: 12]."
+            },
+            {
+                question: "Théorème 3.3 (Heine-Borel) :\nHypothèses : Un sous-ensemble de ℝⁿ.",
+                answer: "Fin / Équivalence : Il est compact si et seulement s'il est fermé et borné[cite: 15]."
+            },
+            {
+                question: "Théorème 3.4 (Bolzano-Weierstrass dans ℝⁿ) :\nHypothèses : Toute suite (xk) dans ℝⁿ.",
+                answer: "Fin / Équivalence : Si la suite est bornée, elle admet une sous-suite convergente[cite: 16]."
+            },
+            {
+                question: "Théorème 4.1 (Heine) :\nHypothèses : f : K → ℝ continue, avec K ⊂ ℝⁿ compact.",
+                answer: "Fin / Équivalence : f est uniformément continue sur K[cite: 18]."
+            },
+            {
+                question: "Théorème 5.1 (Équivalence des normes en dimension finie) :\nHypothèses : E espace vectoriel de dimension finie muni de deux normes ||·||a et ||·||b.",
+                answer: "Fin / Équivalence : Toutes les normes sont équivalentes (∃C1, C2 > 0 tels que C1||x||a ≤ ||x||b ≤ C2||x||a)[cite: 19]."
+            }
         ]
     },
     {
-        id: "eco-2",
-        category: "ÉCO-CONCEPTION",
-        icon: "🌱",
-        title: "Écoconception - Cours 2 (Cycle de vie et Méthodologie ACV)",
-        description: "Approfondissement des méthodologies d'analyse, des étapes du cycle de vie et d...",
+        id: "preuves-1",
+        category: "DÉMONSTRATIONS",
+        icon: "✍️",
+        title: "Chapitre 1 : Preuves & Démos",
+        description: "Démonstrations des propositions et théorèmes fondamentaux du cours...",
         cards: [
-            { question: "Que signifie ACV ?", answer: "Analyse du Cycle de Vie." },
-            { question: "Quelles sont les 4 étapes de l'ACV ?", answer: "Objectifs, Inventaire, Évaluation des impacts, Interprétation." }
+            {
+                question: "Preuve de l'Inégalité de Cauchy-Schwarz dans ℝⁿ (Prop. 1.1)",
+                answer: "On pose f(t) = ||x-ty||₂² ≥ 0 = ||x||₂² - 2t⟨x,y⟩ + t²||y||₂². C'est un trinôme quadratique positif ou nul, donc son discriminant Δ ≤ 0, ce qui donne 4⟨x,y⟩² - 4||x||₂²||y||₂² ≤ 0[cite: 8]."
+            },
+            {
+                question: "Preuve de la caractérisation séquentielle d'un fermé (Prop. 3.2)",
+                answer: "(⇒) Si F est fermé, toute limite de suite de F est dans F. (⇐) Si toute suite convergente de F a sa limite dans F, on montre que Ā ⊂ A en choisissant an ∈ A ∩ B(x, 1/n) pour tout x ∈ Ā, d'où an → x ∈ A[cite: 13]."
+            },
+            {
+                question: "Preuve du Lemme de Lebesgue (Théorème 3.1)",
+                answer: "Par l'absurde, si pour tout δ il existe xn ∈ K dont la boule B(xn, 1/n) n'est dans aucun Ui. Par compacité, xn admet une sous-suite xnk → x ∈ K. x ∈ Uj (ouvert), donc B(x, ε) ⊂ Uj, ce qui contredit le choix pour k grand[cite: 11, 23]."
+            },
+            {
+                question: "Preuve de l'équivalence continuité ⇔ images réciproques d'ouverts (Prop. 3.4)",
+                answer: "(i ⇒ ii) Si U est ouvert dans Y et x ∈ f⁻¹(U), f(x) a une boule B_Y(f(x), r) ⊂ U. Par continuité, il existe δ > 0 tel que B_X(x, δ) ⊂ f⁻¹(U). (ii ⇒ i) Réciproque par voisinage et boules ouvertes[cite: 14]."
+            }
         ]
     },
     {
-        id: "opti-1",
-        category: "OPTIMISATION ET RECHERCHE OPÉRATIONNELLE",
-        icon: "⚙️",
-        title: "Optimisation & Recherche Opérationnelle",
-        description: "Fiche de révision sur l'optimisation libre, la convexité, les multiplicateurs de Lagrange ...",
+        id: "propositions-1",
+        category: "PROPOSITIONS & EXEMPLES",
+        icon: "💡",
+        title: "Chapitre 1 : Propositions & Exemples",
+        description: "Inégalités fondamentales, semi-normes, propriétés topologiques et exemples usuels...",
         cards: [
-            { question: "Qu'est-ce qu'un multiplicateur de Lagrange ?", answer: "Une méthode pour trouver les extrémums sous contraintes d'égalité." }
-        ]
-    },
-    {
-        id: "num-1",
-        category: "MÉTHODES NUMÉRIQUES",
-        icon: "📊",
-        title: "Méthodes Numériques",
-        description: "Concepts clés sur la résolution d'équations et l'intégration numérique.",
-        cards: [
-            { question: "À quoi sert la méthode de Newton ?", answer: "À trouver les zéros d'une fonction d'une variable réelle." }
+            {
+                question: "Proposition 1.1 & 1.2 : Inégalités fondamentales dans ℝⁿ",
+                answer: "Cauchy-Schwarz : |⟨x,y⟩| ≤ ||x||₂ ||y||₂. Minkowski : ||x+y||ₚ ≤ ||x||ₚ + ||y||ₚ pour 1 ≤ p < ∞[cite: 8, 9]."
+            },
+            {
+                question: "Définition et Exemple de Semi-norme (Définition 1.2)",
+                answer: "Vérifie l'homogénéité p(λx) = |λ|p(x) et l'inégalité triangulaire p(x+y) ≤ p(x)+p(y), mais peut s'annuler sur un vecteur non nul. Exemple : p(f) = ∫ₐᵇ |f(t)|dt sur C([a,b])[cite: 9]."
+            },
+            {
+                question: "Proposition 3.1 : Stabilité des ouverts et des fermés",
+                answer: "L'union quelconque et l'intersection finie d'ouverts sont ouvertes. L'intersection quelconque et l'union finie de fermés sont fermées[cite: 12]."
+            },
+            {
+                question: "Exemples de compacts et non-compacts (Exemple 3.2)",
+                answer: "[0,1] ⊂ ℝ est compact (fermé et borné). L'intervalle ]0,1[ n'est pas compact (non fermé). La boule fermée B̄(0,1) est compacte dans ℝⁿ[cite: 16]."
+            },
+            {
+                question: "Proposition 4.6 : Espace des fonctions continues sur un compact",
+                answer: "Soit K ⊂ ℝⁿ compact et (E, ||·||_E) un Banach. L'ensemble C(K,E) muni de la norme uniforme ||f||∞ = sup_{x∈K} ||f(x)||_E est un espace de Banach[cite: 18, 19]."
+            }
         ]
     }
 ];
+
+// Couleurs distinctes par catégorie
+const categoryColors = {
+    "THÉORÈMES": "#d97736",          // Orange
+    "DÉMONSTRATIONS": "#689f78",       // Vert
+    "PROPOSITIONS & EXEMPLES": "#5b8cb9" // Bleu
+};
 
 let activeCategory = "Tous";
 let currentDeck = null;
 let currentCardIndex = 0;
 let score = 0;
 
-// Éléments DOM
 const decksGrid = document.getElementById('decks-grid');
 const filterPills = document.getElementById('filter-pills');
 const searchInput = document.getElementById('search-input');
@@ -65,7 +116,6 @@ const cardBack = document.getElementById('card-back');
 const studyDeckTitle = document.getElementById('study-deck-title');
 const progressCounter = document.getElementById('progress-counter');
 
-// 1. GÉNÉRER LES FILTRES
 function renderFilters() {
     const categoriesCount = {};
     decks.forEach(d => {
@@ -74,14 +124,12 @@ function renderFilters() {
 
     filterPills.innerHTML = '';
     
-    // Bouton TOUS
     const allBtn = document.createElement('button');
     allBtn.className = `pill ${activeCategory === 'Tous' ? 'active' : ''}`;
     allBtn.textContent = `Tous (${decks.length})`;
     allBtn.onclick = () => filterCategory('Tous');
     filterPills.appendChild(allBtn);
 
-    // Pilules des catégories
     Object.keys(categoriesCount).forEach(cat => {
         const btn = document.createElement('button');
         btn.className = `pill ${activeCategory === cat ? 'active' : ''}`;
@@ -102,7 +150,6 @@ function filterCategory(cat) {
     renderDecks();
 }
 
-// 2. AFFICHER LES DECKS (Sans boutons de suppression)
 function renderDecks() {
     const query = searchInput.value.toLowerCase();
     
@@ -116,12 +163,13 @@ function renderDecks() {
     decksGrid.innerHTML = '';
 
     filteredDecks.forEach(deck => {
+        const cardColor = categoryColors[deck.category] || "var(--accent-orange)";
         const card = document.createElement('div');
         card.className = 'deck-card';
         card.innerHTML = `
             <div>
                 <div class="deck-header">
-                    <span class="category-tag">${deck.category}</span>
+                    <span class="category-tag" style="color: ${cardColor};">${deck.category}</span>
                     <span class="deck-icon">${deck.icon || '📖'}</span>
                 </div>
                 <h3 class="deck-title">${deck.title}</h3>
@@ -136,7 +184,6 @@ function renderDecks() {
     });
 }
 
-// 3. VUE ÉTUDE
 function startStudy(deckId) {
     currentDeck = decks.find(d => d.id === deckId);
     currentCardIndex = 0;
@@ -178,7 +225,6 @@ function showResults() {
         score === currentDeck.cards.length ? "Félicitations, maîtrise parfaite !" : "Continuez vos révisions !";
 }
 
-// ÉVÉNEMENTS & ÉCOUTEURS
 flashcard.onclick = () => flashcard.classList.toggle('flipped');
 document.getElementById('flip-btn').onclick = () => flashcard.classList.toggle('flipped');
 document.getElementById('correct-btn').onclick = () => answerCard(true);
@@ -197,6 +243,5 @@ document.getElementById('home-btn').onclick = () => {
 document.getElementById('restart-deck-btn').onclick = () => startStudy(currentDeck.id);
 searchInput.oninput = renderDecks;
 
-// INITIALISATION
 renderFilters();
 renderDecks();
