@@ -1,4 +1,4 @@
-const defaultDecks = [
+const decks = [
     {
         id: "eco-1",
         category: "ÉCO-CONCEPTION",
@@ -43,7 +43,6 @@ const defaultDecks = [
     }
 ];
 
-let decks = JSON.parse(localStorage.getItem('flashcards_decks')) || defaultDecks;
 let activeCategory = "Tous";
 let currentDeck = null;
 let currentCardIndex = 0;
@@ -102,7 +101,7 @@ function filterCategory(cat) {
     renderDecks();
 }
 
-// 2. AFFICHER LES DECKS
+// 2. AFFICHER LES DECKS (Sans boutons de suppression)
 function renderDecks() {
     const query = searchInput.value.toLowerCase();
     
@@ -122,10 +121,7 @@ function renderDecks() {
             <div>
                 <div class="deck-header">
                     <span class="category-tag">${deck.category}</span>
-                    <div class="deck-header-actions">
-                        <span class="deck-icon">${deck.icon || '📖'}</span>
-                        <button class="delete-deck-btn" title="Supprimer la galerie" onclick="deleteDeck(event, '${deck.id}')">🗑️</button>
-                    </div>
+                    <span class="deck-icon">${deck.icon || '📖'}</span>
                 </div>
                 <h3 class="deck-title">${deck.title}</h3>
                 <p class="deck-desc">${deck.description}</p>
@@ -137,30 +133,6 @@ function renderDecks() {
         `;
         decksGrid.appendChild(card);
     });
-}
-
-// FONCTION POUR SUPPRIMER UNE GALERIE
-function deleteDeck(event, deckId) {
-    // Empêche de déclencher d'autres clics si la carte entière est cliquable
-    event.stopPropagation();
-
-    const deckToDelete = decks.find(d => d.id === deckId);
-    if (!deckToDelete) return;
-
-    // Demande de confirmation
-    const confirmDelete = confirm(`Es-tu sûr de vouloir supprimer la galerie "${deckToDelete.title}" ?`);
-    
-    if (confirmDelete) {
-        // Supprime le deck de la liste
-        decks = decks.filter(d => d.id !== deckId);
-        
-        // Sauvegarde dans le localStorage
-        localStorage.setItem('flashcards_decks', JSON.stringify(decks));
-        
-        // Rafraîchit l'affichage
-        renderFilters();
-        renderDecks();
-    }
 }
 
 // 3. VUE ÉTUDE
@@ -223,33 +195,6 @@ document.getElementById('home-btn').onclick = () => {
 
 document.getElementById('restart-deck-btn').onclick = () => startStudy(currentDeck.id);
 searchInput.oninput = renderDecks;
-
-// MODAL AJOUTER DECK
-const modal = document.getElementById('add-modal');
-document.getElementById('open-add-modal-btn').onclick = () => modal.classList.remove('hidden');
-document.getElementById('close-modal-btn').onclick = () => modal.classList.add('hidden');
-
-document.getElementById('save-deck-btn').onclick = () => {
-    const cat = document.getElementById('new-category').value.toUpperCase() || "GÉNÉRAL";
-    const title = document.getElementById('new-title').value || "Nouveau Deck";
-    const desc = document.getElementById('new-description').value || "Pas de description.";
-
-    const newDeck = {
-        id: "deck-" + Date.now(),
-        category: cat,
-        icon: "📚",
-        title: title,
-        description: desc,
-        cards: [{ question: "Exemple de question", answer: "Exemple de réponse" }]
-    };
-
-    decks.push(newDeck);
-    localStorage.setItem('flashcards_decks', JSON.stringify(decks));
-    
-    modal.classList.add('hidden');
-    renderFilters();
-    renderDecks();
-};
 
 // INITIALISATION
 renderFilters();
