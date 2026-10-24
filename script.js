@@ -122,7 +122,10 @@ function renderDecks() {
             <div>
                 <div class="deck-header">
                     <span class="category-tag">${deck.category}</span>
-                    <span class="deck-icon">${deck.icon || '📖'}</span>
+                    <div class="deck-header-actions">
+                        <span class="deck-icon">${deck.icon || '📖'}</span>
+                        <button class="delete-deck-btn" title="Supprimer la galerie" onclick="deleteDeck(event, '${deck.id}')">🗑️</button>
+                    </div>
                 </div>
                 <h3 class="deck-title">${deck.title}</h3>
                 <p class="deck-desc">${deck.description}</p>
@@ -134,6 +137,30 @@ function renderDecks() {
         `;
         decksGrid.appendChild(card);
     });
+}
+
+// FONCTION POUR SUPPRIMER UNE GALERIE
+function deleteDeck(event, deckId) {
+    // Empêche de déclencher d'autres clics si la carte entière est cliquable
+    event.stopPropagation();
+
+    const deckToDelete = decks.find(d => d.id === deckId);
+    if (!deckToDelete) return;
+
+    // Demande de confirmation
+    const confirmDelete = confirm(`Es-tu sûr de vouloir supprimer la galerie "${deckToDelete.title}" ?`);
+    
+    if (confirmDelete) {
+        // Supprime le deck de la liste
+        decks = decks.filter(d => d.id !== deckId);
+        
+        // Sauvegarde dans le localStorage
+        localStorage.setItem('flashcards_decks', JSON.stringify(decks));
+        
+        // Rafraîchit l'affichage
+        renderFilters();
+        renderDecks();
+    }
 }
 
 // 3. VUE ÉTUDE
