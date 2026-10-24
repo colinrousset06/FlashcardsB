@@ -176,10 +176,28 @@ body {
     border-color: #554e47;
 }
 
-.deck-header {
+/* Bouton de suppression dans le deck */
+.deck-header-actions {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.delete-deck-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.2s, background-color 0.2s;
+    line-height: 1;
+}
+
+.delete-deck-btn:hover {
+    color: #d96b6b;
+    background-color: rgba(217, 107, 107, 0.15);
 }
 
 .category-tag {
