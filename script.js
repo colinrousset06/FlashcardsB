@@ -1,100 +1,116 @@
-// Decks basés sur le Chapitre 1 du cours (Espaces Vectoriels Normés)
+// Decks complets sous la catégorie unique "ANALYSE DE FOURIER" avec des couleurs et styles distincts
 const decks = [
     {
         id: "theoremes-1",
-        category: "THÉORÈMES",
+        category: "ANALYSE DE FOURIER",
+        title: "1. Théorèmes du Cours",
+        color: "#d97736", // Orange
         icon: "📜",
-        title: "Chapitre 1 : Théorèmes du cours",
-        description: "Hypothèses et énoncés des théorèmes clés (Lemme de Lebesgue, Lebesgue-Borel, Heine, Bolzano-Weierstrass, Équivalence des normes)...",
+        description: "Enoncés et hypothèses de tous les théorèmes fondamentaux du chapitre (Lebesgue, Heine, Banach, etc.).",
         cards: [
             {
-                question: "Théorème 3.1 (Lemme de Lebesgue) :\nHypothèses : K ⊂ E compact et (Ui)i∈I recouvrement ouvert de K.",
-                answer: "Fin / Énoncé : Il existe δ > 0 tel que toute boule de rayon < δ et centrée en un point de K est incluse dans un des Ui (∃δ > 0, ∀x ∈ K, ∃i, B(x, δ) ⊂ Ui)[cite: 11]."
+                question: "Théorème 3.1 (Lemme de Lebesgue)\nHypothèses : K ⊂ E compact et (Ui) recouvrement ouvert.",
+                answer: "Énoncé : Il existe δ > 0 tel que toute boule de rayon < δ centrée en un point de K est incluse dans l'un des Ui[cite: 11]."
             },
             {
-                question: "Théorème 3.2 (Lebesgue-Borel) :\nHypothèses : K ⊂ E espace vectoriel normé.",
-                answer: "Fin / Équivalence : K est un compact si et seulement si de tout recouvrement d'ouverts de K on peut en extraire un recouvrement fini[cite: 12]."
+                question: "Théorème 3.2 (Lebesgue-Borel)\nHypothèses : K ⊂ E espace vectoriel normé.",
+                answer: "Équivalence : K est compact si et seulement si de tout recouvrement d'ouverts de K on peut extraire un recouvrement fini[cite: 12]."
             },
             {
-                question: "Théorème 3.3 (Heine-Borel) :\nHypothèses : Un sous-ensemble de ℝⁿ.",
-                answer: "Fin / Équivalence : Il est compact si et seulement s'il est fermé et borné[cite: 15]."
+                question: "Théorème 3.3 (Heine-Borel)\nHypothèses : Sous-ensemble de ℝⁿ.",
+                answer: "Équivalence : Un sous-ensemble de ℝⁿ est compact si et seulement s'il est fermé et borné[cite: 15]."
             },
             {
-                question: "Théorème 3.4 (Bolzano-Weierstrass dans ℝⁿ) :\nHypothèses : Toute suite (xk) dans ℝⁿ.",
-                answer: "Fin / Équivalence : Si la suite est bornée, elle admet une sous-suite convergente[cite: 16]."
+                question: "Théorème 3.4 (Bolzano-Weierstrass dans ℝⁿ)\nHypothèses : Suite (xk) dans ℝⁿ.",
+                answer: "Énoncé : Toute suite bornée dans ℝⁿ admet une sous-suite convergente[cite: 16]."
             },
             {
-                question: "Théorème 4.1 (Heine) :\nHypothèses : f : K → ℝ continue, avec K ⊂ ℝⁿ compact.",
-                answer: "Fin / Équivalence : f est uniformément continue sur K[cite: 18]."
+                question: "Théorème 4.1 (Heine)\nHypothèses : f : K → ℝ continue, K ⊂ ℝⁿ compact.",
+                answer: "Énoncé : Toute fonction continue sur un compact est uniformément continue[cite: 18]."
             },
             {
-                question: "Théorème 5.1 (Équivalence des normes en dimension finie) :\nHypothèses : E espace vectoriel de dimension finie muni de deux normes ||·||a et ||·||b.",
-                answer: "Fin / Équivalence : Toutes les normes sont équivalentes (∃C1, C2 > 0 tels que C1||x||a ≤ ||x||b ≤ C2||x||a)[cite: 19]."
+                question: "Théorème 5.1 (Équivalence des normes en dimension finie)\nHypothèses : E espace vectoriel de dimension finie.",
+                answer: "Énoncé : Toutes les normes sur E sont équivalentes (∃ C1, C2 > 0 tels que C1||x||a ≤ ||x||b ≤ C2||x||a)[cite: 19]."
+            },
+            {
+                question: "Théorème de la projection orthogonale (Espaces de Hilbert)\nHypothèses : H espace de Hilbert, F ⊂ H sous-espace vectoriel fermé.",
+                answer: "Énoncé : Pour tout x ∈ H, il existe un unique y ∈ F tel que ||x-y|| = inf_{z∈F} ||x-z|| (caractérisé par x-y ⊥ F)[cite: 21]."
+            },
+            {
+                question: "Théorème de représentation de Riesz (Espaces de Hilbert)\nHypothèses : H espace de Hilbert, f ∈ H* (forme linéaire continue).",
+                answer: "Énoncé : Il existe un unique y ∈ H tel que f(x) = ⟨x, y⟩ pour tout x ∈ H[cite: 21]."
             }
         ]
     },
     {
         id: "preuves-1",
-        category: "DÉMONSTRATIONS",
+        category: "ANALYSE DE FOURIER",
+        title: "2. Démonstrations & Preuves",
+        color: "#689f78", // Vert
         icon: "✍️",
-        title: "Chapitre 1 : Preuves & Démos",
-        description: "Démonstrations des propositions et théorèmes fondamentaux du cours...",
+        description: "Démos détaillées des inégalités, caractérisations topologiques et propriétés de complétude.",
         cards: [
             {
-                question: "Preuve de l'Inégalité de Cauchy-Schwarz dans ℝⁿ (Prop. 1.1)",
-                answer: "On pose f(t) = ||x-ty||₂² ≥ 0 = ||x||₂² - 2t⟨x,y⟩ + t²||y||₂². C'est un trinôme quadratique positif ou nul, donc son discriminant Δ ≤ 0, ce qui donne 4⟨x,y⟩² - 4||x||₂²||y||₂² ≤ 0[cite: 8]."
+                question: "Preuve de l'Inégalité de Cauchy-Schwarz (Prop. 1.1)",
+                answer: "On étudie f(t) = ||x-ty||₂² ≥ 0 ce qui donne un trinôme en t dont le discriminant Δ ≤ 0, d'où le résultat[cite: 8]."
+            },
+            {
+                question: "Preuve de l'Inégalité de Minkowski (Prop. 1.2)",
+                answer: "On utilise la convexité de la fonction t ↦ tᵖ pour p ≥ 1 et une sommation adéquate sur les composantes[cite: 9]."
             },
             {
                 question: "Preuve de la caractérisation séquentielle d'un fermé (Prop. 3.2)",
-                answer: "(⇒) Si F est fermé, toute limite de suite de F est dans F. (⇐) Si toute suite convergente de F a sa limite dans F, on montre que Ā ⊂ A en choisissant an ∈ A ∩ B(x, 1/n) pour tout x ∈ Ā, d'où an → x ∈ A[cite: 13]."
+                answer: "(⇒) Limite de suite dans un fermé reste dans le fermé. (⇐) Si toute suite convergente de A a sa limite dans A, on construit an ∈ A ∩ B(x, 1/n) pour prouver que Ā ⊂ A[cite: 13]."
+            },
+            {
+                question: "Preuve de la continuité par les ouverts (Prop. 3.4)",
+                answer: "(i ⇒ ii) L'image réciproque d'un ouvert par une application continue est ouverte en passant par les boules de rayon r et δ[cite: 14]."
             },
             {
                 question: "Preuve du Lemme de Lebesgue (Théorème 3.1)",
-                answer: "Par l'absurde, si pour tout δ il existe xn ∈ K dont la boule B(xn, 1/n) n'est dans aucun Ui. Par compacité, xn admet une sous-suite xnk → x ∈ K. x ∈ Uj (ouvert), donc B(x, ε) ⊂ Uj, ce qui contredit le choix pour k grand[cite: 11, 23]."
+                answer: "Par l'absurde, on suppose l'existence d'une suite dont les boules n'appartiennent à aucun Ui, et on utilise la compacité pour extraire une sous-suite convergente menant à une contradiction[cite: 11, 23]."
             },
             {
-                question: "Preuve de l'équivalence continuité ⇔ images réciproques d'ouverts (Prop. 3.4)",
-                answer: "(i ⇒ ii) Si U est ouvert dans Y et x ∈ f⁻¹(U), f(x) a une boule B_Y(f(x), r) ⊂ U. Par continuité, il existe δ > 0 tel que B_X(x, δ) ⊂ f⁻¹(U). (ii ⇒ i) Réciproque par voisinage et boules ouvertes[cite: 14]."
+                question: "Preuve de l'équivalence des normes en dimension finie (Théorème 5.1)",
+                answer: "On identifie E à ℝⁿ, la fonction f(x) = ||x|| est continue sur la sphère unité compacte S, elle y atteint ses bornes m et M strictements positives[cite: 19, 20]."
             }
         ]
     },
     {
-        id: "propositions-1",
-        category: "PROPOSITIONS & EXEMPLES",
+        id: "propos-1",
+        category: "ANALYSE DE FOURIER",
+        title: "3. Propositions & Exemples",
+        color: "#5b8cb9", // Bleu
         icon: "💡",
-        title: "Chapitre 1 : Propositions & Exemples",
-        description: "Inégalités fondamentales, semi-normes, propriétés topologiques et exemples usuels...",
+        description: "Définitions clés, semi-normes, normes usuelles, stabilité topologique et espaces de Banach.",
         cards: [
             {
-                question: "Proposition 1.1 & 1.2 : Inégalités fondamentales dans ℝⁿ",
-                answer: "Cauchy-Schwarz : |⟨x,y⟩| ≤ ||x||₂ ||y||₂. Minkowski : ||x+y||ₚ ≤ ||x||ₚ + ||y||ₚ pour 1 ≤ p < ∞[cite: 8, 9]."
+                question: "Définition d'une Semi-norme vs Norme (Défs 1.2 & 1.3)",
+                answer: "Semi-norme : homogénéité et sous-additivité (peut s'annuler hors de 0). Norme : semi-norme telle que ||x|| = 0 ⟹ x = 0[cite: 9, 10]."
             },
             {
-                question: "Définition et Exemple de Semi-norme (Définition 1.2)",
-                answer: "Vérifie l'homogénéité p(λx) = |λ|p(x) et l'inégalité triangulaire p(x+y) ≤ p(x)+p(y), mais peut s'annuler sur un vecteur non nul. Exemple : p(f) = ∫ₐᵇ |f(t)|dt sur C([a,b])[cite: 9]."
+                question: "Exemples de normes usuelles (Proposition 2.1)",
+                answer: "Norme p sur ℝⁿ (||x||ᵖ = ∑|xi|ᵖ)^(1/p), norme infini ||x||∞ = max|xi|, et norme uniforme sur C([a,b]) ||f||∞ = sup|f(t)|[cite: 10, 11]."
             },
             {
-                question: "Proposition 3.1 : Stabilité des ouverts et des fermés",
-                answer: "L'union quelconque et l'intersection finie d'ouverts sont ouvertes. L'intersection quelconque et l'union finie de fermés sont fermées[cite: 12]."
+                question: "Proposition 3.1 : Stabilité des ouverts et fermés",
+                answer: "Union quelconque et intersection finie d'ouverts = ouvert. Intersection quelconque et union finie de fermés = fermé[cite: 12]."
             },
             {
-                question: "Exemples de compacts et non-compacts (Exemple 3.2)",
-                answer: "[0,1] ⊂ ℝ est compact (fermé et borné). L'intervalle ]0,1[ n'est pas compact (non fermé). La boule fermée B̄(0,1) est compacte dans ℝⁿ[cite: 16]."
+                question: "Définitions de l'Intérieur, Adhérence et Frontière (Défs 3.5, 3.6, 3.7)",
+                answer: "Intérieur : plus grand ouvert inclus. Adhérence : ensemble des points dont toute boule rencontre l'ensemble. Frontière : Adhérence privée de l'intérieur[cite: 13, 14]."
             },
             {
-                question: "Proposition 4.6 : Espace des fonctions continues sur un compact",
-                answer: "Soit K ⊂ ℝⁿ compact et (E, ||·||_E) un Banach. L'ensemble C(K,E) muni de la norme uniforme ||f||∞ = sup_{x∈K} ||f(x)||_E est un espace de Banach[cite: 18, 19]."
+                question: "Exemples de compacité (Exemple 3.2)",
+                answer: "[0,1] est compact (fermé et borné dans ℝ). ]0,1[ n'est pas compact (non fermé). La boule fermée B̄(0,1) est compacte dans ℝⁿ[cite: 16]."
+            },
+            {
+                question: "Proposition 4.6 : Espace C(K,E)",
+                answer: "Pour K compact et E espace de Banach, l'espace C(K,E) muni de la norme uniforme ||f||∞ = sup||f(x)||_E est un espace de Banach (complet)[cite: 18, 19]."
             }
         ]
     }
 ];
-
-// Couleurs distinctes par catégorie
-const categoryColors = {
-    "THÉORÈMES": "#d97736",          // Orange
-    "DÉMONSTRATIONS": "#689f78",       // Vert
-    "PROPOSITIONS & EXEMPLES": "#5b8cb9" // Bleu
-};
 
 let activeCategory = "Tous";
 let currentDeck = null;
@@ -133,15 +149,10 @@ function renderFilters() {
     Object.keys(categoriesCount).forEach(cat => {
         const btn = document.createElement('button');
         btn.className = `pill ${activeCategory === cat ? 'active' : ''}`;
-        btn.textContent = `${formatCategoryName(cat)} (${categoriesCount[cat]})`;
+        btn.textContent = `${cat} (${categoriesCount[cat]})`;
         btn.onclick = () => filterCategory(cat);
         filterPills.appendChild(btn);
     });
-}
-
-function formatCategoryName(cat) {
-    if (cat.length > 25) return cat.substring(0, 22) + '...';
-    return cat.charAt(0) + cat.slice(1).toLowerCase();
 }
 
 function filterCategory(cat) {
@@ -163,13 +174,12 @@ function renderDecks() {
     decksGrid.innerHTML = '';
 
     filteredDecks.forEach(deck => {
-        const cardColor = categoryColors[deck.category] || "var(--accent-orange)";
         const card = document.createElement('div');
         card.className = 'deck-card';
         card.innerHTML = `
             <div>
                 <div class="deck-header">
-                    <span class="category-tag" style="color: ${cardColor};">${deck.category}</span>
+                    <span class="category-tag" style="color: ${deck.color};">${deck.category}</span>
                     <span class="deck-icon">${deck.icon || '📖'}</span>
                 </div>
                 <h3 class="deck-title">${deck.title}</h3>
