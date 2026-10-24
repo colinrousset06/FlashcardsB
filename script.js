@@ -1,3 +1,4 @@
+// Base de données fixe des decks (sans modification possible depuis le site web)
 const decks = [
     {
         id: "eco-1",
