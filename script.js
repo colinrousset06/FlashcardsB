@@ -1,4 +1,5 @@
 const decks = [
+    // --- CATÉGORIE 1 : ANALYSE DE FOURIER ---
     {
         id: "theoremes-1",
         category: "ANALYSE DE FOURIER",
@@ -108,6 +109,86 @@ const decks = [
                 answer: "Pour K compact et E espace de Banach, C(K,E) muni de la norme uniforme ||f||∞ = sup_{x∈K} ||f(x)||_E est un espace de Banach[cite: 18, 19]."
             }
         ]
+    },
+
+    // --- CATÉGORIE 2 : OPTIMISATION & RECHERCHE OPÉRATIONNELLE ---
+    {
+        id: "opti-theoremes",
+        category: "OPTIMISATION & RECHERCHE",
+        title: "1. Chapitre 1 : Théorèmes & Conditions",
+        color: "#e056fd", // Violet vif
+        icon: "⚡",
+        description: "Conditions nécessaires du 1er ordre (CN1), conditions suffisantes du 2nd ordre (CS2) et qualifs de contraintes.",
+        cards: [
+            {
+                question: "Condition Nécessaire du 1er ordre (CN1 - Optimisation libre)",
+                answer: "Si x* est une solution (max/min), alors le gradient s'annule : ∇f(x*) = 0 ⟺ ∂f/∂xi = 0 pour tout i[cite: 37]."
+            },
+            {
+                question: "Conditions Suffisantes du 2nd ordre (CS2 - Théorème 1)",
+                answer: "Si x* est stationnaire : Hessien défini positif ⟹ minimum local ; Hessien défini négatif ⟹ maximum local ; Hessien non défini (déterminant < 0) ⟹ point selle[cite: 37]."
+            },
+            {
+                question: "Théorème 2 (Extrema globaux via le Hessien)",
+                answer: "Si le Hessien de f est semi-défini positif (resp. négatif) sur tout le domaine Df, alors le point stationnaire x* est un minimum global (resp. maximum global)[cite: 38]."
+            },
+            {
+                question: "Conditions de qualification des contraintes d'égalité",
+                answer: "Pour utiliser le Lagrangien, il suffit que la matrice jacobienne Jg (de taille p×n) soit de rang maximal p à l'optimum x*, ou que les fonctions contraintes soient linéaires[cite: 42]."
+            }
+        ]
+    },
+    {
+        id: "opti-preuves",
+        category: "OPTIMISATION & RECHERCHE",
+        title: "2. Chapitre 1 : Outils Mathématiques & Matrices",
+        color: "#f0932b", // Orange doré
+        icon: "📊",
+        description: "Gradient, Hessien, mineurs principaux, matrices définies positives/négatives et convexité.",
+        cards: [
+            {
+                question: "Définition de la Matrice Hessienne (Hessien)",
+                answer: "Matrice symétrique des dérivées partielles secondes : H(x) = (∂²f / ∂xi ∂j) pour i,j = 1...n[cite: 31]."
+            },
+            {
+                question: "Caractérisation d'une matrice définie positive / négative via les mineurs",
+                answer: "Définie positive ⟺ tous les n mineurs principaux diagonaux sont > 0. Définie négative ⟺ les mineurs alternent de signe en commençant par < 0[cite: 32, 33]."
+            },
+            {
+                question: "Définition d'un ensemble convexe (Définition 1.2.5)",
+                answer: "Un ensemble S est convexe si pour tout x, y ∈ S et tout t ∈ [0,1], le segment tx + (1-t)y ∈ S (tout segment reliant deux points est à l'intérieur)[cite: 34]."
+            },
+            {
+                question: "Lien entre convexité/concavité et le Hessien (Proposition)",
+                answer: "f est strictement convexe (resp. concave) si et seulement si son Hessien D²f(x) est défini positif (resp. défini négatif) sur S[cite: 36]."
+            }
+        ]
+    },
+    {
+        id: "opti-propos",
+        category: "OPTIMISATION & RECHERCHE",
+        title: "3. Chapitre 1 : Lagrangien & Hessien Bordé",
+        color: "#badc58", // Vert clair
+        icon: "🎯",
+        description: "Optimisation sous contraintes d'égalité, fonction du Lagrangien et méthode du Hessien bordé.",
+        cards: [
+            {
+                question: "Introduction du Lagrangien (Contraintes d'égalité)",
+                answer: "Pour max f(x,y) s.c. g(x,y)=0, on définit L(x,y,λ) = f(x,y) - λg(x,y). L'optimum s'obtient là où la différentielle de L s'annule[cite: 41]."
+            },
+            {
+                question: "Signification économique du multiplicateur de Lagrange (λ)",
+                answer: "Il donne (au signe près) une approximation de la variation de la fonction objectif f lorsqu'on augmente d'une unité la constante de la contrainte[cite: 41]."
+            },
+            {
+                question: "Condition Nécessaire du 1er ordre avec Lagrangien (CN1)",
+                answer: "Un point critique (x*, λ*) annule simultanément toutes les dérivées partielles premières du Lagrangien par rapport à chaque variable xi et à chaque multiplicateur λj[cite: 42]."
+            },
+            {
+                question: "Méthode du Hessien Bordé (H_B) pour l'optimisation sous contraintes",
+                answer: "Matrice formée du Hessien de L bordé par les gradients des p contraintes. Les (n-p) derniers mineurs principaux diagonaux permettent de classifier les extrema (max, min ou selle)[cite: 43]."
+            }
+        ]
     }
 ];
 
@@ -172,25 +253,49 @@ function renderDecks() {
     catalogCount.textContent = `${filteredDecks.length} catalogue${filteredDecks.length > 1 ? 's' : ''} disponible${filteredDecks.length > 1 ? 's' : ''}`;
     decksGrid.innerHTML = '';
 
-    filteredDecks.forEach(deck => {
-        const card = document.createElement('div');
-        card.className = 'deck-card';
-        card.innerHTML = `
-            <div>
-                <div class="deck-header">
-                    <span class="category-tag" style="color: ${deck.color};">${deck.category}</span>
-                    <span class="deck-icon">${deck.icon || '📖'}</span>
-                </div>
-                <h3 class="deck-title">${deck.title}</h3>
-                <p class="deck-desc">${deck.description}</p>
+    // Si on est dans l'onglet "Tous", on insère les séparateurs par catégorie
+    if (activeCategory === "Tous" && !query) {
+        let lastCategory = null;
+        filteredDecks.forEach(deck => {
+            if (deck.category !== lastCategory) {
+                if (lastCategory !== null) {
+                    const separator = document.createElement('hr');
+                    separator.className = 'category-separator';
+                    decksGrid.appendChild(separator);
+                }
+                const titleElem = document.createElement('div');
+                titleElem.className = 'category-separator-title';
+                titleElem.textContent = deck.category;
+                decksGrid.appendChild(titleElem);
+                lastCategory = deck.category;
+            }
+            decksGrid.appendChild(createDeckCardElement(deck));
+        });
+    } else {
+        filteredDecks.forEach(deck => {
+            decksGrid.appendChild(createDeckCardElement(deck));
+        });
+    }
+}
+
+function createDeckCardElement(deck) {
+    const card = document.createElement('div');
+    card.className = 'deck-card';
+    card.innerHTML = `
+        <div>
+            <div class="deck-header">
+                <span class="category-tag" style="color: ${deck.color};">${deck.category}</span>
+                <span class="deck-icon">${deck.icon || '📖'}</span>
             </div>
-            <div class="deck-footer">
-                <span class="cards-count">${deck.cards.length} cartes</span>
-                <button class="study-link" onclick="startStudy('${deck.id}')">Étudier →</button>
-            </div>
-        `;
-        decksGrid.appendChild(card);
-    });
+            <h3 class="deck-title">${deck.title}</h3>
+            <p class="deck-desc">${deck.description}</p>
+        </div>
+        <div class="deck-footer">
+            <span class="cards-count">${deck.cards.length} cartes</span>
+            <button class="study-link" onclick="startStudy('${deck.id}')">Étudier →</button>
+        </div>
+    `;
+    return card;
 }
 
 function startStudy(deckId) {
