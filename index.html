@@ -9,20 +9,17 @@
 <body>
 
     <div class="container">
-        <!-- VUE 1 : Galerie de decks -->
+        <!-- VUE 1 : Galerie de decks (Visible par défaut) -->
         <div id="gallery-view">
             <h1>Sélectionne une Galerie</h1>
-            <div id="deck-list" class="deck-list">
-                <!-- Les galeries seront générées dynamiquement ici en JS -->
-            </div>
+            <div id="deck-list" class="deck-list"></div>
         </div>
 
-        <!-- VUE 2 : Session de Flashcards -->
+        <!-- VUE 2 : Session de Flashcards (Cachée par défaut) -->
         <div id="card-view" class="hidden">
             <button id="back-to-gallery" class="nav-btn-sec">← Retour aux galeries</button>
             <h2 id="current-deck-title">Titre du paquet</h2>
 
-            <!-- La carte -->
             <div class="flashcard" id="flashcard">
                 <div class="card-inner">
                     <div class="card-front" id="card-front">Question</div>
@@ -30,12 +27,10 @@
                 </div>
             </div>
 
-            <!-- Bouton pour retourner -->
             <div class="actions">
                 <button id="flip-btn" class="main-btn">Retourner la carte 🔄</button>
             </div>
 
-            <!-- Boutons de validation (Score) -->
             <div class="score-buttons">
                 <button id="wrong-btn" class="score-btn wrong">Je ne savais pas ❌</button>
                 <button id="correct-btn" class="score-btn correct">J'ai trouvé ! ✅</button>
@@ -44,7 +39,7 @@
             <p id="counter">Carte 1 sur 1</p>
         </div>
 
-        <!-- VUE 3 : Écran de fin / Score -->
+        <!-- VUE 3 : Écran de fin (Caché par défaut) -->
         <div id="results-view" class="hidden">
             <h1>Session terminée ! 🎉</h1>
             <div class="score-card">
@@ -60,3 +55,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+   
