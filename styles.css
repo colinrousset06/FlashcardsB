@@ -49,21 +49,6 @@ body {
     gap: 12px;
 }
 
-.btn-add {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-main);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.btn-add:hover {
-    background-color: var(--pill-bg);
-}
-
 .icon-btn {
     background: transparent;
     border: 1px solid var(--border-color);
@@ -176,28 +161,10 @@ body {
     border-color: #554e47;
 }
 
-/* Bouton de suppression dans le deck */
-.deck-header-actions {
+.deck-header {
     display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.delete-deck-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 6px;
-    transition: color 0.2s, background-color 0.2s;
-    line-height: 1;
-}
-
-.delete-deck-btn:hover {
-    color: #d96b6b;
-    background-color: rgba(217, 107, 107, 0.15);
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .category-tag {
@@ -401,61 +368,4 @@ body {
     gap: 12px;
     justify-content: center;
     margin-top: 24px;
-}
-
-/* MODAL */
-.modal {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-}
-
-.modal-content {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 450px;
-}
-
-.modal-content h3 {
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
-}
-
-.form-group {
-    margin-bottom: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.form-group label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.form-group input, .form-group textarea {
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    padding: 10px;
-    border-radius: 8px;
-    color: var(--text-main);
-}
-
-.modal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-}
-.score-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #5c786c;
 }
