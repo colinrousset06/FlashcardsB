@@ -3,57 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Galeries de Flashcards</title>
+    <title>Flashcards</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Polices Google Fonts (Playfair Display & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <!-- VUE 1 : Galerie de decks (Visible par défaut) -->
-        <div id="gallery-view">
-            <h1>Gallerie Révision Esilv (ROUSSET Colin)</h1>
-            <div id="deck-list" class="deck-list"></div>
+    <!-- En-tête / Header -->
+    <header class="navbar">
+        <div class="logo">Flashcards</div>
+        <div class="nav-actions">
+            <button id="open-add-modal-btn" class="btn-add">+ Ajouter un deck</button>
+            <button class="icon-btn" title="Thème">☀️</button>
+            <button class="icon-btn" title="GitHub">🐙</button>
         </div>
+    </header>
 
-        <!-- VUE 2 : Session de Flashcards (Cachée par défaut) -->
-        <div id="card-view" class="hidden">
-            <button id="back-to-gallery" class="nav-btn-sec">← Retour aux galeries</button>
-            <h2 id="current-deck-title">Titre du paquet</h2>
+    <main class="container">
+        <!-- VUE GALERIE -->
+        <section id="gallery-view">
+            <!-- Barre de contrôle : Recherche et Filtres -->
+            <div class="toolbar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" placeholder="Rechercher un deck ou mot...">
+                </div>
 
-            <div class="flashcard" id="flashcard">
-                <div class="card-inner">
-                    <div class="card-front" id="card-front">Question</div>
-                    <div class="card-back" id="card-back">Réponse</div>
+                <div class="filter-pills" id="filter-pills">
+                    <!-- Les pilules de filtres seront injectées en JS -->
                 </div>
             </div>
 
-            <div class="actions">
-                <button id="flip-btn" class="main-btn">Retourner la carte 🔄</button>
+            <div class="catalog-count" id="catalog-count">4 catalogues disponibles</div>
+
+            <!-- Grille de cartes -->
+            <div class="decks-grid" id="decks-grid">
+                <!-- Les cartes de deck seront injectées en JS -->
+            </div>
+        </section>
+
+        <!-- VUE ÉTUDE DE FLASHCARDS -->
+        <section id="study-view" class="hidden">
+            <div class="study-header">
+                <button id="back-to-decks-btn" class="btn-secondary">← Retour aux decks</button>
+                <h2 id="study-deck-title">Titre du cours</h2>
             </div>
 
-            <div class="score-buttons">
-                <button id="wrong-btn" class="score-btn wrong">Je ne savais pas ❌</button>
-                <button id="correct-btn" class="score-btn correct">J'ai trouvé ! ✅</button>
+            <div class="flashcard-wrapper">
+                <div class="flashcard" id="flashcard">
+                    <div class="card-inner">
+                        <div class="card-front" id="card-front">Question</div>
+                        <div class="card-back" id="card-back">Réponse</div>
+                    </div>
+                </div>
             </div>
 
-            <p id="counter">Carte 1 sur 1</p>
-        </div>
+            <div class="study-controls">
+                <button id="flip-btn" class="btn-primary">Retourner la carte 🔄</button>
+            </div>
 
-        <!-- VUE 3 : Écran de fin (Caché par défaut) -->
-        <div id="results-view" class="hidden">
-            <h1>Session terminée ! 🎉</h1>
+            <div class="rating-controls">
+                <button id="wrong-btn" class="btn-rating wrong">À revoir ❌</button>
+                <button id="correct-btn" class="btn-rating correct">Acquis ✅</button>
+            </div>
+
+            <div class="progress-counter" id="progress-counter">Carte 1 sur 10</div>
+        </section>
+
+        <!-- VUE SCORE / FIN -->
+        <section id="score-view" class="hidden">
             <div class="score-card">
-                <p>Ton score final :</p>
-                <div id="final-score" class="score-number">0 / 0</div>
-                <p id="score-message"></p>
+                <h2>Session terminée ! 🎉</h2>
+                <div class="score-number" id="final-score">0 / 0</div>
+                <p id="score-feedback"></p>
+                <div class="score-actions">
+                    <button id="restart-deck-btn" class="btn-primary">Recommencer</button>
+                    <button id="home-btn" class="btn-secondary">Retour aux decks</button>
+                </div>
             </div>
-            <button id="restart-btn" class="main-btn">Recommencer</button>
-            <button id="home-btn" class="nav-btn-sec">Retour aux galeries</button>
+        </section>
+    </main>
+
+    <!-- MODAL POUR AJOUTER UN DECK -->
+    <div id="add-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Ajouter un nouveau deck</h3>
+            <div class="form-group">
+                <label>Catégorie</label>
+                <input type="text" id="new-category" placeholder="ex: ÉCO-CONCEPTION">
+            </div>
+            <div class="form-group">
+                <label>Titre du deck</label>
+                <input type="text" id="new-title" placeholder="ex: Cours 3 - ACP">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="new-description" placeholder="Courte description..."></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button id="close-modal-btn" class="btn-secondary">Annuler</button>
+                <button id="save-deck-btn" class="btn-primary">Créer le deck</button>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
    
