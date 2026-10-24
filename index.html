@@ -1,1 +1,38 @@
-#new file 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Flashcards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mes Flashcards</h1>
+        
+        <!-- La Flashcard -->
+        <div class="flashcard" id="flashcard">
+            <div class="card-inner">
+                <div class="card-front" id="card-front">
+                    Chargement de la question...
+                </div>
+                <div class="card-back" id="card-back">
+                    Chargement de la réponse...
+                </div>
+            </div>
+        </div>
+
+        <!-- Boutons de navigation -->
+        <div class="buttons">
+            <button id="prev-btn">Précédent</button>
+            <button id="flip-btn">Retourner</button>
+            <button id="next-btn">Suivant</button>
+        </div>
+        
+        <p id="counter">Carte 1 sur 1</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
