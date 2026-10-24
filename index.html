@@ -3,34 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Flashcards</title>
+    <title>Mes Galeries de Flashcards</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Mes Flashcards</h1>
-        
-        <!-- La Flashcard -->
-        <div class="flashcard" id="flashcard">
-            <div class="card-inner">
-                <div class="card-front" id="card-front">
-                    Chargement de la question...
-                </div>
-                <div class="card-back" id="card-back">
-                    Chargement de la réponse...
-                </div>
+        <!-- VUE 1 : Galerie de decks -->
+        <div id="gallery-view">
+            <h1>Sélectionne une Galerie</h1>
+            <div id="deck-list" class="deck-list">
+                <!-- Les galeries seront générées dynamiquement ici en JS -->
             </div>
         </div>
 
-        <!-- Boutons de navigation -->
-        <div class="buttons">
-            <button id="prev-btn">Précédent</button>
-            <button id="flip-btn">Retourner</button>
-            <button id="next-btn">Suivant</button>
+        <!-- VUE 2 : Session de Flashcards -->
+        <div id="card-view" class="hidden">
+            <button id="back-to-gallery" class="nav-btn-sec">← Retour aux galeries</button>
+            <h2 id="current-deck-title">Titre du paquet</h2>
+
+            <!-- La carte -->
+            <div class="flashcard" id="flashcard">
+                <div class="card-inner">
+                    <div class="card-front" id="card-front">Question</div>
+                    <div class="card-back" id="card-back">Réponse</div>
+                </div>
+            </div>
+
+            <!-- Bouton pour retourner -->
+            <div class="actions">
+                <button id="flip-btn" class="main-btn">Retourner la carte 🔄</button>
+            </div>
+
+            <!-- Boutons de validation (Score) -->
+            <div class="score-buttons">
+                <button id="wrong-btn" class="score-btn wrong">Je ne savais pas ❌</button>
+                <button id="correct-btn" class="score-btn correct">J'ai trouvé ! ✅</button>
+            </div>
+
+            <p id="counter">Carte 1 sur 1</p>
         </div>
-        
-        <p id="counter">Carte 1 sur 1</p>
+
+        <!-- VUE 3 : Écran de fin / Score -->
+        <div id="results-view" class="hidden">
+            <h1>Session terminée ! 🎉</h1>
+            <div class="score-card">
+                <p>Ton score final :</p>
+                <div id="final-score" class="score-number">0 / 0</div>
+                <p id="score-message"></p>
+            </div>
+            <button id="restart-btn" class="main-btn">Recommencer</button>
+            <button id="home-btn" class="nav-btn-sec">Retour aux galeries</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
