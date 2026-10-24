@@ -1,4 +1,4 @@
-// Données des Galeries et Flashcards
+
 const galleries = {
     webdev: {
         title: "Développement Web",
