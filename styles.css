@@ -362,3 +362,20 @@ body {
     justify-content: center;
     margin-top: 24px;
 }
+/* Séparateur horizontal entre les catégories de decks */
+.category-separator {
+    grid-column: 1 / -1;
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 20px 0 10px 0;
+}
+
+.category-separator-title {
+    grid-column: 1 / -1;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
