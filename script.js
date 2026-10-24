@@ -1,141 +1,229 @@
-
-const galleries = {
-    webdev: {
-        title: "Développement Web",
+const defaultDecks = [
+    {
+        id: "eco-1",
+        category: "ÉCO-CONCEPTION",
+        icon: "🌱",
+        title: "Écoconception - Cours 1 (L'Homme par nature)",
+        description: "Retrouvez les notions clés, définitions et concepts abordés lors du premier cours...",
         cards: [
-            { question: "Que signifie HTML ?", answer: "HyperText Markup Language" },
-            { question: "À quoi sert le CSS ?", answer: "À styliser et mettre en forme les pages HTML." },
-            { question: "Quel est le rôle du JS ?", answer: "Rendre les pages web dynamiques et interactives." }
+            { question: "Qu'est-ce que l'écoconception ?", answer: "Prise en compte de l'environnement dès la conception d'un produit." },
+            { question: "Quel est l'objectif principal ?", answer: "Réduire les impacts environnementaux sur tout le cycle de vie." }
         ]
     },
-    anglais: {
-        title: "Vocabulaire Anglais",
+    {
+        id: "eco-2",
+        category: "ÉCO-CONCEPTION",
+        icon: "🌱",
+        title: "Écoconception - Cours 2 (Cycle de vie et Méthodologie ACV)",
+        description: "Approfondissement des méthodologies d'analyse, des étapes du cycle de vie et d...",
         cards: [
-            { question: "To achieve", answer: "Accomplir / Réussir" },
-            { question: "Improvement", answer: "Amélioration" },
-            { question: "Knowledge", answer: "Connaissance / Savoir" }
+            { question: "Que signifie ACV ?", answer: "Analyse du Cycle de Vie." },
+            { question: "Quelles sont les 4 étapes de l'ACV ?", answer: "Objectifs, Inventaire, Évaluation des impacts, Interprétation." }
+        ]
+    },
+    {
+        id: "opti-1",
+        category: "OPTIMISATION ET RECHERCHE OPÉRATIONNELLE",
+        icon: "⚙️",
+        title: "Optimisation & Recherche Opérationnelle",
+        description: "Fiche de révision sur l'optimisation libre, la convexité, les multiplicateurs de Lagrange ...",
+        cards: [
+            { question: "Qu'est-ce qu'un multiplicateur de Lagrange ?", answer: "Une méthode pour trouver les extrémums sous contraintes d'égalité." }
+        ]
+    },
+    {
+        id: "num-1",
+        category: "MÉTHODES NUMÉRIQUES",
+        icon: "📊",
+        title: "Méthodes Numériques",
+        description: "Concepts clés sur la résolution d'équations et l'intégration numérique.",
+        cards: [
+            { question: "À quoi sert la méthode de Newton ?", answer: "À trouver les zéros d'une fonction d'une variable réelle." }
         ]
     }
-};
+];
 
-let currentDeckKey = null;
+let decks = JSON.parse(localStorage.getItem('flashcards_decks')) || defaultDecks;
+let activeCategory = "Tous";
+let currentDeck = null;
 let currentCardIndex = 0;
 let score = 0;
 
-// Éléments du DOM
-const galleryView = document.getElementById('gallery-view');
-const cardView = document.getElementById('card-view');
-const resultsView = document.getElementById('results-view');
+// Éléments DOM
+const decksGrid = document.getElementById('decks-grid');
+const filterPills = document.getElementById('filter-pills');
+const searchInput = document.getElementById('search-input');
+const catalogCount = document.getElementById('catalog-count');
 
-const deckList = document.getElementById('deck-list');
-const currentDeckTitle = document.getElementById('current-deck-title');
+const galleryView = document.getElementById('gallery-view');
+const studyView = document.getElementById('study-view');
+const scoreView = document.getElementById('score-view');
+
 const flashcard = document.getElementById('flashcard');
 const cardFront = document.getElementById('card-front');
 const cardBack = document.getElementById('card-back');
-const counter = document.getElementById('counter');
+const studyDeckTitle = document.getElementById('study-deck-title');
+const progressCounter = document.getElementById('progress-counter');
 
-const flipBtn = document.getElementById('flip-btn');
-const correctBtn = document.getElementById('correct-btn');
-const wrongBtn = document.getElementById('wrong-btn');
-const backToGalleryBtn = document.getElementById('back-to-gallery');
-const restartBtn = document.getElementById('restart-btn');
-const homeBtn = document.getElementById('home-btn');
+// 1. GÉNÉRER LES FILTRES
+function renderFilters() {
+    const categoriesCount = {};
+    decks.forEach(d => {
+        categoriesCount[d.category] = (categoriesCount[d.category] || 0) + 1;
+    });
 
-// Initialiser la vue des galeries
-function initGalleries() {
-    deckList.innerHTML = '';
-    Object.keys(galleries).forEach(key => {
-        const deck = galleries[key];
-        const cardElem = document.createElement('div');
-        cardElem.className = 'deck-card';
-        cardElem.innerHTML = `
-            <h3>${deck.title}</h3>
-            <p>${deck.cards.length} cartes</p>
-        `;
-        cardElem.addEventListener('click', () => startDeck(key));
-        deckList.appendChild(cardElem);
+    filterPills.innerHTML = '';
+    
+    // Bouton TOUS
+    const allBtn = document.createElement('button');
+    allBtn.className = `pill ${activeCategory === 'Tous' ? 'active' : ''}`;
+    allBtn.textContent = `Tous (${decks.length})`;
+    allBtn.onclick = () => filterCategory('Tous');
+    filterPills.appendChild(allBtn);
+
+    // Pilules des catégories
+    Object.keys(categoriesCount).forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = `pill ${activeCategory === cat ? 'active' : ''}`;
+        btn.textContent = `${formatCategoryName(cat)} (${categoriesCount[cat]})`;
+        btn.onclick = () => filterCategory(cat);
+        filterPills.appendChild(btn);
     });
 }
 
-// Démarrer une galerie
-function startDeck(key) {
-    currentDeckKey = key;
+function formatCategoryName(cat) {
+    if (cat.length > 25) return cat.substring(0, 22) + '...';
+    return cat.charAt(0) + cat.slice(1).toLowerCase();
+}
+
+function filterCategory(cat) {
+    activeCategory = cat;
+    renderFilters();
+    renderDecks();
+}
+
+// 2. AFFICHER LES DECKS
+function renderDecks() {
+    const query = searchInput.value.toLowerCase();
+    
+    const filteredDecks = decks.filter(deck => {
+        const matchCategory = activeCategory === "Tous" || deck.category === activeCategory;
+        const matchQuery = deck.title.toLowerCase().includes(query) || deck.description.toLowerCase().includes(query);
+        return matchCategory && matchQuery;
+    });
+
+    catalogCount.textContent = `${filteredDecks.length} catalogue${filteredDecks.length > 1 ? 's' : ''} disponible${filteredDecks.length > 1 ? 's' : ''}`;
+    decksGrid.innerHTML = '';
+
+    filteredDecks.forEach(deck => {
+        const card = document.createElement('div');
+        card.className = 'deck-card';
+        card.innerHTML = `
+            <div>
+                <div class="deck-header">
+                    <span class="category-tag">${deck.category}</span>
+                    <span class="deck-icon">${deck.icon || '📖'}</span>
+                </div>
+                <h3 class="deck-title">${deck.title}</h3>
+                <p class="deck-desc">${deck.description}</p>
+            </div>
+            <div class="deck-footer">
+                <span class="cards-count">${deck.cards.length} cartes</span>
+                <button class="study-link" onclick="startStudy('${deck.id}')">Étudier →</button>
+            </div>
+        `;
+        decksGrid.appendChild(card);
+    });
+}
+
+// 3. VUE ÉTUDE
+function startStudy(deckId) {
+    currentDeck = decks.find(d => d.id === deckId);
     currentCardIndex = 0;
     score = 0;
 
-    currentDeckTitle.textContent = galleries[key].title;
-    
+    studyDeckTitle.textContent = currentDeck.title;
     galleryView.classList.add('hidden');
-    resultsView.classList.add('hidden');
-    cardView.classList.remove('hidden');
+    scoreView.classList.add('hidden');
+    studyView.classList.remove('hidden');
 
     displayCard();
 }
 
-// Afficher la carte actuelle
 function displayCard() {
-    const deck = galleries[currentDeckKey];
-    const card = deck.cards[currentCardIndex];
-
+    const card = currentDeck.cards[currentCardIndex];
     cardFront.textContent = card.question;
     cardBack.textContent = card.answer;
-    counter.textContent = `Carte ${currentCardIndex + 1} sur ${deck.cards.length}`;
-
+    progressCounter.textContent = `Carte ${currentCardIndex + 1} sur ${currentDeck.cards.length}`;
     flashcard.classList.remove('flipped');
 }
 
-// Passer à la carte suivante ou afficher le score
-function handleAnswer(isCorrect) {
+function answerCard(isCorrect) {
     if (isCorrect) score++;
-
-    const deck = galleries[currentDeckKey];
     currentCardIndex++;
 
-    if (currentCardIndex < deck.cards.length) {
+    if (currentCardIndex < currentDeck.cards.length) {
         displayCard();
     } else {
         showResults();
     }
 }
 
-// Afficher les résultats
 function showResults() {
-    const deck = galleries[currentDeckKey];
-    cardView.classList.add('hidden');
-    resultsView.classList.remove('hidden');
+    studyView.classList.add('hidden');
+    scoreView.classList.remove('hidden');
 
-    const scoreDisplay = document.getElementById('final-score');
-    const scoreMessage = document.getElementById('score-message');
-
-    scoreDisplay.textContent = `${score} / ${deck.cards.length}`;
-
-    if (score === deck.cards.length) {
-        scoreMessage.textContent = "Parfait ! Vous maîtrisez ce paquet à 100% 🏆";
-    } else if (score >= deck.cards.length / 2) {
-        scoreMessage.textContent = "Bien joué ! Encore un petit effort 💪";
-    } else {
-        scoreMessage.textContent = "Continuez à réviser, ça va venir ! 📖";
-    }
+    document.getElementById('final-score').textContent = `${score} / ${currentDeck.cards.length}`;
+    document.getElementById('score-feedback').textContent = 
+        score === currentDeck.cards.length ? "Félicitations, maîtrise parfaite !" : "Continuez vos révisions !";
 }
 
-// Événements
-flashcard.addEventListener('click', () => flashcard.classList.toggle('flipped'));
-flipBtn.addEventListener('click', () => flashcard.classList.toggle('flipped'));
+// ÉVÉNEMENTS & ÉCOUTEURS
+flashcard.onclick = () => flashcard.classList.toggle('flipped');
+document.getElementById('flip-btn').onclick = () => flashcard.classList.toggle('flipped');
+document.getElementById('correct-btn').onclick = () => answerCard(true);
+document.getElementById('wrong-btn').onclick = () => answerCard(false);
 
-correctBtn.addEventListener('click', () => handleAnswer(true));
-wrongBtn.addEventListener('click', () => handleAnswer(false));
-
-backToGalleryBtn.addEventListener('click', () => {
-    cardView.classList.add('hidden');
+document.getElementById('back-to-decks-btn').onclick = () => {
+    studyView.classList.add('hidden');
     galleryView.classList.remove('hidden');
-});
+};
 
-homeBtn.addEventListener('click', () => {
-    resultsView.classList.add('hidden');
+document.getElementById('home-btn').onclick = () => {
+    scoreView.classList.add('hidden');
     galleryView.classList.remove('hidden');
-});
+};
 
-restartBtn.addEventListener('click', () => startDeck(currentDeckKey));
+document.getElementById('restart-deck-btn').onclick = () => startStudy(currentDeck.id);
+searchInput.oninput = renderDecks;
 
-// Lancement au chargement de la page
-initGalleries();
+// MODAL AJOUTER DECK
+const modal = document.getElementById('add-modal');
+document.getElementById('open-add-modal-btn').onclick = () => modal.classList.remove('hidden');
+document.getElementById('close-modal-btn').onclick = () => modal.classList.add('hidden');
+
+document.getElementById('save-deck-btn').onclick = () => {
+    const cat = document.getElementById('new-category').value.toUpperCase() || "GÉNÉRAL";
+    const title = document.getElementById('new-title').value || "Nouveau Deck";
+    const desc = document.getElementById('new-description').value || "Pas de description.";
+
+    const newDeck = {
+        id: "deck-" + Date.now(),
+        category: cat,
+        icon: "📚",
+        title: title,
+        description: desc,
+        cards: [{ question: "Exemple de question", answer: "Exemple de réponse" }]
+    };
+
+    decks.push(newDeck);
+    localStorage.setItem('flashcards_decks', JSON.stringify(decks));
+    
+    modal.classList.add('hidden');
+    renderFilters();
+    renderDecks();
+};
+
+// INITIALISATION
+renderFilters();
+renderDecks();
