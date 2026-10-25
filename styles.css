@@ -379,3 +379,58 @@ body {
     margin-top: 10px;
     margin-bottom: -5px;
 }
+
+/* Style spécifique pour le Deck QCM Optimisation Volet 1 */
+.deck-card.opti-v1 {
+    background-color: #5c0606; /* Fond rouge sombre */
+    border: 2px solid #d4af37; /* Bordure dorée */
+}
+
+.deck-card.opti-v1 .deck-title,
+.deck-card.opti-v1 .category-tag,
+.deck-card.opti-v1 .deck-desc,
+.deck-card.opti-v1 .cards-count {
+    color: #d4af37 !important; /* Texte doré */
+}
+
+/* Style de la vue d'étude pour les QCM avec saisie */
+.qcm-input-container {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.qcm-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d4af37;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.qcm-submit-btn {
+    background-color: #d4af37;
+    color: #5c0606;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.qcm-submit-btn:hover {
+    background-color: #f39c12;
+}
+
+.qcm-hint {
+    font-size: 0.85rem;
+    color: #888888; /* Texte en gris */
+    font-style: italic;
+    margin-top: 2px;
+}
