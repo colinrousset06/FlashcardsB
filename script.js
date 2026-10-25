@@ -217,7 +217,72 @@ const decks = [
         ]
     }
 ];
-
+{
+        id: "opti-volet1-qcm",
+        category: "OPTIMISATION & RECHERCHE",
+        title: "Volet 1 : QCM & Exercices du TD 1",
+        color: "#d4af37", // Doré
+        icon: "🔴",
+        description: "QCM interactif basé sur les exercices de la première planche de TD (Optimisation libre et sous contraintes).",
+        cards: [
+            {
+                question: "Exercice 1 : Dans la modélisation de la température T(x,t) d'un glacier, quel est l'ordre de la dérivée partielle par rapport à x qui intervient dans l'équation de la chaleur delta_t T = k * delta_xx T ?",
+                answer: "La dérivée partielle seconde par rapport à x (delta_xx T).",
+                typeHint: "(un chiffre/nombre)"
+            },
+            {
+                question: "Exercice 2.1 : Quel est l'ensemble des extrema de la fonction f(x,y) = y sur ℝ² ?",
+                answer: "Il n'y a aucun extremum (la fonction n'est ni majorée ni minorée).",
+                typeHint: "(un extremum local / aucun / + l'infini)"
+            },
+            {
+                question: "Exercice 2.3 : Quelle est la nature du point stationnaire (0,0) pour f(x,y) = x^4 + y^8 ?",
+                answer: "C'est un minimum local (et même global) strict.",
+                typeHint: "(un extremum local : minimum/maximum)"
+            },
+            {
+                question: "Exercice 2.4 : Quelle est la nature du point stationnaire (0,0) pour f(x,y) = x^4 - y^8 ?",
+                answer: "C'est un point selle.",
+                typeHint: "(un extremum local : point selle)"
+            },
+            {
+                question: "Exercice 2.7 : En quel point de ℝ² la fonction f(x,y) = xy - x^2 - y^2 admet-elle son extremum ?",
+                answer: "Au point (0,0), qui est un maximum local (de valeur 0).",
+                typeHint: "(un couple de coordonnées (x, y))"
+            },
+            {
+                question: "Exercice 3.1 : Combien de points stationnaires possède la fonction f(x,y) = e^xy (xy - 1) + y(y - 4) ?",
+                answer: "La résolution analytique conduit à identifier les points stationnaires en annulant le gradient (par ex. (0,2)).",
+                typeHint: "(un nombre de points / coordonnées)"
+            },
+            {
+                question: "Exercice 4.1 : La fonction f(x,y) = xy / ((1+x^2)(1+y^2)) est-elle de classe C^inférence sur ℝ² ?",
+                answer: "Oui, c'est un quotient de fonctions polynômes/exponentielles de classe C^inf dont le dénominateur ne s'annule jamais.",
+                typeHint: "(oui / non)"
+            },
+            {
+                question: "Exercice 5.1 : Quelle est la valeur maximale de f(x,y) = x^2 - y^2 sous la contrainte x^2 + y^2 = 1 via Lagrange ?",
+                answer: "Le maximum est 1 (atteint en (1,0) et (-1,0)).",
+                typeHint: "(un chiffre/nombre)"
+            },
+            {
+                question: "Exercice 5.2 : Quel est le minimum de la fonction f(x,y) = x^2 + y^2 sous la contrainte xy = 1 ?",
+                answer: "Le minimum est 2 (atteint en (1,1) et (-1,-1)).",
+                typeHint: "(un chiffre/nombre)"
+            },
+            {
+                question: "Exercice 6 : Pour le cylindre de volume maximum de surface totale égale à 27, quelle relation lie la hauteur h et le rayon R à l'optimum ?",
+                answer: "On trouve h = 2R (le cylindre est 'carré' dans sa coupe axiale).",
+                typeHint: "(une relation algébrique entre h et R)"
+            },
+            {
+                question: "Exercice 7.1 : Lors de l'optimisation de f(x,y,z) = z sous les contraintes x^2 = 2 - y^2 et x + y + z = 0, quel est le nombre de multiplicateurs de Lagrange associés ?",
+                answer: "Il y a 2 contraintes, donc 2 multiplicateurs de Lagrange (par exemple lambda_1 et lambda_2).",
+                typeHint: "(un chiffre/nombre)"
+            }
+        ]
+    }
+];
 let activeCategory = "Tous";
 let currentDeck = null;
 let currentCardIndex = 0;
@@ -302,10 +367,12 @@ function renderDecks() {
         });
     }
 }
-
 function createDeckCardElement(deck) {
     const card = document.createElement('div');
-    card.className = 'deck-card';
+    // Applique la classe CSS spéciale si c'est le deck QCM Volet 1
+    const isSpecialOpti = deck.id === "opti-volet1-qcm";
+    card.className = `deck-card ${isSpecialOpti ? 'opti-v1' : ''}`;
+    
     card.innerHTML = `
         <div>
             <div class="deck-header">
@@ -322,7 +389,6 @@ function createDeckCardElement(deck) {
     `;
     return card;
 }
-
 function startStudy(deckId) {
     currentDeck = decks.find(d => d.id === deckId);
     currentCardIndex = 0;
@@ -338,10 +404,30 @@ function startStudy(deckId) {
 
 function displayCard() {
     const card = currentDeck.cards[currentCardIndex];
-    cardFront.textContent = card.question;
+    
+    // Si c'est le deck QCM Volet 1, on intègre la zone de saisie sur le recto
+    if (currentDeck.id === "opti-volet1-qcm") {
+        cardFront.innerHTML = `
+            <div>${card.question}</div>
+            <div class="qcm-input-container" onclick="event.stopPropagation()">
+                <input type="text" id="qcm-user-answer" class="qcm-input" placeholder="Votre réponse...">
+                <button class="qcm-submit-btn" onclick="checkQcmAnswer()">Valider</button>
+                <div class="qcm-hint">${card.typeHint || ''}</div>
+            </div>
+        `;
+    } else {
+        cardFront.textContent = card.question;
+    }
+
     cardBack.textContent = card.answer;
     progressCounter.textContent = `Carte ${currentCardIndex + 1} sur ${currentDeck.cards.length}`;
     flashcard.classList.remove('flipped');
+}
+
+function checkQcmAnswer() {
+    const userVal = document.getElementById('qcm-user-answer').value;
+    // Retourne automatiquement la carte pour comparer avec la correction au dos
+    flashcard.classList.add('flipped');
 }
 
 function answerCard(isCorrect) {
