@@ -379,31 +379,34 @@ body {
     margin-top: 10px;
     margin-bottom: -5px;
 }
-
-/* Style spécifique pour le Deck QCM Optimisation Volet 1 */
+/* Style spécifique pour le Deck QCM Optimisation Volet 1 (Rouge et Doré) */
 .deck-card.opti-v1 {
-    background-color: #5c0606; /* Fond rouge sombre */
-    border: 2px solid #d4af37; /* Bordure dorée */
+    background-color: #5c0606;
+    border: 2px solid #d4af37;
 }
 
 .deck-card.opti-v1 .deck-title,
 .deck-card.opti-v1 .category-tag,
 .deck-card.opti-v1 .deck-desc,
 .deck-card.opti-v1 .cards-count {
-    color: #d4af37 !important; /* Texte doré */
+    color: #d4af37 !important;
 }
 
-/* Style de la vue d'étude pour les QCM avec saisie */
+/* Disposition verticale sous la question */
+.qcm-question-text {
+    margin-bottom: 12px;
+}
+
 .qcm-input-container {
-    margin-top: 15px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     align-items: center;
+    width: 100%;
 }
 
 .qcm-input {
-    width: 80%;
+    width: 85%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #d4af37;
@@ -417,7 +420,7 @@ body {
     background-color: #d4af37;
     color: #5c0606;
     border: none;
-    padding: 8px 20px;
+    padding: 8px 24px;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
@@ -430,7 +433,6 @@ body {
 
 .qcm-hint {
     font-size: 0.85rem;
-    color: #888888; /* Texte en gris */
+    color: #888888; /* Texte en gris entre parenthèses */
     font-style: italic;
-    margin-top: 2px;
 }
