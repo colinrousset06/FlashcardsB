@@ -216,8 +216,7 @@ const decks = [
             { question: "Propriété : Contraintes saturées et prix duals", answer: "Les multiplicateurs associés aux contraintes indiquent la valeur marginale (shadow price) du second membre à l'optimum." }
         ]
     }
-];
-{
+    {
         id: "opti-volet1-qcm",
         category: "OPTIMISATION & RECHERCHE",
         title: "Volet 1 : QCM & Exercices du TD 1",
