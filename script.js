@@ -81,7 +81,7 @@ const decks = [
             { question: "Définition 8.2 : Intégrale d'une fonction générale", answer: "Si f^+ et f^- sont d'intégrales finies, int f = int f^+ - int f^-." },
             { question: "Théorème 8.1 : Caractérisation de l'intégrabilité", answer: "Une fonction mesurable est intégrable au sens de Lebesgue si et seulement si son intégrale en valeur absolue est finie (int |f| < +inf)." },
             { question: "Théorème 9.1 : Théorème de convergence monotone (Beppo-Levi)", answer: "Pour une suite croissante de fonctions mesurables positives convergeant vers f p.p., la limite de l'intégrale est l'intégrale de f." },
-            { question: "Lemme 9.1 : Lemme de Fatou", answer: "Pour une suite de fonctions mesurables positives, l'intégrale de la liminf est inférieure ou égale à l'inf de l'intégrale." },
+            { question: "Lemme 9.1 : Lemme de Fatou", answer: "Pour une suite de fonctions mesurables positives, l'intégrale de la liminf est inférieure ou égale à la liminf des intégrales." },
             { question: "Théorème 9.2 : Théorème de convergence dominée de Lebesgue", answer: "Si une suite de fonctions converge p.p. et est dominée en module par une fonction intégrable, alors la limite de l'intégrale est l'intégrale de la limite." },
             { question: "Définition 11.1 : Espaces L^p(Omega)", answer: "Espace des classes de fonctions mesurables dont la puissance p de la valeur absolue est d'intégrale finie." },
             { question: "Théorème 11.1 : Théorème de Riesz-Fischer", answer: "L'espace (L^p, ||.||_p) muni de sa norme est un espace de Banach (et un Hilbert pour p=2)." },
@@ -180,215 +180,6 @@ const decks = [
             { question: "Propriété : Rôle des variables artificielles", answer: "À l'optimum d'un problème valide, toutes les variables artificielles doivent valoir zéro." },
             { question: "Propriété : Contraintes saturées et prix duals", answer: "Les multiplicateurs indiquent la valeur marginale (shadow price) du second membre." }
         ]
-    },
-
-    // ==========================================
-    // 5. DECK ROUGE/DORÉ : QCM EXERCICES TD 1
-    // ==========================================
-    {
-        id: "opti-volet1-qcm",
-        category: "OPTIMISATION & RECHERCHE",
-        title: "Volet 1 : QCM & Intégralité des Exercices TD 1",
-        color: "#d4af37", // Doré
-        icon: "🔴",
-        description: "QCM interactif couvrant l'intégralité des questions de chaque exercice de la première planche de TD (Exercices 1 à 10).",
-        cards: [
-            // EXERCICE 1
-            {
-                question: "Exercice 1.1 : Dans l'étude des glaciers, calculer la dérivée partielle première de T par rapport à x : delta_x T de T(x,t) = T0 + T1 * e^(-lambda x) * sin(omega t - lambda x).",
-                answer: "-lambda * T1 * e^(-lambda x) * [sin(omega t - lambda x) + cos(omega t - lambda x)].",
-                typeHint: "(une expression algébrique / dérivée)"
-            },
-            {
-                question: "Exercice 1.1 : Calculer la dérivée partielle première de T par rapport à t : delta_t T.",
-                answer: "omega * T1 * e^(-lambda x) * cos(omega t - lambda x).",
-                typeHint: "(une expression algébrique / dérivée)"
-            },
-            {
-                question: "Exercice 1.2 : Quelle relation lie k, omega et lambda pour que T vérifie l'équation de la chaleur delta_t T = k * delta_xx T ?",
-                answer: "On obtient k par identification directe des coefficients issus des dérivées secondes.",
-                typeHint: "(une relation littérale avec k)"
-            },
-
-            // EXERCICE 2
-            {
-                question: "Exercice 2.1 : Déterminer les extrema de f(x,y) = y sur ℝ².",
-                answer: "Aucun extremum (fonction non majorée et non minorée).",
-                typeHint: "(aucun / extremum local)"
-            },
-            {
-                question: "Exercice 2.2 : Déterminer les extrema de f(x,y) = xy sur ℝ².",
-                answer: "Point selle en (0,0) (pas d'extremum global ni local strict).",
-                typeHint: "(point selle / minimum / maximum)"
-            },
-            {
-                question: "Exercice 2.3 : Déterminer les extrema de f(x,y) = x^4 + y^8 sur ℝ².",
-                answer: "Minimum global strict en (0,0), de valeur 0.",
-                typeHint: "(minimum local/global)"
-            },
-            {
-                question: "Exercice 2.4 : Déterminer les extrema de f(x,y) = x^4 - y^8 sur ℝ².",
-                answer: "Point selle en (0,0).",
-                typeHint: "(point selle)"
-            },
-            {
-                question: "Exercice 2.5 : Déterminer les extrema de f(x,y) = (3x + 2y)^4 sur ℝ².",
-                answer: "Infinité de minima locaux sur la droite 3x + 2y = 0 (valeur 0).",
-                typeHint: "(ensemble de minima le long d'une droite)"
-            },
-            {
-                question: "Exercice 2.6 : Déterminer les extrema de f(x,y) = y^4 + x^2 - 2y^2 sur ℝ².",
-                answer: "Minimum local en (0, 1) et (0, -1), et point selle en (0, 0).",
-                typeHint: "(coordonnées des extrema / points selle)"
-            },
-            {
-                question: "Exercice 2.7 : Déterminer les extrema de f(x,y) = xy - x^2 - y^2 sur ℝ².",
-                answer: "Maximum local unique en (0,0) (valeur 0).",
-                typeHint: "(un couple de coordonnées (x, y))"
-            },
-            {
-                question: "Exercice 2.8 : Déterminer les extrema de f(x,y) = 3xy^2 - y^3 + x^2 + y^2 - 1.",
-                answer: "Calcul du gradient nul et analyse de la hessienne pour identifier les points critiques et leur nature.",
-                typeHint: "(coordonnées et nature des points)"
-            },
-            {
-                question: "Exercice 2.9 : Déterminer les extrema de f(x,y) = x^2 - cos(y).",
-                answer: "Minimums locaux en (0, k*pi) selon la parité de k.",
-                typeHint: "(points ou familles de points)"
-            },
-            {
-                question: "Exercice 2.10 : Déterminer les extrema de f(x,y) = xy - ln(x^2 + y^2).",
-                answer: "Étude du gradient et annulation pour trouver les points critiques hors de l'origine.",
-                typeHint: "(coordonnées (x, y))"
-            },
-            {
-                question: "Exercice 2.11 : Déterminer les extrema de f(x,y,z) = xyz + x^2 - y^2 + 7.",
-                answer: "Résolution du système gradient = 0 en dimension 3 (x,y,z).",
-                typeHint: "(triplet (x, y, z) ou aucun)"
-            },
-            {
-                question: "Exercice 2.12 : Déterminer les extrema de f(x,y,z) = z(e^x - 1) - y^2.",
-                answer: "Annulation des dérivées partielles par rapport à x, y et z.",
-                typeHint: "(triplet (x, y, z))"
-            },
-
-            // EXERCICE 3
-            {
-                question: "Exercice 3.1 : Pour f(x,y) = e^xy (xy - 1) + y(y - 4), calculer le(s) point(s) stationnaire(s).",
-                answer: "Le gradient s'annule en résolvant les équations couplées (par exemple x=0, y=2).",
-                typeHint: "(coordonnées du point stationnaire)"
-            },
-            {
-                question: "Exercice 3.2 : Quelle est la nature du point stationnaire trouvé à l'exercice 3 ?",
-                answer: "Utilisation de la matrice hessienne pour déterminer s'il s'agit d'un min, max ou point selle.",
-                typeHint: "(minimum / maximum / point selle)"
-            },
-
-            // EXERCICE 4
-            {
-                question: "Exercice 4.1 : La fonction f(x,y) = xy / ((1+x^2)(1+y^2)) est-elle de classe C^inf sur ℝ² ?",
-                answer: "Oui, c'est une fraction rationnelle dont le dénominateur ne s'annule jamais sur ℝ².",
-                typeHint: "(oui / non)"
-            },
-            {
-                question: "Exercice 4.2 : Calculer les dérivées premières de f(x,y) = xy / ((1+x^2)(1+y^2)).",
-                answer: "Calcul via la règle de dérivation du quotient pour delta_x f et delta_y f.",
-                typeHint: "(expressions de delta_x f et delta_y f)"
-            },
-            {
-                question: "Exercice 4.3 : Calculer les dérivées secondes de f (hessienne).",
-                answer: "Dérivées partielles secondes delta_xx f, delta_yy f et delta_xy f.",
-                typeHint: "(expressions analytiques)"
-            },
-            {
-                question: "Exercice 4.4 : Former la matrice hessienne et déterminer si f est convexe ou concave sur ℝ².",
-                answer: "Ni convexe ni concave globalement sur ℝ² (changements de signe des valeurs propres).",
-                typeHint: "(convexe / concave / ni l'un ni l'autre)"
-            },
-
-            // EXERCICE 5 (Lagrange)
-            {
-                question: "Exercice 5.1 : Max et min de f(x,y) = x^2 - y^2 sous contrainte x^2 + y^2 = 1.",
-                answer: "Maximum = 1 ; Minimum = -1.",
-                typeHint: "(deux nombres : max et min)"
-            },
-            {
-                question: "Exercice 5.2 : Max et min de f(x,y) = x^2 + y^2 sous contrainte xy = 1.",
-                answer: "Minimum = 2 (pas de maximum fini).",
-                typeHint: "(un nombre ou 'pas de maximum')"
-            },
-            {
-                question: "Exercice 5.3 : Max et min de f(x,y) = y^2 - x^2 sous contrainte x^2/4 + y^2 = 1.",
-                answer: "Maximum = 1 ; Minimum = -4.",
-                typeHint: "(deux nombres : max et min)"
-            },
-            {
-                question: "Exercice 5.4 : Max et min de f(x,y) = e^xy sous contrainte x^3 + y^3 = 16.",
-                answer: "Résolution via le Lagrangien avec x = y à l'optimum (maximum e^8).",
-                typeHint: "(valeur de l'extremum)"
-            },
-            {
-                question: "Exercice 5.5 : Max et min de f(x,y,z,t) = x + y + z + t sous contrainte x^2 + y^2 + z^2 + t^2 = 1.",
-                answer: "Maximum = 2 ; Minimum = -2.",
-                typeHint: "(deux nombres : max et min)"
-            },
-            {
-                question: "Exercice 5.6 : Max et min de f(x,y,z) = x^2 + y^2 + z^2 sous contrainte x + y + z = 12.",
-                answer: "Minimum = 48 (atteint en (4,4,4)).",
-                typeHint: "(un nombre / valeur minimale)"
-            },
-
-            // EXERCICE 6
-            {
-                question: "Exercice 6 : Quelles sont les dimensions (hauteur h, rayon R) du cylindre de volume maximum de surface 27 ?",
-                answer: "R = 3/sqrt(2) et h = 3*sqrt(2) (soit h = 2R).",
-                typeHint: "(valeurs de R et h)"
-            },
-
-            // EXERCICE 7
-            {
-                question: "Exercice 7.1 : Optimiser f(x,y,z) = z s.c. x^2 = 2 - y^2 et x + y + z = 0.",
-                answer: "Application de la méthode de Lagrange à 2 contraintes d'égalité.",
-                typeHint: "(valeur optimale de z)"
-            },
-            {
-                question: "Exercice 7.2 : Optimiser f(x,y,z) = z s.c. x^2 = 2 - y^2, x + y + z = 0 et x + z = 1.",
-                answer: "Résolution du système avec 3 contraintes.",
-                typeHint: "(solution ou incompatibilité)"
-            },
-            {
-                question: "Exercice 7.3 : Optimiser f(x,y,z) = x + 2y s.c. x + y + z = 1 et y^2 + z^2 = 4.",
-                answer: "Recherche des points critiques liés par le Lagrangien.",
-                typeHint: "(valeur optimale)"
-            },
-            {
-                question: "Exercice 7.4 : Optimiser f(x,y,z) = 3x - y - 3z s.c. x + y - z = 0 et x^2 + 2z^2 = 1.",
-                answer: "Calcul des extrema liés par multiplicateurs de Lagrange.",
-                typeHint: "(valeur optimale)"
-            },
-
-            // EXERCICES FACULTATIFS (8, 9, 10)
-            {
-                question: "Exercice 8.1 : Calculer le gradient de f(x,y) = x + y + 1.",
-                answer: "grad f = (1, 1).",
-                typeHint: "(un vecteur (dx, dy))"
-            },
-            {
-                question: "Exercice 8.2 : Calculer le gradient de f(x,y) = xy.",
-                answer: "grad f = (y, x).",
-                typeHint: "(un vecteur (y, x))"
-            },
-            {
-                question: "Exercice 9.1 : Calculer la hessienne de f(x,y) = xy.",
-                answer: "Hessienne = [[0, 1], [1, 0]].",
-                typeHint: "(une matrice 2x2)"
-            },
-            {
-                question: "Exercice 10.1 : Dans le problème Moche (lama + maïs), quel est l'investissement optimal pour maximiser le bénéfice ?",
-                answer: "Répartition optimale du capital de 65 po entre l'achat de lamas et de maïs.",
-                typeHint: "(nombre de lamas et quantité de maïs)"
-            }
-        ]
     }
 ];
 
@@ -479,9 +270,7 @@ function renderDecks() {
 
 function createDeckCardElement(deck) {
     const card = document.createElement('div');
-    const isSpecialOpti = deck.id === "opti-volet1-qcm";
-    card.className = `deck-card ${isSpecialOpti ? 'opti-v1' : ''}`;
-    
+    card.className = 'deck-card';
     card.innerHTML = `
         <div>
             <div class="deck-header">
@@ -514,28 +303,10 @@ function startStudy(deckId) {
 
 function displayCard() {
     const card = currentDeck.cards[currentCardIndex];
-    
-    // Disposition verticale : question en haut, champ et bouton en dessous
-    if (currentDeck.id === "opti-volet1-qcm") {
-        cardFront.innerHTML = `
-            <div class="qcm-question-text">${card.question}</div>
-            <div class="qcm-input-container" onclick="event.stopPropagation()">
-                <input type="text" id="qcm-user-answer" class="qcm-input" placeholder="Votre réponse...">
-                <button class="qcm-submit-btn" onclick="checkQcmAnswer()">Valider</button>
-                <div class="qcm-hint">${card.typeHint || ''}</div>
-            </div>
-        `;
-    } else {
-        cardFront.textContent = card.question;
-    }
-
+    cardFront.textContent = card.question;
     cardBack.textContent = card.answer;
     progressCounter.textContent = `Carte ${currentCardIndex + 1} sur ${currentDeck.cards.length}`;
     flashcard.classList.remove('flipped');
-}
-
-function checkQcmAnswer() {
-    flashcard.classList.add('flipped');
 }
 
 function answerCard(isCorrect) {
