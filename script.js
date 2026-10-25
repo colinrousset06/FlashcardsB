@@ -1,193 +1,219 @@
 const decks = [
-    // --- CATÉGORIE 1 : ANALYSE DE FOURIER ---
+    // ==========================================
+    // 1. ANALYSE DE FOURIER - CHAPITRE 1
+    // ==========================================
     {
-        id: "theoremes-1",
+        id: "fourier-ch1",
         category: "ANALYSE DE FOURIER",
-        title: "1. Chapitre 1 : Théorèmes du cours",
+        title: "Chapitre 1 : Topologie & Analyse dans R^n",
         color: "#d97736", // Orange
         icon: "📜",
-        description: "Enoncés, hypothèses et équivalences de tous les théorèmes fondamentaux des espaces vectoriels normés.",
+        description: "Enoncés, théorèmes, propositions et propriétés fondamentales des espaces vectoriels normés et de la topologie.",
         cards: [
-            {
-                question: "Théorème 3.1 (Lemme de Lebesgue)\nHypothèses : K ⊂ E compact et (Ui)i∈I recouvrement ouvert de K.",
-                answer: "Énoncé : Il existe δ > 0 tel que toute boule de rayon < δ et centrée en un point de K est incluse dans un des Ui[cite: 11]."
-            },
-            {
-                question: "Théorème 3.2 (Lebesgue-Borel)\nHypothèses : K ⊂ E espace vectoriel normé.",
-                answer: "Équivalence : K est un compact si et seulement si de tout recouvrement d'ouverts de K on peut en extraire un recouvrement fini[cite: 12]."
-            },
-            {
-                question: "Théorème 3.3 (Heine-Borel)\nHypothèses : Sous-ensemble de ℝⁿ.",
-                answer: "Équivalence : Un sous-ensemble de ℝⁿ est compact si et seulement s'il est fermé et borné[cite: 15]."
-            },
-            {
-                question: "Théorème 3.4 (Bolzano-Weierstrass dans ℝⁿ)\nHypothèses : Suite (xk) dans ℝⁿ.",
-                answer: "Énoncé : Toute suite bornée dans ℝⁿ admet une sous-suite convergente[cite: 16]."
-            },
-            {
-                question: "Théorème 4.1 (Heine)\nHypothèses : f : K → ℝ continue, K ⊂ ℝⁿ compact.",
-                answer: "Énoncé : Toute fonction continue sur un compact est uniformément continue[cite: 18]."
-            },
-            {
-                question: "Théorème 5.1 (Équivalence des normes en dimension finie)\nHypothèses : E espace vectoriel de dimension finie muni de deux normes.",
-                answer: "Énoncé : Toutes les normes sont équivalentes (∃ C1, C2 > 0 tels que C1||x||a ≤ ||x||b ≤ C2||x||a)[cite: 19]."
-            },
-            {
-                question: "Théorème de la projection orthogonale (Espaces de Hilbert)\nHypothèses : H espace de Hilbert, F ⊂ H sous-espace fermé.",
-                answer: "Énoncé : Pour tout x ∈ H, il existe un unique y ∈ F (projection) tel que ||x-y|| = inf_{z∈F} ||x-z||, caractérisé par x-y ⊥ F[cite: 21]."
-            },
-            {
-                question: "Théorème de représentation de Riesz (Espaces de Hilbert)\nHypothèses : H espace de Hilbert, f ∈ H* (forme linéaire continue).",
-                answer: "Énoncé : Il existe un unique y ∈ H tel que f(x) = ⟨x, y⟩ pour tout x ∈ H[cite: 21]."
-            }
-        ]
-    },
-    {
-        id: "preuves-1",
-        category: "ANALYSE DE FOURIER",
-        title: "2. Chapitre 1 : Preuves & Démos",
-        color: "#689f78", // Vert
-        icon: "✍️",
-        description: "Démonstrations détaillées des inégalités, caractérisations des fermés et propriétés topologiques.",
-        cards: [
-            {
-                question: "Preuve de l'Inégalité de Cauchy-Schwarz (Prop. 1.1)",
-                answer: "On étudie f(t) = ||x-ty||₂² = ||x||₂² - 2t⟨x,y⟩ + t²||y||₂² ≥ 0. Son discriminant Δ ≤ 0 donne le résultat[cite: 8]."
-            },
-            {
-                question: "Preuve de l'Inégalité de Minkowski (Prop. 1.2)",
-                answer: "On utilise la convexité de t ↦ tᵖ pour p ≥ 1 et une sommation composante par composante[cite: 9]."
-            },
-            {
-                question: "Preuve de la caractérisation séquentielle d'un fermé (Prop. 3.2)",
-                answer: "(⇒) Toute limite de suite de F est dans F si F est fermé. (⇐) Si toute suite convergente a sa limite dans A, on construit an ∈ A ∩ B(x, 1/n) pour montrer que Ā ⊂ A[cite: 13]."
-            },
-            {
-                question: "Preuve de la continuité par les ouverts (Prop. 3.4)",
-                answer: "(i ⇒ ii) L'image réciproque d'un ouvert U par f est ouverte en encadrant par des boules de rayon r et δ[cite: 14]."
-            },
-            {
-                question: "Preuve du Lemme de Lebesgue (Théorème 3.1)",
-                answer: "Par l'absurde, si l'on suppose qu'il existe une suite de boules n'appartenant à aucun Ui, la compacité permet d'extraire une sous-suite menant à une contradiction[cite: 11, 23]."
-            },
-            {
-                question: "Preuve de l'équivalence des normes en dimension finie (Théorème 5.1)",
-                answer: "En identifiant E à ℝⁿ, f(x) = ||x|| est continue sur la sphère unité compacte S et y atteint ses bornes strictements positives m et M[cite: 19, 20]."
-            }
-        ]
-    },
-    {
-        id: "propos-1",
-        category: "ANALYSE DE FOURIER",
-        title: "3. Chapitre 1 : Propositions & Exemples",
-        color: "#5b8cb9", // Bleu
-        icon: "💡",
-        description: "Inégalités fondamentales, semi-normes, normes usuelles, stabilité topologique et espaces de Banach.",
-        cards: [
-            {
-                question: "Proposition 1.1 & 1.2 : Inégalités fondamentales",
-                answer: "Cauchy-Schwarz : |⟨x,y⟩| ≤ ||x||₂||y||₂ dans ℝⁿ. Minkowski : ||x+y||ᵖ ≤ ||x||ᵖ + ||y||ᵖ[cite: 8, 9]."
-            },
-            {
-                question: "Définition d'une Semi-norme vs Norme (Défs 1.2 & 1.3)",
-                answer: "Semi-norme : homogénéité et sous-additivité (peut s'annuler hors de 0). Norme : semi-norme séparée (||x|| = 0 ⟹ x = 0)[cite: 9, 10]."
-            },
-            {
-                question: "Proposition 3.1 : Stabilité des ouverts et des fermés",
-                answer: "Union quelconque et intersection finie d'ouverts = ouvert. Intersection quelconque et union finie de fermés = fermé[cite: 12]."
-            },
-            {
-                question: "Définitions topologiques : Intérieur, Adhérence, Frontière (Défs 3.5, 3.6, 3.7)",
-                answer: "Intérieur : plus grand ouvert inclus. Adhérence : ensemble des points dont toute boule rencontre l'ensemble. Frontière : Adhérence privée de l'intérieur[cite: 13, 14]."
-            },
-            {
-                question: "Exemples de compacité (Exemple 3.2)",
-                answer: "[0,1] est compact (fermé et borné). ]0,1[ n'est pas compact (non fermé). La boule fermée B̄(0,1) est compacte dans ℝⁿ[cite: 16]."
-            },
-            {
-                question: "Proposition 4.6 : Espace C(K,E) des fonctions continues",
-                answer: "Pour K compact et E espace de Banach, C(K,E) muni de la norme uniforme ||f||∞ = sup_{x∈K} ||f(x)||_E est un espace de Banach[cite: 18, 19]."
-            }
+            // Inégalités et normes
+            { question: "Propriété : Inégalité de Cauchy-Schwarz", answer: "Pour tous x, y dans ℝ^n, le produit scalaire vérifie |<x, y>| <= ||x||_2 * ||y||_2." },
+            { question: "Propriété : Inégalité de Minkowski", answer: "Pour tout p >= 1 et tous x, y, la norme p de la somme vérifie ||x + y||_p <= ||x||_p + ||y||_p." },
+            { question: "Définition : Semi-norme", answer: "Application vérifiant l'homogénéité (||ax|| = |a|*||x||) et l'inégalité triangulaire (||x+y|| <= ||x|| + ||y||), pouvant s'annuler en un point non nul." },
+            { question: "Définition : Norme", answer: "Semi-norme séparée : ||x|| = 0 implique x = 0." },
+            { question: "Définition : Espace vectoriel normé (EVN)", answer: "Espace vectoriel muni d'une norme." },
+            { question: "Définition : Distance induite par une norme", answer: "d(x, y) = ||x - y||." },
+            
+            // Topologie générale
+            { question: "Proposition : Stabilité des ouverts", answer: "Une union quelconque d'ouverts est un ouvert. Une intersection finie d'ouverts est un ouvert." },
+            { question: "Proposition : Stabilité des fermés", answer: "Une intersection quelconque de fermés est un fermé. Une union finie de fermés est un fermé." },
+            { question: "Proposition : Caractérisation séquentielle d'un fermé", answer: "Un ensemble F est fermé si et seulement si toute suite convergente d'éléments de F a sa limite dans F." },
+            { question: "Proposition : Continuité et ouverts/fermés", answer: "Une application f est continue si et seulement si l'image réciproque de tout ouvert est un ouvert (ou l'image réciproque de tout fermé est un fermé)." },
+            { question: "Définition : Intérieur d'un ensemble", answer: "Le plus grand ouvert inclus dans l'ensemble (réunion de tous les ouverts inclus)." },
+            { question: "Définition : Adhérence d'un ensemble", answer: "Le plus petit fermé contenant l'ensemble (ensemble des limites de suites d'éléments de l'ensemble)." },
+            { question: "Définition : Frontière d'un ensemble", answer: "Différence entre l'adhérence et l'intérieur de l'ensemble (Fr(A) = A_barre \ A_int)." },
+            
+            // Compacité
+            { question: "Théorème 3.1 : Lemme de Lebesgue", answer: "Soit K compact et (Ui) un recouvrement ouvert. Il existe delta > 0 tel que toute boule de rayon < delta centrée dans K est incluse dans un des Ui." },
+            { question: "Théorème 3.2 : Caractérisation de Borel-Lebesgue", answer: "Un sous-ensemble K d'un EVN est compact si et seulement si de tout recouvrement d'ouverts de K on peut extraire un recouvrement fini." },
+            { question: "Théorème 3.3 : Théorème de Heine-Borel", answer: "Dans ℝ^n, un sous-ensemble est compact si et seulement s'il est fermé et borné." },
+            { question: "Théorème 3.4 : Bolzano-Weierstrass dans ℝ^n", answer: "Toute suite bornée dans ℝ^n admet une sous-suite convergente." },
+            { question: "Proposition : Image d'un compact par une fonction continue", answer: "L'image d'un compact par une application continue est un compact." },
+            
+            // Continuité uniforme et espaces de Banach
+            { question: "Théorème 4.1 : Théorème de Heine", answer: "Toute fonction continue d'un compact K dans ℝ^n est uniformément continue sur K." },
+            { question: "Définition : Suite de Cauchy", answer: "Suite dont les termes se rapprochent arbitrairement les uns des autres lorsque les indices grandissent." },
+            { question: "Définition : Espace de Banach", answer: "Espace vectoriel normé complet (toute suite de Cauchy y converge)." },
+            { question: "Proposition 4.6 : Espace C(K, E)", answer: "Pour K compact et E de Banach, l'espace des fonctions continues muni de la norme uniforme ||f||_inf = sup ||f(x)||_E est un espace de Banach." },
+            
+            // Dimension finie et Hilbert
+            { question: "Théorème 5.1 : Équivalence des normes en dimension finie", answer: "Sur un espace vectoriel de dimension finie, toutes les normes sont équivalentes." },
+            { question: "Définition : Espace préhilbertien et Hilbert", answer: "Espace vectoriel muni d'un produit scalaire. S'il est complet pour la norme associée, c'est un espace de Hilbert." },
+            { question: "Théorème de la projection orthogonale", answer: "Dans un Hilbert, pour tout x et tout sous-espace fermé F, il existe un unique y dans F réalisant la distance minimale, caractérisé par (x - y) orthogonal à F." },
+            { question: "Théorème de représentation de Riesz (Hilbert)", answer: "Toute forme linéaire continue f sur un espace de Hilbert H s'écrit de manière unique f(x) = <x, y> pour un certain y dans H." },
+            { question: "Proposition : Complétude des sous-espaces", answer: "Tout sous-espace fermé d'un espace de Banach est un espace de Banach." },
+            { question: "Propriété : Compacts et fermés bornés", answer: "Tout compact dans un espace métrique est fermé et borné (la réciproque est fausse en dimension infinie)." },
+            { question: "Définition : Continuité lipschitzienne", answer: "Il existe K > 0 tel que ||f(x) - f(y)|| <= K ||x - y|| pour tout x, y." },
+            { question: "Proposition : Connexité par arcs", answer: "L'image d'un connexe par une application continue est connexe." }
         ]
     },
 
-    // --- CATÉGORIE 2 : OPTIMISATION & RECHERCHE OPÉRATIONNELLE ---
+    // ==========================================
+    // 2. ANALYSE DE FOURIER - CHAPITRE 2
+    // ==========================================
     {
-        id: "opti-theoremes",
+        id: "fourier-ch2",
+        category: "ANALYSE DE FOURIER",
+        title: "Chapitre 2 : Intégrale de Lebesgue",
+        color: "#689f78", // Vert
+        icon: "📐",
+        description: "Tribus, mesures, fonctions mesurables, intégrale de Lebesgue, théorèmes de convergence et espaces L^p.",
+        cards: [
+            // Tribus et mesures
+            { question: "Définition 3.1 : Tribu (ou sigma-algèbre)", answer: "Collection de sous-ensembles d'un ensemble X stable par passage au complémentaire et par union dénombrable." },
+            { question: "Propriété : Stabilité des tribus", answer: "Une tribu est également stable par intersection dénombrable, union finie et intersection finie." },
+            { question: "Définition 3.2 : Tribu borélienne sur ℝ^n", answer: "Tribu engendrée par les ouverts de ℝ^n (notée B(ℝ^n))." },
+            { question: "Définition 3.3 : Tribu borélienne sur un ouvert", answer: "Tribu induite sur un ouvert $\\Omega$ par intersection avec les boréliens de ℝ^n." },
+            { question: "Définition 3.4 : Espace mesurable", answer: "Couple (X, A) formé d'un ensemble X et d'une tribu A sur X." },
+            { question: "Définition 3.5 : Mesure positive", answer: "Application mu de A dans [0, +inf] telle que mu(emptyset) = 0 et sigma-additive pour des ensembles disjoints." },
+            { question: "Définition : Mesure de Dirac", answer: "Mesure delta_x0 définie sur (X, P(X)) valant 1 si x0 app. A et 0 sinon." },
+            { question: "Définition : Mesure de comptage", answer: "Mesure associant à un ensemble son nombre d'éléments s'il est fini, ou +inf s'il est infini." },
+            
+            // Fonctions mesurables
+            { question: "Définition 4.1 : Fonction mesurable", answer: "Fonction f : X -> R barre telle que pour tout a dans R, l'ensemble {x | f(x) > a} appartient à la tribu A." },
+            { question: "Remarque 4.1 : Équivalences de mesurabilité", answer: "La condition f(x) > a peut être remplacée par f(x) >= a, f(x) < a ou f(x) <= a." },
+            { question: "Théorème 4.1 : Stabilité par composition", answer: "La composée de deux fonctions mesurables est mesurable." },
+            { question: "Propriété 4.1 : Stabilité algébrique des fonctions mesurables", answer: "Si f et g sont mesurables, alors f+g, f*g, |f|, min(f,g) et max(f,g) sont mesurables." },
+            { question: "Théorème 4.2 : Stabilité par opérations limites", answer: "Le supremum, l'infimum, la limsup et la liminf d'une suite de fonctions mesurables sont mesurables." },
+            { question: "Définition 4.2 : Ensemble négligeable", answer: "Ensemble N appartenant à la tribu dont la mesure est nulle (mu(N) = 0)." },
+            { question: "Définition 4.3 : Propriété presque partout (p.p.)", answer: "Propriété vérifiée sur le complémentaire d'un ensemble négligeable." },
+            
+            // Intégrale des fonctions étagées
+            { question: "Définition 6.1 : Fonction étagée (simple)", answer: "Fonction mesurable ne prenant qu'un nombre fini de valeurs réelles." },
+            { question: "Définition 6.2 : Intégrale d'une fonction étagée positive", answer: "Somme sur i de a_i * mu(A_i cap E) pour une représentation sous forme de partition mesurable." },
+            { question: "Propriété 6.1 : Linéarité de l'intégrale des fonctions étagées", answer: "L'intégrale d'une combinaison linéaire de fonctions étagées positives est la combinaison linéaire des intégrales." },
+            { question: "Propriété 6.2 : Monotonie de l'intégrale des fonctions étagées", answer: "Si f <= g, alors l'intégrale de f est inférieure ou égale à l'intégrale de g." },
+            { question: "Proposition 6.1 : Intégrale sur un ensemble négligeable", answer: "L'intégrale d'une fonction étagée sur un ensemble de mesure nulle est nulle." },
+            
+            // Intégrale positive et générale
+            { question: "Définition 7.1 : Fonction mesurable positive", answer: "Fonction mesurable à valeurs dans [0, +inf]." },
+            { question: "Définition 7.2 : Intégrale de Lebesgue d'une fonction positive", answer: "Supremum des intégrales des fonctions étagées positives inférieures ou égales à f." },
+            { question: "Propriété 7.1 & 7.2 : Linéarité et monotonie de l'intégrale positive", answer: "L'intégrale positive conserve la linéarité positive et la monotonie." },
+            { question: "Définition 8.1 : Partie positive et négative", answer: "f^+ = max(f, 0) et f^- = max(-f, 0), telles que f = f^+ - f^- et |f| = f^+ + f^-." },
+            { question: "Définition 8.2 : Intégrale d'une fonction générale", answer: "Si f^+ et f^- sont d'intégrales finies, int f = int f^+ - int f^-." },
+            { question: "Théorème 8.1 : Caractérisation de l'intégrabilité",
+            answer: "Une fonction mesurable est intégrable au sens de Lebesgue si et seulement si son intégrale en valeur absolue est finie (int |f| < +inf)." },
+            
+            // Théorèmes de convergence
+            { question: "Théorème 9.1 : Théorème de convergence monotone (Beppo-Levi)", answer: "Pour une suite croissante de fonctions mesurables positives convergeant vers f p.p., la limite de l'intégrale est l'intégrale de f." },
+            { question: "Lemme 9.1 : Lemme de Fatou", answer: "Pour une suite de fonctions mesurables positives, l'intégrale de la liminf est inférieure ou égale à la liminf des intégrales." },
+            { question: "Théorème 9.2 : Théorème de convergence dominée de Lebesgue", answer: "Si une suite de fonctions converge p.p. et est dominée en module par une fonction intégrable, alors la limite de l'intégrale est l'intégrale de la limite." },
+            
+            // Espaces L^p et théorèmes avancés
+            { question: "Définition 11.1 : Espaces L^p(Omega)", answer: "Espace des classes de fonctions mesurables dont la puissance p de la valeur absolue est d'intégrale finie." },
+            { question: "Théorème 11.1 : Théorème de Riesz-Fischer", answer: "L'espace (L^p, ||.||_p) muni de sa norme est un espace de Banach (et un Hilbert pour p=2)." },
+            { question: "Proposition 11.2 : Inégalité de Minkowski dans L^p", answer: "||f + g||_p <= ||f||_p + ||g||_p." },
+            { question: "Proposition 11.3 : Inégalité de Hölder", answer: "Pour 1/p + 1/p' = 1, ||fg||_1 <= ||f||_p * ||g||_p'." },
+            { question: "Théorème 13.1 : Théorème de Tonelli", answer: "Pour une fonction mesurable positive sur un produit, les intégrales itérées et l'intégrale multiple coïncident (même si elles valent +inf)." },
+            { question: "Théorème 13.2 : Théorème de Fubini", answer: "Pour une fonction intégrable sur un espace produit, l'ordre d'intégration peut être inversé." },
+            { question: "Théorème 14.1 : Théorème de changement de variables", answer: "Formule transformant une intégrale via un C^1-difféomorphisme en multipliant par la valeur absolue du jacobien." },
+            { question: "Théorème D.1 : Représentation de Riesz pour les espaces L^p", answer: "Le dual topologique de L^p est isométriquement isomorphe à L^p' (avec 1/p + 1/p' = 1)." }
+        ]
+    },
+
+    // ==========================================
+    // 3. OPTIMISATION & RO - CHAPITRE 1
+    // ==========================================
+    {
+        id: "opti-ch1",
         category: "OPTIMISATION & RECHERCHE",
-        title: "1. Chapitre 1 : Théorèmes & Conditions",
-        color: "#e056fd", // Violet vif
+        title: "Chapitre 1 : Optimisation libre & sous contraintes",
+        color: "#5b8cb9", // Bleu
         icon: "⚡",
-        description: "Conditions nécessaires du 1er ordre (CN1), conditions suffisantes du 2nd ordre (CS2) et qualifs de contraintes.",
+        description: "Conditions d'optimalité 1er et 2nd ordre, convexité, matrice hessienne, Lagrangien et hessien bordé.",
         cards: [
-            {
-                question: "Condition Nécessaire du 1er ordre (CN1 - Optimisation libre)",
-                answer: "Si x* est une solution (max/min), alors le gradient s'annule : ∇f(x*) = 0 ⟺ ∂f/∂xi = 0 pour tout i[cite: 37]."
-            },
-            {
-                question: "Conditions Suffisantes du 2nd ordre (CS2 - Théorème 1)",
-                answer: "Si x* est stationnaire : Hessien défini positif ⟹ minimum local ; Hessien défini négatif ⟹ maximum local ; Hessien non défini (déterminant < 0) ⟹ point selle[cite: 37]."
-            },
-            {
-                question: "Théorème 2 (Extrema globaux via le Hessien)",
-                answer: "Si le Hessien de f est semi-défini positif (resp. négatif) sur tout le domaine Df, alors le point stationnaire x* est un minimum global (resp. maximum global)[cite: 38]."
-            },
-            {
-                question: "Conditions de qualification des contraintes d'égalité",
-                answer: "Pour utiliser le Lagrangien, il suffit que la matrice jacobienne Jg (de taille p×n) soit de rang maximal p à l'optimum x*, ou que les fonctions contraintes soient linéaires[cite: 42]."
-            }
+            // Optimisation libre
+            { question: "Définition : Programme d'optimisation", answer: "Recherche d'un extremum (minimum ou maximum) d'une fonction objectif sous un ensemble de contraintes." },
+            { question: "Condition Nécessaire du 1er ordre (CN1)", answer: "Si x* est un extremum local d'une fonction différentiable, alors le gradient s'annule : grad f(x*) = 0." },
+            { question: "Définition : Matrice Hessienne", answer: "Matrice symétrique des dérivées partielles secondes de la fonction objectif." },
+            { question: "Conditions Suffisantes du 2nd ordre (CS2)", answer: "Si grad f(x*) = 0, un hessien défini positif implique un minimum local, et un hessien défini négatif implique un maximum local." },
+            { question: "Caractérisation par les mineurs principaux", answer: "Une matrice est définie positive si tous ses mineurs principaux diagonaux sont strictement positifs." },
+            { question: "Théorème : Extrema globaux via le Hessien", answer: "Si le hessien est semi-défini de signe constant sur tout le domaine convexe, tout point stationnaire est un extremum global." },
+            
+            // Convexité
+            { question: "Définition : Ensemble convexe", answer: "Ensemble tel que tout segment reliant deux de ses points y est entièrement inclus." },
+            { question: "Définition : Fonction convexe", answer: "Fonction dont l'épigraphe est un ensemble convexe (ou vérifiant l'inégalité de convexité pour toute combinaison convexe)." },
+            { question: "Proposition : Convexité et Hessien", answer: "Une fonction différentiable est strictement convexe si et seulement si sa matrice hessienne est définie positive partout." },
+            { question: "Propriété : Somme de fonctions convexes", answer: "La somme de fonctions convexes est une fonction convexe." },
+            { question: "Propriété : Optimum local et global en convexité", answer: "Tout minimum local d'un problème convexe est un minimum global." },
+            
+            // Optimisation sous contraintes d'égalité
+            { question: "Définition : Fonction du Lagrangien", answer: "Fonction auxiliaire L(x, lambda) = f(x) - somme(lambda_i * g_i(x)) introduite pour traiter les contraintes d'égalité." },
+            { question: "Condition de qualification des contraintes", answer: "Condition garantissant la régularité des contraintes (ex : jacobienne de rang maximal à l'optimum)." },
+            { question: "Condition Nécessaire du 1er ordre avec Lagrangien", answer: "Les dérivées partielles du Lagrangien par rapport à toutes les variables et tous les multiplicateurs doivent s'annuler." },
+            { question: "Interprétation du multiplicateur de Lagrange (lambda)", answer: "Mesure de la sensibilité de la valeur optimale de la fonction objectif face à une variation unitaire de la contrainte." },
+            { question: "Définition : Hessien bordé", answer: "Matrice hessienne du Lagrangien bordée par les gradients des contraintes d'égalité." },
+            { question: "Règle du Hessien bordé", answer: "Utilisation des signes des mineurs principaux bordés pour déterminer la nature d'un extremum lié (max ou min)." },
+            
+            // Notions générales et KKT (introduction)
+            { question: "Définition : Point selle", answer: "Point stationnaire où le hessien n'est ni défini positif ni défini négatif (déterminant ou valeurs propres de signes mixtes)." },
+            { question: "Définition : Contrainte active", answer: "Contrainte vérifiée à l'égalité au point considéré." },
+            { question: "Définition : Contrainte non saturée", answer: "Contrainte vérifiée à l'inégalité stricte au point considéré." },
+            { question: "Propriété : Relaxation des contraintes inactives", answer: "Une contrainte non saturée n'influe pas localement sur la position de l'optimum." },
+            { question: "Définition : Condition de non-négativité", answer: "Restriction usuelle imposant que les variables de décision soient supérieures ou égales à zéro." },
+            { question: "Propriété : Différentiabilité", answer: "Condition requise sur les fonctions objectifs et contraintes pour appliquer le calcul différentiel et les conditions de gradient." },
+            { question: "Définition : Point critique", answer: "Point où le gradient de la fonction s'annule." },
+            { question: "Propriété : Unicité de l'optimum", answer: "Garantie en cas de stricte convexité de la fonction objectif sur un domaine convexe." },
+            { question: "Définition : Espace tangent", answer: "Espace vectoriel formé par les directions compatibles avec les contraintes au premier ordre." },
+            { question: "Propriété : Multiplicateurs de Kuhn-Tucker", answer: "Extension des multiplicateurs de Lagrange aux contraintes d'inégalité." },
+            { question: "Définition : Condition de complétude de la complémentarité", answer: "Produit nul entre la variable duale (multiplicateur) et la contrainte d'inégalité correspondante à l'optimum." },
+            { question: "Propriété : Dualité en optimisation", answer: "Principe relationnel fort entre un problème primal de maximisation et un problème dual de minimisation." }
         ]
     },
+
+    // ==========================================
+    // 4. OPTIMISATION & RO - CHAPITRE 2
+    // ==========================================
     {
-        id: "opti-preuves",
+        id: "opti-ch2",
         category: "OPTIMISATION & RECHERCHE",
-        title: "2. Chapitre 1 : Outils Mathématiques & Matrices",
-        color: "#f0932b", // Orange doré
+        title: "Chapitre 2 : PL, Simplexe & Résolution",
+        color: "#e056fd", // Violet vif
         icon: "📊",
-        description: "Gradient, Hessien, mineurs principaux, matrices définies positives/négatives et convexité.",
+        description: "Programmation linéaire, forme canonique/standard, solutions de base, algorithme du simplexe et tableaux.",
         cards: [
-            {
-                question: "Définition de la Matrice Hessienne (Hessien)",
-                answer: "Matrice symétrique des dérivées partielles secondes : H(x) = (∂²f / ∂xi ∂j) pour i,j = 1...n[cite: 31]."
-            },
-            {
-                question: "Caractérisation d'une matrice définie positive / négative via les mineurs",
-                answer: "Définie positive ⟺ tous les n mineurs principaux diagonaux sont > 0. Définie négative ⟺ les mineurs alternent de signe en commençant par < 0[cite: 32, 33]."
-            },
-            {
-                question: "Définition d'un ensemble convexe (Définition 1.2.5)",
-                answer: "Un ensemble S est convexe si pour tout x, y ∈ S et tout t ∈ [0,1], le segment tx + (1-t)y ∈ S (tout segment reliant deux points est à l'intérieur)[cite: 34]."
-            },
-            {
-                question: "Lien entre convexité/concavité et le Hessien (Proposition)",
-                answer: "f est strictement convexe (resp. concave) si et seulement si son Hessien D²f(x) est défini positif (resp. défini négatif) sur S[cite: 36]."
-            }
-        ]
-    },
-    {
-        id: "opti-propos",
-        category: "OPTIMISATION & RECHERCHE",
-        title: "3. Chapitre 1 : Lagrangien & Hessien Bordé",
-        color: "#badc58", // Vert clair
-        icon: "🎯",
-        description: "Optimisation sous contraintes d'égalité, fonction du Lagrangien et méthode du Hessien bordé.",
-        cards: [
-            {
-                question: "Introduction du Lagrangien (Contraintes d'égalité)",
-                answer: "Pour max f(x,y) s.c. g(x,y)=0, on définit L(x,y,λ) = f(x,y) - λg(x,y). L'optimum s'obtient là où la différentielle de L s'annule[cite: 41]."
-            },
-            {
-                question: "Signification économique du multiplicateur de Lagrange (λ)",
-                answer: "Il donne (au signe près) une approximation de la variation de la fonction objectif f lorsqu'on augmente d'une unité la constante de la contrainte[cite: 41]."
-            },
-            {
-                question: "Condition Nécessaire du 1er ordre avec Lagrangien (CN1)",
-                answer: "Un point critique (x*, λ*) annule simultanément toutes les dérivées partielles premières du Lagrangien par rapport à chaque variable xi et à chaque multiplicateur λj[cite: 42]."
-            },
-            {
-                question: "Méthode du Hessien Bordé (H_B) pour l'optimisation sous contraintes",
-                answer: "Matrice formée du Hessien de L bordé par les gradients des p contraintes. Les (n-p) derniers mineurs principaux diagonaux permettent de classifier les extrema (max, min ou selle)[cite: 43]."
-            }
+            // Définitions et modélisation
+            { question: "Définition : Programme linéaire (PL)", answer: "Problème d'optimisation consistant à maximiser ou minimiser une fonction objectif linéaire sous des contraintes affines." },
+            { question: "Hypothèse : Proportionnalité", answer: "Les contributions de chaque variable à l'objectif et aux contraintes sont strictement proportionnelles à sa valeur." },
+            { question: "Hypothèse : Additivité", answer: "La contribution totale est la somme des contributions individuelles de chaque variable (absence d'effets croisés)." },
+            { question: "Hypothèse : Divisibilité", answer: "Les variables de décision peuvent prendre des valeurs fractionnaires ou continues." },
+            { question: "Hypothèse : Certitude", answer: "Tous les paramètres du modèle (coefficients de la matrice et du second membre) sont connus de manière certaine." },
+            { question: "Définition : Forme canonique d'un PL", answer: "Maximiser c^T x sous Ax <= b et x >= 0." },
+            { question: "Définition : Forme standard d'un PL", answer: "Maximiser c^T x sous Ax = b et x >= 0 (toutes les contraintes d'inégalité sont transformées en égalités via des variables d'écart)." },
+            { question: "Propriété : Traitement d'une variable libre", answer: "Une variable non contrainte en signe est remplacée par la différence de deux nouvelles variables positives (x = x^+ - x^-)." },
+            
+            // Géométrie et solutions de base
+            { question: "Théorème : Convexité du domaine réalisable", answer: "L'ensemble des solutions réalisables d'un programme linéaire est un polyèdre convexe (ou polytope s'il est borné)." },
+            { question: "Définition : Point extrême (sommet)", answer: "Point du polyèdre réalisable ne pouvant pas s'exprimer comme combinaison convexe de deux autres points distincts du domaine." },
+            { question: "Théorème fondamental de la programmation linéaire", answer: "Si un programme linéaire possède une solution optimale finie, alors elle est atteinte en un point extrême (sommet) du polyèdre des contraintes." },
+            { question: "Définition : Base et matrice de base A_B", answer: "Sous-matrice carrée (m x m) inversible extraite de la matrice des contraintes A." },
+            { question: "Définition : Matrice hors-base A_N", answer: "Sous-matrice formée par les colonnes de A ne faisant pas partie de la base." },
+            { question: "Définition : Solution de base", answer: "Vecteur obtenu en annulant les variables hors-base (x_N = 0) et en résolvant A_B x_B = b." },
+            { question: "Définition : Solution de base réalisable (BFS)", answer: "Solution de base vérifiant en outre la condition de non-négativité (x_B = A_B^-1 b >= 0)." },
+            { question: "Propriété : Équivalence gé algébrique", answer: "Les sommets du polyèdre des contraintes correspondent exactement aux solutions de base réalisables (BFS)." },
+            { question: "Définition : Solution de base dégénérée", answer: "Solution de base réalisable pour laquelle au moins une composante de x_B est nulle (ou ayant plus de contraintes actives que la dimension)." },
+            
+            // Algorithme du simplexe
+            { question: "Définition : Coût réduit", answer: "Expression c_N^T - c_B^T A_B^-1 A_N mesurant l'impact marginal sur la fonction objectif de l'introduction d'une variable hors-base." },
+            { question: "Lien : Coût réduit et multiplicateurs", answer: "Le coût réduit s'exprime également sous la forme c_N^T + A_N^T lambda, où lambda est le vecteur des multiplicateurs du simplexe." },
+            { question: "Critère d'optimalité (Maximisation)", answer: "Un tableau du simplexe est optimal si tous les coûts réduits sont négatifs ou nuls (c_j - z_j <= 0)." },
+            { question: "Critère d'optimalité (Minimisation)", answer: "Un tableau du simplexe est optimal si tous les coûts réduits sont positifs ou nuls." },
+            { question: "Critère de choix de la variable entrante (Maximisation)", answer: "On choisit la variable hors-base ayant le coût réduit strictement positif le plus grand (1er critère de Dantzig)." },
+            { question: "Critère de choix de la variable sortante", answer: "Test du rapport minimum : on choisit la variable de base s minimisant le rapport b_i / a_i pour les coefficients a_i > 0." },
+            { question: "Condition d'arrêt pour un problème non borné", answer: "Si un coût réduit est strictement positif mais que tous les coefficients de la colonne pivot correspondante sont <= 0, l'objectif tend vers +inf." },
+            { question: "Définition : Méthode des dictionnaires", answer: "Formulation algébrique équivalente au simplexe où les variables de base et l'objectif z sont exprimés en fonction des variables hors-base." },
+            { question: "Définition : Opération de pivotage", answer: "Transformation algébrique permettant de faire entrer une variable dans la base et d'en faire sortir une autre." },
+            
+            // Cas particuliers et pénalités
+            { question: "Traitement d'une contrainte du type >= ", answer: "On retranche une variable d'écart positive et on ajoute une variable artificielle." },
+            { question: "Traitement d'une contrainte du type = ", answer: "On ajoute une variable artificielle pour disposer d'une base initiale." },
+            { question: "Définition : Méthode des pénalités (Grand M / Big M)", answer: "Technique consistant à pénaliser lourdement les variables artificielles dans la fonction objectif (-M pour un max, +M pour un min) pour forcer leur annulation." },
+            { question: "Propriété : Rôle des variables artificielles à l'optimum", answer: "À la solution optimale d'un problème valide, toutes les variables artificielles doivent impérativement valoir zéro." },
+            { question: "Propriété : Contraintes saturées et prix duals", answer: "Les multiplicateurs associés aux contraintes indiquent la valeur marginale (shadow price) du second membre à l'optimum." }
         ]
     }
 ];
@@ -253,7 +279,6 @@ function renderDecks() {
     catalogCount.textContent = `${filteredDecks.length} catalogue${filteredDecks.length > 1 ? 's' : ''} disponible${filteredDecks.length > 1 ? 's' : ''}`;
     decksGrid.innerHTML = '';
 
-    // Si on est dans l'onglet "Tous", on insère les séparateurs par catégorie
     if (activeCategory === "Tous" && !query) {
         let lastCategory = null;
         filteredDecks.forEach(deck => {
