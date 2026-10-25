@@ -215,7 +215,7 @@ const decks = [
             { question: "Propriété : Rôle des variables artificielles à l'optimum", answer: "À la solution optimale d'un problème valide, toutes les variables artificielles doivent impérativement valoir zéro." },
             { question: "Propriété : Contraintes saturées et prix duals", answer: "Les multiplicateurs associés aux contraintes indiquent la valeur marginale (shadow price) du second membre à l'optimum." }
         ]
-    }
+    },
     {
         id: "opti-volet1-qcm",
         category: "OPTIMISATION & RECHERCHE",
