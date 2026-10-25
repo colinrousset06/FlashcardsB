@@ -378,44 +378,34 @@ body {
     color: var(--text-muted);
     margin-top: 10px;
     margin-bottom: -5px;
-}
-/* Style spécifique pour le Deck QCM Optimisation Volet 1 (Rouge et Doré) */
-.deck-card.opti-v1 {
-    background-color: #5c0606;
-    border: 2px solid #d4af37;
-}
 
-.deck-card.opti-v1 .deck-title,
-.deck-card.opti-v1 .category-tag,
-.deck-card.opti-v1 .deck-desc,
-.deck-card.opti-v1 .cards-count {
-    color: #d4af37 !important;
-}
-
-/* Disposition verticale sous la question */
-.qcm-question-text {
-    margin-bottom: 12px;
-}
-
+    
+}/* Conteneur principal de la saisie QCM (doit être en colonne stricte) */
 .qcm-input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 15px !important;
 }
 
+/* Le champ de texte (input) doit occuper l'espace sous la question, pas à côté */
 .qcm-input {
-    width: 85%;
-    padding: 10px;
+    width: 85% !important;
+    max-width: 300px;
+    padding: 10px !important;
     border-radius: 5px;
     border: 1px solid #d4af37;
     background-color: #fff;
     color: #333;
     font-size: 1rem;
     text-align: center;
+    display: block !important;
 }
 
+/* Le bouton de validation en dessous de l'input */
 .qcm-submit-btn {
     background-color: #d4af37;
     color: #5c0606;
@@ -424,15 +414,14 @@ body {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s;
+    display: block !important;
 }
 
-.qcm-submit-btn:hover {
-    background-color: #f39c12;
-}
-
+/* Le texte d'indice en gris tout en bas */
 .qcm-hint {
     font-size: 0.85rem;
-    color: #888888; /* Texte en gris entre parenthèses */
+    color: #888888;
     font-style: italic;
+    text-align: center;
+    display: block !important;
 }
