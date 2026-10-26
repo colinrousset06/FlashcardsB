@@ -62,10 +62,11 @@ const decks = [
 
             { question: "Théorème de la projection orthogonale", answer: "Soit H un espace de Hilbert, et F ⊂ H un sous-espace vectoriel fermé. Alors pour tout x ∈ H, il existe un unique y ∈ F tel que : ∥x −y∥ = inf (z∈F) [∥x −z∥]. Ce vecteur y est appelé la projection orthogonale de x sur F, noté PF(x). Il est caractérisé par : x−y ⊥ F" },
             { question: "Théorème de représentation de Riesz (Hilbert)", answer: "Toute forme linéaire continue f sur un espace de Hilbert H s'écrit de manière unique f(x) = <x, y> pour un certain y dans H." },
-            { question: "Proposition : Complétude des sous-espaces", answer: "Tout sous-espace fermé d'un espace de Banach est un espace de Banach." },
-            { question: "Propriété : Compacts et fermés bornés", answer: "Tout compact dans un espace métrique est fermé et borné (la réciproque est fausse en dimension infinie)." },
-            { question: "Définition : Continuité lipschitzienne", answer: "Il existe K > 0 tel que ||f(x) - f(y)|| <= K ||x - y|| pour tout x, y." },
-            { question: "Proposition : Connexité par arcs", answer: "L'image d'un connexe par une application continue est connexe." }
+           
+            { question: " (Bonus) Proposition : Complétude des sous-espaces", answer: "Tout sous-espace fermé d'un espace de Banach est un espace de Banach." },
+            { question: " (Bonus) Propriété : Compacts et fermés bornés", answer: "Tout compact dans un espace métrique est fermé et borné (la réciproque est fausse en dimension infinie)." },
+            { question: " (Bonus) Définition : Continuité lipschitzienne", answer: "Il existe K > 0 tel que ||f(x) - f(y)|| <= K ||x - y|| pour tout x, y." },
+            { question: " (Bonus) Proposition : Connexité par arcs", answer: "L'image d'un connexe par une application continue est connexe." }
         ]
     },
 
