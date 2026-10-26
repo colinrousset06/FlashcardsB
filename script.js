@@ -55,8 +55,12 @@ const decks = [
             { question: "Définition : Qu'est-ce qu'un bornée (T)", answer: "il existe C > 0 tel que pour tout x ∈ E, ∥T(x)∥F ≤ C∥x∥E " },
             
             { question: "Théorème 5.1 : Équivalence des normes en dimension finie", answer: "Sur un espace vectoriel de dimension finie, toutes les normes sont équivalentes, alors il existe des constantes strictement positives C1 et C2 telles que pour tout x ∈ E : C1∥x∥a ≤ ∥x∥b ≤ C2∥x∥a. Les normes ∥x∥p, 1 ≤ p ≤ +∞, sont toutes équivalentes sur Rn" },
-            { question: "Définition : Espace préhilbertien et Hilbert", answer: "Espace vectoriel muni d'un produit scalaire. S'il est complet pour la norme associée, c'est un espace de Hilbert." },
-            { question: "Théorème de la projection orthogonale", answer: "Dans un Hilbert, pour tout x et tout sous-espace fermé F, il existe un unique y dans F réalisant la distance minimale, caractérisé par (x - y) orthogonal à F." },
+            { question: "Définition : Le dual topologique de E, noté E′ ou E∗, est :", answer: "Espace vectoriel muni d'un produit scalaire. S'il est complet pour la norme associée, c'est un espace de Hilbert." },
+
+            { question: "Définition : Espace préhilbertien et Hilbert", answer: " Soit E un espace vectoriel normé sur K = R ou C. Le dual topologique de E, noté E′ ou E∗, est l’ensemble des applications linéaires continues de E dans K. Norme du dual : ∥f∥E∗ = sup (x∈E x̸=0) [(/f(x)/)/∥x∥], Cela fait de E∗ un espace vectoriel normé.  L’espace (E∗,∥f∥E∗) est un espace de Banach, i.e. il est complet." },
+            { question: "Définition : Un espace de Hilbert est un espace vectoriel normé H", answer: "Un espace de Hilbert est un espace vectoriel normé H sur K = R ou C, muni d’un produit scalaire ⟨·,·⟩ tel que la norme soit induite par celui-ci : ∥x∥ = racine de ⟨x, x⟩. De plus, l’espace est complet pour cette norme." },
+
+            { question: "Théorème de la projection orthogonale", answer: "Soit H un espace de Hilbert, et F ⊂ H un sous-espace vectoriel fermé. Alors pour tout x ∈ H, il existe un unique y ∈ F tel que : ∥x −y∥ = inf (z∈F) [∥x −z∥]. Ce vecteur y est appelé la projection orthogonale de x sur F, noté PF(x). Il est caractérisé par : x−y ⊥ F" },
             { question: "Théorème de représentation de Riesz (Hilbert)", answer: "Toute forme linéaire continue f sur un espace de Hilbert H s'écrit de manière unique f(x) = <x, y> pour un certain y dans H." },
             { question: "Proposition : Complétude des sous-espaces", answer: "Tout sous-espace fermé d'un espace de Banach est un espace de Banach." },
             { question: "Propriété : Compacts et fermés bornés", answer: "Tout compact dans un espace métrique est fermé et borné (la réciproque est fausse en dimension infinie)." },
