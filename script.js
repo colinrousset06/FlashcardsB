@@ -40,6 +40,7 @@ const decks = [
             { question: "Théorème 3.4 : Bolzano-Weierstrass dans ℝ^n", answer: "Toute suite bornée dans ℝ^n admet une sous-suite convergente." },
 
             { question: "Proposition 4.4 : Image d'un compact par une fonction continue", answer: "L'image d'un compact par une application continue est un compact." },
+            { question: "Proposition 4.5 : Toute fct C° sur un compact est : ", answer: "Toute fonction continue sur un compact est bornée." },
             { question: "Théorème 4.1 : Théorème de Heine", answer: "Toute fonction continue d'un compact K dans ℝ^n est uniformément continue sur K." },
            
             { question: "Définition : Suite de Cauchy", answer: "Suite dont les termes se rapprochent arbitrairement les uns des autres lorsque les indices grandissent. et ∀ε > 0, ∃N ∈N, ∀m,n≥N, ∥xn−xm∥<ε." },
@@ -53,7 +54,7 @@ const decks = [
             { question: "Proposition. Soient E et F deux espaces de Banach, et soit T : E → F une application linéaire. Les assertions suivantes sont équivalentes :" , answer:"1. T est continue; 2. T est continue en un point; 3. T est bornée; 4. T est Lipschitzienne sur E."},
             { question: "Définition : Qu'est-ce qu'un bornée (T)", answer: "il existe C > 0 tel que pour tout x ∈ E, ∥T(x)∥F ≤ C∥x∥E " },
             
-            { question: "Théorème 5.1 : Équivalence des normes en dimension finie", answer: "Sur un espace vectoriel de dimension finie, toutes les normes sont équivalentes." },
+            { question: "Théorème 5.1 : Équivalence des normes en dimension finie", answer: "Sur un espace vectoriel de dimension finie, toutes les normes sont équivalentes, alors il existe des constantes strictement positives C1 et C2 telles que pour tout x ∈ E : C1∥x∥a ≤ ∥x∥b ≤ C2∥x∥a. Les normes ∥x∥p, 1 ≤ p ≤ +∞, sont toutes équivalentes sur Rn" },
             { question: "Définition : Espace préhilbertien et Hilbert", answer: "Espace vectoriel muni d'un produit scalaire. S'il est complet pour la norme associée, c'est un espace de Hilbert." },
             { question: "Théorème de la projection orthogonale", answer: "Dans un Hilbert, pour tout x et tout sous-espace fermé F, il existe un unique y dans F réalisant la distance minimale, caractérisé par (x - y) orthogonal à F." },
             { question: "Théorème de représentation de Riesz (Hilbert)", answer: "Toute forme linéaire continue f sur un espace de Hilbert H s'écrit de manière unique f(x) = <x, y> pour un certain y dans H." },
