@@ -120,7 +120,56 @@ const decks = [
             { question: "Théorème D.1 : Représentation de Riesz pour les espaces L^p", answer: "Le dual topologique de L^p est isométriquement isomorphe à L^p' (avec 1/p + 1/p' = 1)." }
         ]
     },
+    {
+        id: "series-ch1",
+        category: "SÉRIE NUMÉRIQUE",
+        title: "Chapitre 1 : Généralités, Séries à termes positifs & Convergence",
+        color: "#e67e22", // Orange ocre
+        icon: "📈",
+        description: "Définition des séries numériques, sommes partielles, nature d'une série, critères de comparaison, de d'Alembert et de Cauchy.",
+        cards: [
+            { question: "Définition : Série numérique", answer: "Couple formé d'une suite (u_n) et de la suite de ses sommes partielles (S_N) définie par S_N = sum_{n=0}^N u_n." },
+            { question: "Définition : Convergence d'une série", answer: "Une série de terme général u_n converge si la suite des sommes partielles (S_N) admet une limite finie lorsque N tend vers +inf." },
+            { question: "Définition : Somme d'une série convergente", answer: "La limite de la suite des sommes partielles, notée sum_{n=0}^{+inf} u_n = lim_{N->+inf} S_N." },
+            { question: "Définition : Série divergente", answer: "Série dont la suite des sommes partielles diverge (vers +inf, -inf ou n'a pas de limite)." },
+            { question: "Propriété : Condition nécessaire de convergence", answer: "Si la série sum u_n converge, alors son terme général u_n tend nécessairement vers 0 lorsque n tend vers +inf. (Attention : la réciproque est fausse !)" },
+            { question: "Définition : Série divergente grossièrement", answer: "Série dont le terme général u_n ne tend pas vers 0, ce qui entraîne immédiatement sa divergence." },
+            { question: "Exemple classique : Série géométrique", answer: "sum q^n converge si et seulement si |q| < 1. Sa somme vaut alors 1 / (1 - q)." },
+            { question: "Exemple classique : Séries de Riemann", answer: "sum 1 / n^alpha converge si et seulement si alpha > 1." },
+            { question: "Définition : Séries à termes positifs", answer: "Série où tous les termes u_n sont réels et positifs (ou nuls) à partir d' un certain rang (u_n >= 0)." },
+            { question: "Proposition : Caractérisation des séries à termes positifs", answer: "Une série à termes positifs converge si et seulement si la suite de ses sommes partielles (S_N) est majorée." },
+            { question: "Théorème : Critère de comparaison simple (majoration/minoration)", answer: "Si 0 <= u_n <= v_n pour tout n :\n- Si sum v_n converge, alors sum u_n converge.\n- Si sum u_n diverge, alors sum v_n diverge." },
+            { question: "Théorème : Comparaison par équivalence (asymptotique)", answer: "Si u_n ~ v_n au voisinage de +inf avec u_n >= 0 et v_n >= 0, alors les deux séries sum u_n et sum v_n sont de même nature." },
+            { question: "Théorème : Comparaison par domination (règle du petit o)", answer: "Si u_n = o(v_n) au voisinage de +inf avec v_n >= 0 :\n- Si sum v_n converge, alors sum u_n converge." },
+            { question: "Règle de d'Alembert (Critère du quotient)", answer: "Soit (u_n) à termes strictement positifs telle que lim (u_{n+1} / u_n) = L :\n- Si L < 1 : convergence.\n- Si L > 1 : divergence.\n- Si L = 1 : conclusion impossible." },
+            { question: "Règle de Cauchy (Critère de la racine)", answer: "Soit (u_n) à termes positifs telle que lim (u_n)^(1/n) = L :\n- Si L < 1 : convergence.\n- Si L > 1 : divergence.\n- Si L = 1 : conclusion impossible." },
+            { question: "Comparaison série-intégrale (Critère de Cauchy-Maclaurin)", answer: "Si f est une fonction positive, décroissante et continue sur [1, +inf[ telle que f(n) = u_n, alors la série sum u_n et l'intégrale impropre int_1^{+inf} f(t) dt sont de même nature." }
+        ]
+    },
 
+    // ==========================================
+    // 6. NOUVEAU DECK : SÉRIES NUMÉRIQUES - CHAPITRE 2
+    // ==========================================
+    {
+        id: "series-ch2",
+        category: "SÉRIE NUMÉRIQUE",
+        title: "Chapitre 2 : Séries à termes quelconques, absolue convergence & théorèmes",
+        color: "#2980b9", // Bleu intense
+        icon: "📉",
+        description: "Convergence absolue, semi-convergence, séries alternées, critère de Leibniz, théorèmes de réarrangement et produit de Cauchy.",
+        cards: [
+            { question: "Définition : Convergence absolue", answer: "Une série sum u_n est dite absolument convergente si la série des valeurs absolues sum |u_n| converge." },
+            { question: "Proposition : Lien entre absolue convergence et convergence", answer: "Toute série absolument convergente est convergente. (La réciproque est fausse : on parle alors de semi-convergence)." },
+            { question: "Définition : Semi-convergence", answer: "Une série est semi-convergente lorsqu'elle est convergente mais qu'elle n'est pas absolument convergente (ex : série harmonique alternée)." },
+            { question: "Définition : Séries alternées", answer: "Série de la forme sum (-1)^n u_n ou sum (-1)^{n+1} u_n où la suite (u_n) est à termes positifs." },
+            { question: "Théorème : Critère spécial des séries alternées (CSSA / Leibniz)", answer: "Si (u_n) est une suite réelle décroissante, de limite nulle, alors la série alternée sum (-1)^n u_n converge, et le reste R_n est du signe du premier terme omis avec |R_n| <= u_{n+1}." },
+            { question: "Définition : Produit de Cauchy de deux séries", answer: "Série produit de sum a_n et sum b_n dont le terme général c_n est défini par c_n = sum_{k=0}^n a_k b_{n-k}." },
+            { question: "Théorème de Mertens", answer: "Si sum a_n converge absolument vers A et sum b_n converge vers B, alors leur produit de Cauchy converge vers le produit A * B." },
+            { question: "Théorème de Riemann sur les réarrangements", answer: "Si une série est semi-convergente, on peut réordonner ses termes pour faire converger la somme vers n'importe quel réel donné, ou même faire diverger la suite des sommes vers ±inf." },
+            { question: "Propriété : Réarrangement des séries absolument convergentes", answer: "Pour une série absolument convergente, toute permutation des termes conserve la nature de la série ainsi que la valeur de sa somme." },
+            { question: "Inégalité triangulaire pour les séries", answer: "Si une série converge absolument, alors |sum_{n=0}^{+inf} u_n| <= sum_{n=0}^{+inf} |u_n|." }
+        ]
+    },
     // ==========================================
     // 3. OPTIMISATION & RO - CHAPITRE 1
     // ==========================================
