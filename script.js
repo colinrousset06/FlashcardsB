@@ -175,7 +175,7 @@ const decks = [
         icon: "📊",
         description: "Programmation linéaire, forme canonique/standard, solutions de base, algorithme du simplexe et tableaux.",
         cards: [
-            { question: "Définition : Programme linéaire (PL)", answer: "Problème d'optimisation consistant à maximiser ou minimiser une fonction objectif linéaire sous des contraintes affines." },
+             /* { question: "Définition : Programme linéaire (PL)", answer: "Problème d'optimisation consistant à maximiser ou minimiser une fonction objectif linéaire sous des contraintes affines." },
             { question: "Hypothèse : Proportionnalité", answer: "Les contributions de chaque variable à l'objectif et aux contraintes sont strictement proportionnelles à sa valeur." },
             { question: "Hypothèse : Additivité", answer: "La contribution totale est la somme des contributions individuelles de chaque variable." },
             { question: "Hypothèse : Divisibilité", answer: "Les variables de décision peuvent prendre des valeurs fractionnaires ou continues." },
@@ -206,7 +206,7 @@ const decks = [
             { question: "Définition : Méthode des pénalités (Grand M)", answer: "Pénalisation lourde des variables artificielles dans la fonction objectif (-M)." },
             { question: "Propriété : Rôle des variables artificielles", answer: "À l'optimum d'un problème valide, toutes les variables artificielles doivent valoir zéro." },
             { question: "Propriété : Contraintes saturées et prix duals", answer: "Les multiplicateurs indiquent la valeur marginale (shadow price) du second membre." }
-        ]
+         */ ]
     }
 ];
 
