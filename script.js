@@ -90,11 +90,16 @@ const decks = [
             { question: "Définition 3.4 : Espace mesurable", answer: "Couple (X, A) formé d'un ensemble X et d'une tribu A sur X." },
 
             { question: "Définition 3.5 : Mesure positive", answer: "Application mu de A dans [0, +inf] telle que mu(∅) = 0 et sigma-additive pour des ensembles disjoints mu(U An) = Somme(mu(An))." },
-            { question: "Définition : Mesure de Dirac", answer: "Mesure delta_x0 définie sur (X, P(X)) valant 1 si x0 ∈ A et 0 sinon." },
-            { question: "Définition : Mesure de comptage", answer: "Mesure associant à un ensemble son nombre d'éléments s'il est fini, ou +inf s'il est infini." },
+            { question: "Définition : Mesure de Dirac", answer: "A c X, Mesure delta_x0 définie sur (X, P(X)) valant 1 si x0 ∈ A et 0 sinon." },
+            { question: "Définition : Mesure de comptage", answer: "Mesure associant à un ensemble son nombre d'éléments s'il est fini, ou +inf s'il est infini. µ est bien une mesure positive sur (X,P(X))" },
+            { question: "Exemple : La mesure de Lebesgue sur R, est l’unique mesure notée λ, telle que :", answer: " (i) Elle associe chaque intervalle [a,b] ⊂ R sa longueur : λ([a, b]) = b − a. (ii) Elle est invariante par translation : pour tout x ∈ R, λ(A + x) = λ(A)."},
+            { question: "Exemple : La mesure de Lebesgue sur R s'étend sur quoi :", answer: "Elle s’étend une mesure bien définie sur la tribu de Borel de R, (puis une tribu plus large appelée la tribu de Lebesgue!)"
+            { question: "Exemple : La mesure de Lebesgue sur R**N :", answer: "La mesure de Lebesgue sur R**N est une généralisation de la notion de (longueur, d'aire, volume) à des ensembles beaucoup plus généraux que les seuls pavés ou domaines réguliers." },
+            
             { question: "Définition 4.1 : Fonction mesurable", answer: "Fonction f : X -> R barre telle que pour tout a dans R, l'ensemble {x | f(x) > a} appartient à la tribu A." },
             { question: "Remarque 4.1 : Équivalences de mesurabilité", answer: "La condition f(x) > a peut être remplacée par f(x) >= a, f(x) < a ou f(x) <= a." },
             { question: "Théorème 4.1 : Stabilité par composition", answer: "La composée de deux fonctions mesurables est mesurable." },
+            
             { question: "Propriété 4.1 : Stabilité algébrique des fonctions mesurables", answer: "Si f et g sont mesurables, alors f+g, f*g, |f|, min(f,g) et max(f,g) sont mesurables." },
             { question: "Théorème 4.2 : Stabilité par opérations limites", answer: "Le supremum, l'infimum, la limsup et la liminf d'une suite de fonctions mesurables sont mesurables." },
             { question: "Définition 4.2 : Ensemble négligeable", answer: "Ensemble N appartenant à la tribu dont la mesure est nulle (mu(N) = 0)." },
