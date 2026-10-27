@@ -153,7 +153,7 @@ const decks = [
     {
         id: "series-ch2",
         category: "SÉRIE NUMÉRIQUE",
-        title: "Chapitre 2 : Séries à termes quelconques, CvAbsolue & théorèmes",
+        title: "Chapitre 2 : Séries à termes qlcqs, 'CA' & théorèmes",
         color: "#2980b9", // Bleu intense
         icon: "📉",
         description: "Convergence absolue, semi-convergence, séries alternées, critère de Leibniz, théorèmes de réarrangement et produit de Cauchy.",
