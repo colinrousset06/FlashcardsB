@@ -81,13 +81,16 @@ const decks = [
         icon: "📐",
         description: "Tribus, mesures, fonctions mesurables, intégrale de Lebesgue, théorèmes de convergence et espaces L^p.",
         cards: [
-            { question: "Définition 3.1 : Tribu (ou sigma-algèbre)", answer: "Collection de sous-ensembles d'un ensemble X stable par passage au complémentaire et par union dénombrable." },
+
+            { question: "Définition : L’intagrale de Riemann", answer: "L’intagrale de Riemann repose sur l’idée suivante : pour calculer l’aire sous une courbe f définie sur un intervalle [a,b], on découpe cet intervalle en petits sous-intervalles, puis on somme les aires de rectangles qui approchent la courbe." },          
+            { question: "Définition 3.1 : Tribu (ou sigma-algèbre)", answer: "Collection de sous-ensembles d'un ensemble X stable par passage au complémentaire et par union dénombrable. (i) X ∈A (ii) Si B ∈ A, alors B**c = X \B ∈A ; 3. Si (Bn)n∈N ⊂ A, alors U Bn ∈ A" },
             { question: "Propriété : Stabilité des tribus", answer: "Une tribu est également stable par intersection dénombrable, union finie et intersection finie." },
             { question: "Définition 3.2 : Tribu borélienne sur ℝ^n", answer: "Tribu engendrée par les ouverts de ℝ^n (notée B(ℝ^n))." },
-            { question: "Définition 3.3 : Tribu borélienne sur un ouvert", answer: "Tribu induite sur un ouvert $\\Omega$ par intersection avec les boréliens de ℝ^n." },
+            { question: "Définition 3.3 : Tribu borélienne sur un ouvert", answer: "Tribu induite sur un ouvert Omega par intersection avec les boréliens de ℝ^n. (B(Ω) = {A∩Ω|A∈B(Rn)})" },
             { question: "Définition 3.4 : Espace mesurable", answer: "Couple (X, A) formé d'un ensemble X et d'une tribu A sur X." },
-            { question: "Définition 3.5 : Mesure positive", answer: "Application mu de A dans [0, +inf] telle que mu(emptyset) = 0 et sigma-additive pour des ensembles disjoints." },
-            { question: "Définition : Mesure de Dirac", answer: "Mesure delta_x0 définie sur (X, P(X)) valant 1 si x0 app. A et 0 sinon." },
+
+            { question: "Définition 3.5 : Mesure positive", answer: "Application mu de A dans [0, +inf] telle que mu(∅) = 0 et sigma-additive pour des ensembles disjoints mu(U An) = Somme(mu(An))." },
+            { question: "Définition : Mesure de Dirac", answer: "Mesure delta_x0 définie sur (X, P(X)) valant 1 si x0 ∈ A et 0 sinon." },
             { question: "Définition : Mesure de comptage", answer: "Mesure associant à un ensemble son nombre d'éléments s'il est fini, ou +inf s'il est infini." },
             { question: "Définition 4.1 : Fonction mesurable", answer: "Fonction f : X -> R barre telle que pour tout a dans R, l'ensemble {x | f(x) > a} appartient à la tribu A." },
             { question: "Remarque 4.1 : Équivalences de mesurabilité", answer: "La condition f(x) > a peut être remplacée par f(x) >= a, f(x) < a ou f(x) <= a." },
