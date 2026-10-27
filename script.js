@@ -95,7 +95,8 @@ const decks = [
             { question: "Exemple : La mesure de Lebesgue sur R, est l’unique mesure notée λ, telle que :", answer: " (i) Elle associe chaque intervalle [a,b] ⊂ R sa longueur : λ([a, b]) = b − a. (ii) Elle est invariante par translation : pour tout x ∈ R, λ(A + x) = λ(A)."},
             { question: "Exemple : La mesure de Lebesgue sur R s'étend sur quoi :", answer: "Elle s’étend une mesure bien définie sur la tribu de Borel de R, (puis une tribu plus large appelée la tribu de Lebesgue!)"
             { question: "Exemple : La mesure de Lebesgue sur R**N :", answer: "La mesure de Lebesgue sur R**N est une généralisation de la notion de (longueur, d'aire, volume) à des ensembles beaucoup plus généraux que les seuls pavés ou domaines réguliers." },
-            
+
+            { question: "Définition : Un espace mesuré est un triplet (X,A,µ) où :", answer:"X est un ensemble, A est une tribu sur X, µ est une mesure sur A"},
             { question: "Définition 4.1 : Fonction mesurable", answer: "Fonction f : X -> R barre telle que pour tout a dans R, l'ensemble {x | f(x) > a} appartient à la tribu A." },
             { question: "Remarque 4.1 : Équivalences de mesurabilité", answer: "La condition f(x) > a peut être remplacée par f(x) >= a, f(x) < a ou f(x) <= a." },
             { question: "Théorème 4.1 : Stabilité par composition", answer: "La composée de deux fonctions mesurables est mesurable." },
