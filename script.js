@@ -105,7 +105,8 @@ const decks = [
             
             { question: "Propriété 4.1 : Stabilité algébrique des fonctions mesurables", answer: "Si f et g sont mesurables, alors f+g, f*g, |f|, min(f,g) et max(f,g) sont mesurables." },
             { question: "Théorème 4.2 : Stabilité par opérations limites", answer: "Le supremum, l'infimum, la limsup et la liminf d'une suite de fonctions mesurables sont mesurables." },
-            { question: "Définition 4.2 : Ensemble négligeable", answer: "Ensemble N appartenant à la tribu dont la mesure est nulle (mu(N) = 0)." },
+            { question: "Définition 4.2 : Ensemble négligeable", answer: "Ensemble N appartenant à la tribu dont la mesure est nulle (µ(N) = 0)." },
+            { question: "Exemples pour la mesure de Lebesgue λ sur R qui sont négligeables", answer:"un singleton est négligeable, un ensemble ni est négligeable,l’ensemble des rationnels Q est négligeable"},
             { question: "Définition 4.3 : Propriété presque partout (p.p.)", answer: "Propriété vérifiée sur le complémentaire d'un ensemble négligeable." },
             
             { question: "Définition 6.1 : Fonction étagée (simple)", answer: "Fonction mesurable ne prenant qu'un nombre fini de valeurs réelles." },
