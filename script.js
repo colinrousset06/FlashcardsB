@@ -93,7 +93,7 @@ const decks = [
             { question: "Définition : Mesure de Dirac", answer: "A c X, Mesure delta_x0 définie sur (X, P(X)) valant 1 si x0 ∈ A et 0 sinon." },
             { question: "Définition : Mesure de comptage", answer: "Mesure associant à un ensemble son nombre d'éléments s'il est fini, ou +inf s'il est infini. µ est bien une mesure positive sur (X,P(X))" },
             { question: "Exemple : La mesure de Lebesgue sur R, est l’unique mesure notée λ, telle que :", answer: " (i) Elle associe chaque intervalle [a,b] ⊂ R sa longueur : λ([a, b]) = b − a. (ii) Elle est invariante par translation : pour tout x ∈ R, λ(A + x) = λ(A)."},
-            { question: "Exemple : La mesure de Lebesgue sur R s'étend sur quoi :", answer: "Elle s’étend une mesure bien définie sur la tribu de Borel de R, (puis une tribu plus large appelée la tribu de Lebesgue!)"
+            { question: "Exemple : La mesure de Lebesgue sur R s'étend sur quoi :", answer: "Elle s’étend une mesure bien définie sur la tribu de Borel de R, (puis une tribu plus large appelée la tribu de Lebesgue!)"},
             { question: "Exemple : La mesure de Lebesgue sur R**N :", answer: "La mesure de Lebesgue sur R**N est une généralisation de la notion de (longueur, d'aire, volume) à des ensembles beaucoup plus généraux que les seuls pavés ou domaines réguliers." },
 
             { question: "Définition : Un espace mesuré est un triplet (X,A,µ) où :", answer:"X est un ensemble, A est une tribu sur X, µ est une mesure sur A"},
