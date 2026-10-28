@@ -130,9 +130,9 @@ const decks = [
             { question: "Propriété 7.3 :  Soit (X,A,µ) un espace mesuré, et soit f : X → R une fonction telle que f ≥ 0 µ-presque partout. Si ∫f dµ =0,:", answer: "∫f(x)dx=0"},
             
             
-            { question: "Définition 8.1 : Partie positive et négative", answer: "f^+ = max(f, 0) et f^- = max(-f, 0), telles que f = f^+ - f^- et |f| = f^+ + f^-." },
-            { question: "Définition 8.2 : Intégrale d'une fonction générale", answer: "Si f^+ et f^- sont d'intégrales finies, int f = int f^+ - int f^-." },
-            { question: "Théorème 8.1 : Caractérisation de l'intégrabilité", answer: "Une fonction mesurable est intégrable au sens de Lebesgue si et seulement si son intégrale en valeur absolue est finie (int |f| < +inf)." },
+            { question: "Définition 8.1 : Partie positive et négative (fonction mesurable et positive)", answer: "f**+(x) = max(f, 0) et f**-(x) = max(-f, 0), telles que f = f**+ - f**- et |f| = f**+ + f**-." },
+            { question: "Définition 8.2 : Intégrale de Lebesgue d’une fonction réelle", answer: "Si f**+ et f**- sont d'intégrales finies, ∫f = ∫f**+ - ∫f**-." },
+            { question: "Théorème 8.1 : Caractérisation de l'intégrabilité,  Une fonction f : X → R est intégrable (au sens de Lebesgue) si et seulement si : ", answer: " ∫|f| dµ < ∞ " },
             
             { question: "Théorème 9.1 : Théorème de convergence monotone (Beppo-Levi)", answer: "Pour une suite croissante de fonctions mesurables positives convergeant vers f p.p., la limite de l'intégrale est l'intégrale de f." },
             { question: "Lemme 9.1 : Lemme de Fatou", answer: "Pour une suite de fonctions mesurables positives, l'intégrale de la liminf est inférieure ou égale à la liminf des intégrales." },
