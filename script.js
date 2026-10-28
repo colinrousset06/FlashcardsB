@@ -76,7 +76,7 @@ const decks = [
     {
         id: "fourier-ch2",
         category: "ANALYSE DE FOURIER",
-        title: "Chapitre 2 : Intégrale de Lebesgue",
+        title: "Chapitre 2 : Intégrale de Lebesgue (Partie 1)",
         color: "#689f78", // Vert
         icon: "📐",
         description: "Tribus, mesures, fonctions mesurables, intégrale de Lebesgue, théorèmes de convergence et espaces L^p.",
@@ -100,7 +100,7 @@ const decks = [
             { question: "Définition 4.1 : Fonction mesurable", answer: "Fonction f : X -> R barre telle que pour tout a dans R, l'ensemble {x | f(x) > a} appartient à la tribu A." },
             { question: "Remarque 4.1 : Équivalences de mesurabilité", answer: "La condition f(x) > a peut être remplacée par f(x) >= a, f(x) < a ou f(x) <= a." },
             { question: "Exemple 4.1 : Toute fonction continue f : R → R est :", answer: "Toute fonction continue f : R → R est mesurable (par rapport la tribu de Borel)." },
-            { question: "Exemple 4.2 : La fonction indicatrice/ fonction en escalier est :", answer: "La fonction indicatrice/ en escalier f(x) = somme(ak) (quand ak est entre xk-1 et xk) est mesurable" },      
+            { question: "Exemple 4.2 : La fonction indicatrice/ fonction en escalier est :", answer: "La fonction indicatrice/ en escalier f(x) = Σ ak (quand ak est entre xk-1 et xk) est mesurable" },      
             { question: "Théorème 4.1 : Stabilité par composition", answer: "La composée de deux fonctions mesurables est mesurable." },
             
             { question: "Propriété 4.1 : Stabilité algébrique des fonctions mesurables", answer: "Si f et g sont mesurables, alors f+g, f*g, |f|, min(f,g) et max(f,g) sont mesurables." },
@@ -124,8 +124,12 @@ const decks = [
             { question: "Définition 7.1 : Fonction mesurable positive", answer: "Fonction mesurable à valeurs dans [0, +inf], f(x) ≥ 0 pour tout x ∈ X." },
             { question: "Proposition 7.1 : On a: φn(x)", answer:" (1/2**n)* partie entière ((2**n)*min f(x), n)"},
             { question: "Théorème 7.1 (Densité des fonctions étagées dans C(K)). Soit K ⊂ R**n un compact. Pour toute fonction continue f : K → R et tout ε > 0, il existe une fonction en escalier φ : K → R telle que :", answer:"∥f−φ∥ ∞ <ε"},                
-            { question: "Définition 7.2 : Intégrale de Lebesgue d'une fonction positive", answer: "Supremum des intégrales des fonctions étagées positives inférieures ou égales à f." },
+            { question: "Définition 7.2 : Intégrale de Lebesgue d'une fonction positive,  Soit (X,A ,µ) un espace mesuré, et soit f : X → [0,+∞] une fonction mesurable. On appelle intégrale de Lebesgue de f la valeur :", answer: "∫f dµ = ∫sup (φdµ) = (lim ∫(φn dµ)) si φn est une suite croissante, φ est une fonction étagée et 0 ≤ φ ≤ f " },
             { question: "Propriété 7.1 & 7.2 : Linéarité et monotonie de l'intégrale positive", answer: "L'intégrale positive conserve la linéarité positive et la monotonie." },
+            { question: "Propriété 7.2 : Soit f une fonction mesurable positive presque partout sur X et A∈A un ensemble négligeable. Alors:", answer: "∫f(x)dx=0"},
+            { question: "Propriété 7.3 :  Soit (X,A,µ) un espace mesuré, et soit f : X → R une fonction telle que f ≥ 0 µ-presque partout. Si ∫f dµ =0,:", answer: "∫f(x)dx=0"},
+            
+            
             { question: "Définition 8.1 : Partie positive et négative", answer: "f^+ = max(f, 0) et f^- = max(-f, 0), telles que f = f^+ - f^- et |f| = f^+ + f^-." },
             { question: "Définition 8.2 : Intégrale d'une fonction générale", answer: "Si f^+ et f^- sont d'intégrales finies, int f = int f^+ - int f^-." },
             { question: "Théorème 8.1 : Caractérisation de l'intégrabilité", answer: "Une fonction mesurable est intégrable au sens de Lebesgue si et seulement si son intégrale en valeur absolue est finie (int |f| < +inf)." },
@@ -134,7 +138,7 @@ const decks = [
             { question: "Lemme 9.1 : Lemme de Fatou", answer: "Pour une suite de fonctions mesurables positives, l'intégrale de la liminf est inférieure ou égale à la liminf des intégrales." },
             { question: "Théorème 9.2 : Théorème de convergence dominée de Lebesgue", answer: "Si une suite de fonctions converge p.p. et est dominée en module par une fonction intégrable, alors la limite de l'intégrale est l'intégrale de la limite." },
             
-            { question: "Définition 11.1 : Espaces L^p(Omega)", answer: "Espace des classes de fonctions mesurables dont la puissance p de la valeur absolue est d'intégrale finie." },
+            /*{ question: "Définition 11.1 : Espaces L^p(Omega)", answer: "Espace des classes de fonctions mesurables dont la puissance p de la valeur absolue est d'intégrale finie." },
             { question: "Théorème 11.1 : Théorème de Riesz-Fischer", answer: "L'espace (L^p, ||.||_p) muni de sa norme est un espace de Banach (et un Hilbert pour p=2)." },
             { question: "Proposition 11.2 : Inégalité de Minkowski dans L^p", answer: "||f + g||_p <= ||f||_p + ||g||_p." },
             { question: "Proposition 11.3 : Inégalité de Hölder", answer: "Pour 1/p + 1/p' = 1, ||fg||_1 <= ||f||_p * ||g||_p'." },
@@ -143,7 +147,7 @@ const decks = [
             { question: "Théorème 13.2 : Théorème de Fubini", answer: "Pour une fonction intégrable sur un espace produit, l'ordre d'intégration peut être inversé." },
             { question: "Théorème 14.1 : Théorème de changement de variables", answer: "Formule transformant une intégrale via un C^1-difféomorphisme en multipliant par la valeur absolue du jacobien." },
             { question: "Théorème D.1 : Représentation de Riesz pour les espaces L^p", answer: "Le dual topologique de L^p est isométriquement isomorphe à L^p' (avec 1/p + 1/p' = 1)." }
-        ]
+        */]
     },
     {
         id: "series-ch1",
