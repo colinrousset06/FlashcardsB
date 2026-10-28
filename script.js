@@ -110,6 +110,9 @@ const decks = [
             { question: "Définition 4.3 : Propriété presque partout (p.p.)", answer: " Soit (X,A,µ) un espace mesuré. On dit qu’une propriété P(x) est vérifié presque partout sur X (ou µ presque partout), si : µ({x ∈ X | P(x) est fausse}) = 0." },
             { question: "Exemple 4.4 :  Soient f,g : X → R deux fonctions mesurables. On dit que f = g presque partout sur X si :", answer:"µ({x ∈ X | f(x) ̸ = g(x)}) = 0. Autrement dit, f(x) = g(x) pour µ-presque tout x ∈ X"},
             { question: "Proposition 4.1 : Soit f : R → R et soit N ⊂ R un ensemble négligeable (i.e. λ(N) = 0) tel que f soit continue sur R \ N. Alors:", answer:"f est (Lebesgue-)mesurable."},
+
+            { question: "Définition 5 : Intégration par rapport la mesure de Dirac", answer: "Soit (X,A) un espace mesurable, x0 ∈ X et f : X →R une fonction mesurable. On considère la mesure de Dirac δx0. On définit alors l’intégrale de f par rapport δx0 : ∫f(x)dδx0(x) = f(x0)" },
+            { question: "Définition 5 : Intégration par rapport la mesure de comptage", answer: " Soit X un ensemble, muni de la tribu P(X), et soit µ la mesure de comptage. Soit f : X → R une fonction mesurable. On définit l’intégrale de f par rapport µ par la somme suivante : ∫f(x)dµ(x) = Σf(x) où x appartient à X. Si la série converge absolument (Σ|f(x)|< ∞). Dans ce cas, on dit que f ∈ L**1(X,µ)." },
             
             { question: "Définition 6.1 : Fonction étagée (simple)", answer: "Fonction mesurable ne prenant qu'un nombre fini de valeurs réelles." },
             { question: "Définition 6.2 : Intégrale d'une fonction étagée positive", answer: "Somme sur i de a_i * mu(A_i cap E) pour une représentation sous forme de partition mesurable." },
