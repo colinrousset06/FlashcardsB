@@ -106,8 +106,10 @@ const decks = [
             { question: "Propriété 4.1 : Stabilité algébrique des fonctions mesurables", answer: "Si f et g sont mesurables, alors f+g, f*g, |f|, min(f,g) et max(f,g) sont mesurables." },
             { question: "Théorème 4.2 : Stabilité par opérations limites", answer: "Le supremum, l'infimum, la limsup et la liminf d'une suite de fonctions mesurables sont mesurables." },
             { question: "Définition 4.2 : Ensemble négligeable", answer: "Ensemble N appartenant à la tribu dont la mesure est nulle (µ(N) = 0)." },
-            { question: "Exemples pour la mesure de Lebesgue λ sur R qui sont négligeables", answer:"un singleton est négligeable, un ensemble ni est négligeable,l’ensemble des rationnels Q est négligeable"},
-            { question: "Définition 4.3 : Propriété presque partout (p.p.)", answer: "Propriété vérifiée sur le complémentaire d'un ensemble négligeable." },
+            { question: "Exemples pour la mesure de Lebesgue λ sur R qui sont négligeables", answer:"un singleton est négligeable, un ensemble fini est négligeable, l’ensemble des rationnels Q est négligeable"},
+            { question: "Définition 4.3 : Propriété presque partout (p.p.)", answer: " Soit (X,A,µ) un espace mesuré. On dit qu’une propriété P(x) est vérifié presque partout sur X (ou µ presque partout), si : µ({x ∈ X | P(x) est fausse}) = 0." },
+            { question: "Exemple 4.4 :  Soient f,g : X → R deux fonctions mesurables. On dit que f = g presque partout sur X si :", answer:"µ({x ∈ X | f(x) ̸ = g(x)}) = 0. Autrement dit, f(x) = g(x) pour µ-presque tout x ∈ X"},
+            { question: "Proposition 4.1 : Soit f : R → R et soit N ⊂ R un ensemble négligeable (i.e. λ(N) = 0) tel que f soit continue sur R \ N. Alors:", answer:"f est (Lebesgue-)mesurable."},
             
             { question: "Définition 6.1 : Fonction étagée (simple)", answer: "Fonction mesurable ne prenant qu'un nombre fini de valeurs réelles." },
             { question: "Définition 6.2 : Intégrale d'une fonction étagée positive", answer: "Somme sur i de a_i * mu(A_i cap E) pour une représentation sous forme de partition mesurable." },
