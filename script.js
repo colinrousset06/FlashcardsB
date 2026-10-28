@@ -115,10 +115,10 @@ const decks = [
             { question: "Définition 5 : Intégration par rapport la mesure de comptage", answer: " Soit X un ensemble, muni de la tribu P(X), et soit µ la mesure de comptage. Soit f : X → R une fonction mesurable. On définit l’intégrale de f par rapport µ par la somme suivante : ∫f(x)dµ(x) = Σf(x) où x appartient à X. Si la série converge absolument (Σ|f(x)|< ∞). Dans ce cas, on dit que f ∈ L**1(X,µ)." },
             
             { question: "Définition 6.1 : Fonction étagée (simple)", answer: "Fonction mesurable ne prenant qu'un nombre fini de valeurs réelles.f(x) = Σ ai 1Ai(x) .Chaque Ai est appelé la partie de niveau associée à la valeur ai. On note par E l’espace de ces fonctions" },
-            { question: "Définition 6.2 : Intégrale d'une fonction étagée positive", answer: "Somme sur i de a_i * mu(A_i cap E) pour une représentation sous forme de partition mesurable." },
+            { question: "Définition 6.2 : Intégrale d'une fonction étagée positive", answer: " Soit f =  Σ ai 1Ai une fonction étagée, avec ai ∈ R+. On définit l’intégrale de f sur X (ou sur un sous-ensemble mesurable E ⊂ X) par : ∫f dµ = Σ ai µ(Ai ∩ E)." },
             { question: "Propriété 6.1 : Linéarité de l'intégrale des fonctions étagées", answer: "L'intégrale d'une combinaison linéaire de fonctions étagées positives est la combinaison linéaire des intégrales." },
             { question: "Propriété 6.2 : Monotonie de l'intégrale des fonctions étagées", answer: "Si f <= g, alors l'intégrale de f est inférieure ou égale à l'intégrale de g." },
-            { question: "Proposition 6.1 : Intégrale sur un ensemble négligeable", answer: "L'intégrale d'une fonction étagée sur un ensemble de mesure nulle est nulle." },
+            { question: "Proposition 6.1 : Intégrale sur un ensemble négligeable", answer: "L'intégrale d'une fonction étagée sur un ensemble négligeable est nulle." },
             
             { question: "Définition 7.1 : Fonction mesurable positive", answer: "Fonction mesurable à valeurs dans [0, +inf]." },
             { question: "Définition 7.2 : Intégrale de Lebesgue d'une fonction positive", answer: "Supremum des intégrales des fonctions étagées positives inférieures ou égales à f." },
