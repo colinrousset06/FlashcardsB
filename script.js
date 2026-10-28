@@ -119,8 +119,11 @@ const decks = [
             { question: "Propriété 6.1 : Linéarité de l'intégrale des fonctions étagées", answer: "L'intégrale d'une combinaison linéaire de fonctions étagées positives est la combinaison linéaire des intégrales." },
             { question: "Propriété 6.2 : Monotonie de l'intégrale des fonctions étagées", answer: "Si f <= g, alors l'intégrale de f est inférieure ou égale à l'intégrale de g." },
             { question: "Proposition 6.1 : Intégrale sur un ensemble négligeable", answer: "L'intégrale d'une fonction étagée sur un ensemble négligeable est nulle." },
+            { question: "Proposition 6.2 : Soit( X,A,µ) un espace mesuré, et soit f : X→R une fonction étagée telle que f≥0. Si X ∫fdµ=0, alors :",answer: "f=0 µ-presque par tout sur X."},
             
-            { question: "Définition 7.1 : Fonction mesurable positive", answer: "Fonction mesurable à valeurs dans [0, +inf]." },
+            { question: "Définition 7.1 : Fonction mesurable positive", answer: "Fonction mesurable à valeurs dans [0, +inf], f(x) ≥ 0 pour tout x ∈ X." },
+            { question: "Proposition 7.1 : On a: φn(x)", answer:" (1/2**n)* partie entière ((2**n)*min f(x), n)"},
+            { question: "Théorème 7.1 (Densité des fonctions étagées dans C(K)). Soit K ⊂ R**n un compact. Pour toute fonction continue f : K → R et tout ε > 0, il existe une fonction en escalier φ : K → R telle que :", answer:"∥f−φ∥ ∞ <ε"},                
             { question: "Définition 7.2 : Intégrale de Lebesgue d'une fonction positive", answer: "Supremum des intégrales des fonctions étagées positives inférieures ou égales à f." },
             { question: "Propriété 7.1 & 7.2 : Linéarité et monotonie de l'intégrale positive", answer: "L'intégrale positive conserve la linéarité positive et la monotonie." },
             { question: "Définition 8.1 : Partie positive et négative", answer: "f^+ = max(f, 0) et f^- = max(-f, 0), telles que f = f^+ - f^- et |f| = f^+ + f^-." },
