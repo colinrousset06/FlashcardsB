@@ -152,6 +152,55 @@ const decks = [
             { question: "Théorème D.1 : Représentation de Riesz pour les espaces L^p", answer: "Le dual topologique de L^p est isométriquement isomorphe à L^p' (avec 1/p + 1/p' = 1)." }
         */]
     },
+    // ==========================================
+    // ANALYSE DE FOURIER - CHAPITRE 2 (SUITE & FIN)
+    // ==========================================
+    {
+        id: "fourier-ch3-suite",
+        category: "ANALYSE DE FOURIER",
+        title: "Chapitre 2 : Intégrale de Lebesgue (Suite & Fin)",
+        color: "#2980b9", // Bleu Profond
+        icon: "📚",
+        description: "Théorème de convergence dominée, espaces Lᵖ, inégalités fondamentales, Fubini-Tonelli, changement de variables et appendices.",
+        cards: [
+            { question: "Théorème 9.2 : Théorème de convergence dominée de Lebesgue", answer: "Soit (fₙ) une suite mesurable telle que fₙ → f p.p. et ∃ g ∈ L¹ telle que |fₙ| ≤ g p.p. pour tout n. Alors f est intégrable et limₙ→∞ ∫ₓ fₙ dμ = ∫ₓ f dμ." },
+            { question: "Exemple 9.3 : Application du théorème de convergence dominée", answer: "Pour fₙ(x) = sin(x)/n sur [0, π], fₙ → 0 p.p. et |fₙ(x)| ≤ 1 (ou |sin(x)|) qui est intégrable. Donc limₙ→∞ ∫₀ᵖⁱ fₙ(x) dx = ∫₀ᵖⁱ 0 dx = 0." },
+            { question: "Exemple 10.2 : Fonction indicatrice des rationnels 1_({ℚ ∩ [0,1]})", answer: "Discontinue partout et non intégrable au sens de Riemann, elle est intégrable au sens de Lebesgue et son intégrale vaut : ∫₀¹ f(x) dλ = λ(ℚ ∩ [0,1]) = 0." },
+            { question: "Exemple 10.3 : Fonction non bornée f(x) = 1/√x sur [0,1]", answer: "Possède une singularité en 0, mais ∫₀¹ (1/√x) dx = 2 < +∞. Elle est donc intégrable au sens de Lebesgue (et de Riemann)." },
+            { question: "Exemple 10.4 : Fonction non intégrable f(x) = 1/x sur (0,1]", answer: "Non bornée au voisinage de 0, son intégrale impropre diverge : ∫₀¹ (1/x) dx = +∞. Elle n'est intégrable ni au sens de Riemann ni au sens de Lebesgue." },
+            { question: "Exemple 10.5 : Suite de fonctions fₙ(x) = n · 1_[0, 1/n](x)", answer: "Vérifie ∫₀¹ fₙ(x) dx = 1 pour tout n, mais fₙ → 0 p.p. On a ∫₀¹ lim fₙ(x) dx = 0 ≠ lim ∫₀¹ fₙ(x) dx = 1 car il n'existe pas de fonction dominante intégrable." },
+            { question: "Définition 11.1 : Espace ℒᵖ(Ω) pour 1 ≤ p < +∞", answer: "ℒᵖ(Ω) = { f : Ω → ℝ (ou ℂ) mesurable ∣ ∫_Ω |f(x)|ᵖ dx < +∞ }." },
+            { question: "Définition 11.1 : Espace ℒⁿⁿᶠ(Ω) (ou ℒ∞(Ω))", answer: "ℒ∞(Ω) = { f : Ω → ℝ mesurable ∣ ∃ C > 0 t.q. |f(x)| ≤ C p.p. sur Ω }." },
+            { question: "Définition de la norme ∥·∥ₚ pour 1 ≤ p < +∞", answer: "∥f∥ₚ = ( ∫_Ω |f(x)|ᵖ dx )^(1/p)." },
+            { question: "Définition de la norme ∥·∥∞ (supremum essentiel)", answer: "∥f∥∞ = ess supₓ∈Ω |f(x)| = inf { C > 0 ∣ |f(x)| ≤ C p.p. sur Ω }." },
+            { question: "Pourquoi ∥·∥ₚ est-elle initialement une semi-norme sur ℒᵖ ?", answer: "Car ∥f∥ₚ = 0 (soit ∫_Ω |f(x)|ᵖ dx = 0) n'implique pas f = 0 partout, mais seulement f = 0 p.p. sur Ω." },
+            { question: "Comment obtient-on l'espace normé Lᵖ(Ω) à partir de ℒᵖ(Ω) ?", answer: "Par passage au quotient via la relation d'équivalence f ~ g ⇔ f = g presque partout." },
+            { question: "Théorème 11.1 : Théorème de Riesz-Fischer", answer: "L'espace (Lᵖ(Ω), ∥·∥ₚ) muni de sa norme est un espace de Banach (complet)." },
+            { question: "Quel espace Lᵖ est un espace de Hilbert ?", answer: "L'espace L²(Ω), muni du produit scalaire ⟨f, g⟩ = ∫_Ω f(x) ḡ(x) dx." },
+            { question: "Proposition 11.2 : Inégalité de Minkowski", answer: "∥f + g∥_Lᵖ ≤ ∥f∥_Lᵖ + ∥g∥_Lᵖ pour tous f, g ∈ Lᵖ." },
+            { question: "Proposition 11.3 : Inégalité de Hölder", answer: "Pour 1/p + 1/p' = 1, f ∈ Lᵖ et g ∈ Lᵖ', on a f·g ∈ L¹ et ∥f·g∥_L¹ ≤ ∥f∥_Lᵖ · ∥g∥_Lᵖ' (soit ∫_Ω |fg| dx ≤ ∥f∥_Lᵖ ∥g∥_Lᵖ')." },
+            { question: "Lemme 11.1 : Inégalité de Young", answer: "Pour 1/p + 1/p' = 1 et a, b ≥ 0, on a a·b ≤ (1/p) aᵖ + (1/p') bᵖ', avec égalité si aᵖ = bᵖ'." },
+            { question: "Proposition 11.4 : Propriété d'inclusion des espaces Lᵖ sur domaine boré de mesure finie", answer: "Si |Ω| < ∞ et 1 ≤ p ≤ q ≤ ∞, alors Lʲ(Ω) ↪ Lᵖ(Ω) continûment, avec ∥f∥_Lᵖ ≤ |Ω|^(1/p - 1/q) ∥f∥_Lʲ." },
+            { question: "Théorème 11.2 : Inégalité d'interpolation", answer: "Si f ∈ Lᵖ ∩ Lʲ avec 1 ≤ p ≤ r ≤ q ≤ ∞, alors ∥f∥_Lʳ ≤ ∥f∥_Lᵖ^α · ∥f∥_Lʲ^(1-α) où 1/r = α/p + (1-α)/q avec α ∈ [0,1]." },
+            { question: "Théorème 11.3 : Densité des fonctions continues dans L¹ sur un compact", answer: "Pour tout compact K ⊂ ℝⁿ et f ∈ L¹(K), ∀ ε > 0, ∃ φ ∈ 𝒞(K) telle que ∫_K |f(x) - φ(x)| dx < ε." },
+            { question: "Théorème 11.4 : Densité de C_c(Ω) dans L¹(Ω)", answer: "L'espace 𝒞_c(Ω) des fonctions continues à support compact est dense dans L¹(Ω) : ∀ f ∈ L¹(Ω), ∃ (f♙) ⊂ 𝒞_c(Ω) t.q. limₙ→∞ ∥f♙ - f∥_L¹ = 0." },
+            { question: "Section 12.1 : Définition de l'espérance en probabilités", answer: "L'espérance d'une variable aléatoire X : Ω → ℝ est l'intégrale de Lebesgue par rapport à la mesure de probabilité ℙ : 𝔼[X] = ∫_Ω X dℙ." },
+            { question: "Définition 13.1 : Tribu produit 𝒜 ⊗ ℬ", answer: "La plus petite tribu sur X × Y contenant tous les rectangles mesurables A × B avec A ∈ 𝒜 et B ∈ ℬ." },
+            { question: "Définition 13.2 : Mesure produit μ ⊗ ν", answer: "L'unique mesure sur 𝒜 ⊗ ℬ vérifiant (μ ⊗ ν)(A × B) = μ(A) · ν(B) pour tous A ∈ 𝒜, B ∈ ℬ." },
+            { question: "Théorème 13.1 : Théorème de Tonelli (cas f ≥ 0)", answer: "Pour f : X × Y → [0, +∞] mesurable positive : ∫_(X×Y) f(x,y) d(μ⊗ν) = ∫_X ( ∫_Y f(x,y) dν(y) ) dμ(x) = ∫_Y ( ∫_X f(x,y) dμ(x) ) dν(y)." },
+            { question: "Théorème 13.2 : Théorème de Fubini (cas f ∈ L¹)", answer: "Si f ∈ L¹(X × Y, μ ⊗ ν), les intégrales itérées existent p.p. et sont égales : ∫_(X×Y) f(x,y) d(μ⊗ν) = ∫_X ( ∫_Y f(x,y) dν(y) ) dμ(x) = ∫_Y ( ∫_X f(x,y) dμ(x) ) dν(y)." },
+            { question: "Exemple 13.4 : Contre-exemple à Fubini", answer: "Pour f(x,y) = 1/(x+y) sur (0,1)², ∫_((0,1)²) f(x,y) dxdy = ∫₀¹ (∫₀¹ 1/(x+y) dx) dy = +∞. f ∉ L¹((0,1)²), l'interversion n'est pas garantie pour des fonctions de signe variable non L¹." },
+            { question: "Théorème 14.1 : Théorème de changement de variables dans ℝⁿ", answer: "Pour Φ : U → V un 𝒞¹-difféomorphisme et f mesurable intégrable sur V : ∫_V f(y) dy = ∫_U f(Φ(x)) · |det DΦ(x)| dx." },
+            { question: "Jacobien pour les coordonnées polaires dans ℝ²", answer: "Pour x = r cos θ, y = r sin θ : |det DΦ| = r. D'où ∫_ℝ² f(x,y) dxdy = ∫₀²ᵖⁱ ( ∫₀⁺∞ f(r cos θ, r sin θ) · r dr ) dθ." },
+            { question: "Jacobien pour les coordonnées cylindriques dans ℝ³", answer: "Pour x = r cos θ, y = r sin θ, z = z : |det DΦ| = r. D'où ∫_ℝ³ f(x,y,z) dxdydz = ∫₀²ᵖⁱ ∫₀⁺∞ ∫₋∞⁺∞ f(...) · r dz dr dθ." },
+            { question: "Jacobien pour les coordonnées sphériques dans ℝ³", answer: "Pour x = r sin φ cos θ, y = r sin φ sin θ, z = r cos φ : |det DΦ| = r² sin φ. D'où la formule dxdydz = r² sin φ dr dφ dθ." },
+            { question: "Exemple 14.1 : Changement affine dans ℝⁿ", answer: "Pour Φ(x) = Ax + b avec A ∈ GLₙ(ℝ), DΦ(x) = A. D'où ∫_V f(y) dy = ∫_U f(Ax + b) · |det A| dx." },
+            { question: "Appendice A : Philosophie comparée Riemann vs Lebesgue", answer: "Riemann découpe le domaine (l'axe x) en sub-intervalles. Lebesgue découpe le codomaine (l'axe y) en mesurant la taille des ensembles de niveau via μ." },
+            { question: "Appendice B : Support d'une fonction mesurable", answer: "supp f est le complémentaire du plus grand ouvert W ⊂ Ω sur lequel f = 0 presque partout (supp f = ⋃_{W ouvert, f=0 p.p.} W^c)." },
+            { question: "Appendice C : Définition de la mesure image f_#μ", answer: "Pour f : X → Y mesurable, la mesure image f_#μ sur Y est définie par (f_#μ)(B) = μ(f⁻¹(B)) pour tout B ∈ ℬ." },
+            { question: "Appendice D : Théorème de représentation de Riesz pour Lᵖ (1 ≤ p < +∞)", answer: "Le dual (Lᵖ(Ω))' est isométriquement isomorphe à Lᵖ'(Ω) via T : u ↦ Tu où Tu(f) = ∫_Ω f(x) u(x) dx et ∥Tu∥_(Lᵖ)' = ∥u∥_Lᵖ'." }
+        ]
+    },
 
     // ==========================================
     // 3. OPTIMISATION & RO - CHAPITRE 1
