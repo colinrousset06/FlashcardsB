@@ -138,10 +138,11 @@ const decks = [
             { question: "Théorème 9.1 : (Théorème de convergence monotone (Beppo-Levi)). Soit (X,A,µ) un espace mesuré, et soit (fn)n∈N une suite de fonctions mesurables positives telle que : 1. fn(x) ≤ fn+1(x)(croissance ponctuelle),2. fn(x) → f(x) pour µ-presque tout x ∈ X.", answer: "Alors la fonction limite f est mesurable et positive, et : lim ∫n→∞ X fn dµ = ∫ f dµ" }, 
             { question: "Propriété 9.3 :  Soit (X,A,µ )un espace mesuré, et soit f :X→R(ouC) une fonction intégrable, i.e.∫|f|dµ <∞. Si A∈A(tribu) est négligeable (µ(A)=0),alors : " , answer:"∫f dµ =0 "}, 
             { question: "Lemme 9.1 : Lemme de Fatou", answer: "Pour une suite de fonctions mesurables positives, l'intégrale de la lim inf est inférieure ou égale à la lim inf des intégrales." }, 
-            { question: "Théorème 9.2 : Théorème de convergence dominée de Lebesgue", answer: "Si une suite de fonctions converge p.p. et est dominée en module par une fonction intégrable, alors la limite de l'intégrale de fn est l'intégrale de la limite de f." },
+            { question: "Théorème 9.2 : Théorème de convergence dominée de Lebesgue", answer: "Si une suite de fonctions converge p.p. et est dominée en module par une fonction intégrable, alors la limite de l'intégrale de fn est l'intégrale de la limite de f." },  
+            { question: "Définition 11.1 : Espaces L^p(Omega)", answer: "Espace des classes de fonctions mesurables dont la puissance p de la valeur absolue est d'intégrale finie." },
+
             
-            /*{ question: "Définition 11.1 : Espaces L^p(Omega)", answer: "Espace des classes de fonctions mesurables dont la puissance p de la valeur absolue est d'intégrale finie." },
-            { question: "Théorème 11.1 : Théorème de Riesz-Fischer", answer: "L'espace (L^p, ||.||_p) muni de sa norme est un espace de Banach (et un Hilbert pour p=2)." },
+            /*{ question: "Théorème 11.1 : Théorème de Riesz-Fischer", answer: "L'espace (L^p, ||.||_p) muni de sa norme est un espace de Banach (et un Hilbert pour p=2)." },
             { question: "Proposition 11.2 : Inégalité de Minkowski dans L^p", answer: "||f + g||_p <= ||f||_p + ||g||_p." },
             { question: "Proposition 11.3 : Inégalité de Hölder", answer: "Pour 1/p + 1/p' = 1, ||fg||_1 <= ||f||_p * ||g||_p'." },
             
