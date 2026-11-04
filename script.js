@@ -189,7 +189,9 @@ const decks = [
             { question: "Théorème 11.4 : Densité de C_c(Ω) dans L¹(Ω)", answer: "L'espace 𝒞_c(Ω) des fonctions continues à support compact est dense dans L¹(Ω) : ∀ f ∈ L¹(Ω), ∃ (f♙) ⊂ 𝒞_c(Ω) t.q. limₙ→∞ ∥f♙ - f∥_L¹ = 0." },
             { question: "Lp sur un espace mesuré (X,A,µ)", answer: "Soit (X,A ,µ) un espace mesuré, et 1 ≤ p < ∞. On définit : Lp(X,µ) = {f mesurable | ∫ |f(x)|p dµ(x) < +∞ } C’est l’espace des fonctions p-intégrables. Pour p = ∞, on définit : L∞(X,µ) = {f mesurable | il existe M ≥ 0, |f(x)| ≤ M p.p.}."},
             { question: "Section 12.1 : Définition de l'espérance en probabilités", answer: "L'espérance d'une variable aléatoire X : Ω → ℝ est l'intégrale de Lebesgue par rapport à la mesure de probabilité ℙ : 𝔼[X] = ∫_Ω X dℙ." },
-            { question: "Définition 13.1 : Tribu produit 𝒜 ⊗ ℬ", answer: "La plus petite tribu sur X × Y contenant tous les rectangles mesurables A × B avec A ∈ 𝒜 et B ∈ ℬ." },
+            { question: "Si X suit une loi uniforme sur [0,1], alors :", answer:" E[X] = ∫ x · dx = 1/2 ."},
+           
+            { question: "Définition 13.1 : Tribu produit 𝒜 ⊗ ℬ", answer: "La plus petite tribu sur X × Y contenant tous les rectangles mesurables A × B avec A ∈ 𝒜 et B ∈ ℬ. A ⊗ B = σ({A×B|A∈A,B∈B}), où σ(·) désigne la tribu engendrée" },
             { question: "Définition 13.2 : Mesure produit μ ⊗ ν", answer: "L'unique mesure sur 𝒜 ⊗ ℬ vérifiant (μ ⊗ ν)(A × B) = μ(A) · ν(B) pour tous A ∈ 𝒜, B ∈ ℬ." },
             { question: "Théorème 13.1 : Théorème de Tonelli (cas f ≥ 0)", answer: "Pour f : X × Y → [0, +∞] mesurable positive : ∫_(X×Y) f(x,y) d(μ⊗ν) = ∫_X ( ∫_Y f(x,y) dν(y) ) dμ(x) = ∫_Y ( ∫_X f(x,y) dμ(x) ) dν(y)." },
             { question: "Théorème 13.2 : Théorème de Fubini (cas f ∈ L¹)", answer: "Si f ∈ L¹(X × Y, μ ⊗ ν), les intégrales itérées existent p.p. et sont égales : ∫_(X×Y) f(x,y) d(μ⊗ν) = ∫_X ( ∫_Y f(x,y) dν(y) ) dμ(x) = ∫_Y ( ∫_X f(x,y) dμ(x) ) dν(y)." },
