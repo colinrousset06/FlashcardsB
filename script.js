@@ -198,7 +198,7 @@ const decks = [
             { question: "Exemple 13.4 : Contre-exemple à Fubini", answer: "Pour f(x,y) = 1/(x+y) sur (0,1)², Cette fonction est positive, mais: ∫_((0,1)²) f(x,y) dxdy = ∫₀¹ (∫₀¹ 1/(x+y) dx) dy = +∞. f ∉ L¹((0,1)²), l'interversion n'est pas garantie pour des fonctions de signe variable non L¹." },
            
             { question: "Théorème 14.1 : Théorème de changement de variables dans ℝⁿ", answer: "Pour Φ : U → V un 𝒞¹-difféomorphisme et f mesurable intégrable sur V : Si f ◦ Φ ·|det D Φ| est intégrable sur U, alors : ∫_V f(y) dy = ∫_U f(Φ(x)) · |det DΦ(x)| dx." },
-            { question: "Définition 14.1 : det DΦ(x) est ", answer: "le jacobien du changement de variables, c’est à dire le déterminant de la matrice jacobienne de Φ en x."}
+            { question: "Définition 14.1 : det DΦ(x) est ", answer: "le jacobien du changement de variables, c’est à dire le déterminant de la matrice jacobienne de Φ en x."},
             { question: "Jacobien pour les coordonnées polaires dans ℝ²", answer: "Pour x = r cos θ, y = r sin θ : |det DΦ| = r. D'où ∫_ℝ² f(x,y) dxdy = ∫₀²ᵖⁱ ( ∫₀⁺∞ f(r cos θ, r sin θ) · r dr ) dθ." },
             { question: "Jacobien pour les coordonnées cylindriques dans ℝ³", answer: "Pour x = r cos θ, y = r sin θ, z = z : |det DΦ| = r. D'où ∫_ℝ³ f(x,y,z) dxdydz = ∫₀²ᵖⁱ ∫₀⁺∞ ∫₋∞⁺∞ f(rcosθ, rsinθ, z)· r dz dr dθ." },
             { question: "Jacobien pour les coordonnées sphériques dans ℝ³", answer: "Pour x = r sin φ cos θ, y = r sin φ sin θ, z = r cos φ : |det DΦ| = r² sin φ. D'où la formule dxdydz = r² sin φ dr dφ dθ. (à changer dans l'intégral)" },
