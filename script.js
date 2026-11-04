@@ -229,8 +229,8 @@ const decks = [
             { question: "Propriété : Somme de fonctions convexes", answer: "La somme de fonctions convexes est une fonction convexe." },
             { question: "Propriété : Optimum local et global en convexité", answer: "Tout minimum local d'un problème convexe est un minimum global." },
             
-            { question: "Définition : Fonction du Lagrangien", answer: "Fonction auxiliaire L(x, lambda) = f(x) - somme(lambda_i * g_i(x)) introduite pour traiter les contraintes d'égalité." },
-            { question: "Condition de qualification des contraintes", answer: "Condition garantissant la régularité des contraintes (ex : jacobienne de rang maximal à l'optimum)." },
+            { question: "Définition : Fonction du Lagrangien", answer: "Fonction auxiliaire L(x,λ) = f(x) - Σ(λ_i * g_i(x)) introduite pour traiter les contraintes d'égalité." },
+            { question: "Condition de qualification des contraintes", answer: "Condition garantissant la régularité des contraintes (ex : jacobienne de rang maximal à l'optimum et g linéaire)." },
             { question: "Condition Nécessaire du 1er ordre avec Lagrangien", answer: "Les dérivées partielles du Lagrangien par rapport à toutes les variables et tous les multiplicateurs doivent s'annuler." },
             { question: "Interprétation du multiplicateur de Lagrange (lambda)", answer: "Mesure de la sensibilité de la valeur optimale de la fonction objectif face à une variation unitaire de la contrainte." },
             { question: "Définition : Hessien bordé", answer: "Matrice hessienne du Lagrangien bordée par les gradients des contraintes d'égalité." },
