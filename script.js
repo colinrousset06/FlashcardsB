@@ -262,29 +262,34 @@ const decks = [
             { question: "Quelles sont les 4 hypothèses fondamentales d'un PL ?", answer: "1. Proportionnalité ; 2. Additivité ; 3. Divisibilité ; 4. Certitude des paramètres." },
             { question: "Comment traiter une variable x_j non restreinte en signe ?", answer: "On la remplace par la différence de deux variables non négatives : x_j = x_j⁺ - x_j⁻ avec x_j⁺ ≥ 0 et x_j⁻ ≥ 0." },
             { question: "Définition : Forme Canonique d'un PL (Maximisation)", answer: "max z = cᵀ x sous les contraintes A x ≤ b et x ≥ 0." },
+            
             { question: "Définition : Forme Standard d'un PL", answer: "max z = cᵀ x sous les contraintes A x = b et x ≥ 0 (avec b ≥ 0 et A de plein rang m)." },
             { question: "Comment passer d'une contrainte '≤' à une forme standard ?", answer: "En ajoutant une variable d'écart positive : ∑ a_ij x_j + e_i = b_i (avec e_i ≥ 0)." },
             { question: "Comment passer d'une contrainte '≥' à une forme standard ?", answer: "En retranchant une variable d'écart positive : ∑ a_ij x_j - e_i = b_i (avec e_i ≥ 0)." },
             { question: "Qu'est-ce qu'une droite d'iso-profit en résolution graphique ?", answer: "Droite d'équation c₁ x₁ + c₂ x₂ = k représentant l'ensemble des points pour lesquels la fonction objectif prend la même valeur k." },
             { question: "Quels sont les 4 cas de figures possibles en résolution graphique ?", answer: "1. Solution optimale unique ; 2. Infinité de solutions (segment d'optima) ; 3. Solution non bornée (z* = +∞) ; 4. Domaine vide (inadmissibilité)." },
+            
             { question: "Propriété : Convexité du domaine admissible", answer: "L'ensemble D = {x ∣ A x = b, x ≥ 0} des solutions réalisables d'un PL est un ensemble convexe (polyèdre)." },
             { question: "Définition : Solution de Base (SDB)", answer: "Solution unique x = (x_B, x_N) de A x = b obtenue en choisissant une sous-matrice inversible A_B (m×m) et en posant les variables hors-base x_N = 0." },
             { question: "Définition : Solution de Base Réalisable (BFS)", answer: "Solution de base x vérifiant la contrainte de non-négativité : x_B = A_B⁻¹ b ≥ 0." },
             { question: "Qu'est-ce qu'une Solution de Base Dégénérée ?", answer: "C'est une solution de base réalisable dans laquelle au moins une variable de base est nulle ((x_B)_i = 0)." },
             { question: "Théorème Fondamental de la PL : Équivalence géométrique et algébrique", answer: "Pour tout point x d'un polyèdre, les 3 notions suivantes sont rigoureusement équivalentes : 1. Sommet (vertex) ; 2. Point extrême ; 3. Solution de Base Réalisable (BFS)." },
             { question: "Théorème d'existence de l'optimum en PL", answer: "Si un PL admet une solution réalisable et a une fonction objectif bornée, alors il existe au moins une solution optimale située en une Solution de Base Réalisable (un sommet)." },
+            
             { question: "Définition : Coût Réduit (c̄_N)", answer: "c̄_Nᵀ = c_Nᵀ - c_Bᵀ A_B⁻¹ A_N. Il mesure la variation de la fonction objectif par unité d'augmentation de chaque variable hors-base." },
             { question: "Définition : Multiplicateur du Simplexe (Vecteur Dual λ)", answer: "Vecteur λᵀ = c_Bᵀ A_B⁻¹ vérifiant A_Bᵀ λ = c_B (en max), reliant les contraintes au coût réduit." },
             { question: "Critère d'optimalité du Simplexe (en Maximisation)", answer: "La solution de base réalisable courante est OPTIMALE si tous les coûts réduits sont négatifs ou nuls : c̄_j = c_j - z_j ≤ 0 pour tout j ∈ N." },
             { question: "Premier critère de Dantzig : Choix de la Variable Entrante (VE)", answer: "En maximisation, la variable hors-base qui entre en base est celle qui possède le coût réduit le plus strictement positif : e = arg max_{j ∈ N} (c̄_j > 0)." },
             { question: "Second critère de Dantzig : Choix de la Variable Sortante (VS)", answer: "Variable de base déterminée par le test du ratio minimum strictement positif : s = arg min_{i ∈ B} { (b̄_i / ā_ie) ∣ ā_ie > 0 }." },
             { question: "Que signifie une colonne pivot ā_e ≤ 0 lors du test du ratio ?", answer: "Cela signifie que la fonction objectif peut croître vers +∞ sans violer aucune contrainte : le problème est non borné." },
+            
             { question: "Principe du pivotage de Gauss-Jordan dans le tableau du simplexe", answer: "Diviser la ligne pivot par le pivot pour obtenir 1, puis éliminer les coefficients de la colonne pivot sur toutes les autres lignes (y compris la ligne z) pour obtenir des 0." },
             { question: "Rôle des variables artificielles (a_i)", answer: "Variables positives introduites dans les contraintes de type '=' ou '≥' sans base évidente pour former la matrice identité initiale." },
             { question: "Principe de la méthode du Grand M (en Maximisation)", answer: "On affecte une pénalité très élevée -M à chaque variable artificielle a_i dans z pour forcer l'algorithme à les faire sortir de la base." },
             { question: "Que conclut-on si une variable artificielle reste strictement positive à l'optimum du Grand M ?", answer: "Le problème initial ne possède aucune solution réalisable (domaine admissible vide)." },
             { question: "Définition : Contrainte active (ou saturée)", answer: "Contrainte d'inégalité vérifiée à l'égalité stricte au point considéré (ex: a_iᵀ x = b_i)." },
             { question: "Formule du Gradient Réduit (∇ F(x_N))", answer: "∇ F(x_N) = ∇_N f(x) + A_Nᵀ λ où A_Bᵀ λ = -∇_B f(x)." },
+            
             { question: "Conditions de Karush-Kuhn-Tucker (KKT) au 1er ordre", answer: "A x = b, x ≥ 0, ∇ f(x) + Aᵀ λ ≥ 0 et (∇ f(x) + Aᵀ λ)ᵀ x = 0." },
             { question: "Complexité théorique et pratique de l'Algorithme du Simplexe", answer: "Complexité théorique pire des cas : exponentielle (O(2ⁿ)). En pratique : très efficace et quasi-linéaire par rapport au nombre de contraintes." }
         ]
