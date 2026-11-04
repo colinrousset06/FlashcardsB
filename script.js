@@ -194,51 +194,6 @@ const decks = [
             { question: "Définition : Condition de complétude de la complémentarité", answer: "Produit nul entre la variable duale et la contrainte d'inégalité correspondante à l'optimum." },
             { question: "Propriété : Dualité en optimisation", answer: "Principe relationnel fort entre un problème primal de maximisation et un problème dual de minimisation." }
         ]
-    },
-
-    // ==========================================
-    // 4. OPTIMISATION & RO - CHAPITRE 2
-    // ==========================================
-    {
-        id: "opti-ch2",
-        category: "OPTIMISATION & RECHERCHE",
-        title: "Chapitre 2 : PL, Simplexe & Résolution",
-        color: "#e056fd", // Violet vif
-        icon: "📊",
-        description: "Programmation linéaire, forme canonique/standard, solutions de base, algorithme du simplexe et tableaux.",
-        cards: [
-             /* { question: "Définition : Programme linéaire (PL)", answer: "Problème d'optimisation consistant à maximiser ou minimiser une fonction objectif linéaire sous des contraintes affines." },
-            { question: "Hypothèse : Proportionnalité", answer: "Les contributions de chaque variable à l'objectif et aux contraintes sont strictement proportionnelles à sa valeur." },
-            { question: "Hypothèse : Additivité", answer: "La contribution totale est la somme des contributions individuelles de chaque variable." },
-            { question: "Hypothèse : Divisibilité", answer: "Les variables de décision peuvent prendre des valeurs fractionnaires ou continues." },
-            { question: "Hypothèse : Certitude", answer: "Tous les paramètres du modèle sont connus de manière certaine." },
-            { question: "Définition : Forme canonique d'un PL", answer: "Maximiser c^T x sous Ax <= b et x >= 0." },
-            { question: "Définition : Forme standard d'un PL", answer: "Maximiser c^T x sous Ax = b et x >= 0 (via des variables d'écart)." },
-            { question: "Propriété : Traitement d'une variable libre", answer: "Une variable non contrainte en signe est remplacée par la différence de deux variables positives (x = x^+ - x^-)." },
-            { question: "Théorème : Convexité du domaine réalisable", answer: "L'ensemble des solutions réalisables d'un programme linéaire est un polyèdre convexe." },
-            { question: "Définition : Point extrême (sommet)", answer: "Point du polyèdre réalisable ne pouvant s'exprimer comme combinaison convexe de deux autres." },
-            { question: "Théorème fondamental de la programmation linéaire", answer: "Si un PL possède une solution optimale finie, elle est atteinte en un point extrême (sommet)." },
-            { question: "Définition : Base et matrice de base A_B", answer: "Sous-matrice carrée (m x m) inversible extraite de la matrice A." },
-            { question: "Définition : Matrice hors-base A_N", answer: "Sous-matrice formée par les colonnes de A ne faisant pas partie de la base." },
-            { question: "Définition : Solution de base", answer: "Vecteur obtenu en annulant les variables hors-base et en résolvant A_B x_B = b." },
-            { question: "Définition : Solution de base réalisable (BFS)", answer: "Solution de base vérifiant la condition de non-négativité (x_B >= 0)." },
-            { question: "Propriété : Équivalence géométrique-algébrique", answer: "Les sommets du polyèdre correspondent exactement aux solutions de base réalisables." },
-            { question: "Définition : Solution de base dégénérée", answer: "Solution de base réalisable pour laquelle au moins une composante de x_B est nulle." },
-            { question: "Définition : Coût réduit", answer: "Expression mesurant l'impact marginal de l'introduction d'une variable hors-base." },
-            { question: "Lien : Coût réduit et multiplicateurs", answer: "Le coût réduit s'exprime par c_N^T + A_N^T lambda." },
-            { question: "Critère d'optimalité (Maximisation)", answer: "Tous les coûts réduits sont négatifs ou nuls." },
-            { question: "Critère d'optimalité (Minimisation)", answer: "Tous les coûts réduits sont positifs ou nuls." },
-            { question: "Critère de choix de la variable entrante", answer: "Variable hors-base ayant le coût réduit strictement positif le plus grand (Maximisation)." },
-            { question: "Critère de choix de la variable sortante", answer: "Test du rapport minimum (b_i / a_i pour a_i > 0)." },
-            { question: "Condition d'arrêt pour un problème non borné", answer: "Coût réduit strictement positif avec une colonne pivot dont tous les coefficients sont <= 0." },
-            { question: "Définition : Méthode des dictionnaires", answer: "Formulation algébrique exprimant les variables de base et z en fonction des variables hors-base." },
-            { question: "Définition : Opération de pivotage", answer: "Transformation pour faire entrer une variable dans la base et en faire sortir une autre." },
-            { question: "Traitement d'une contrainte du type >= ", answer: "On retranche une variable d'écart et on ajoute une variable artificielle." },
-            { question: "Traitement d'une contrainte du type = ", answer: "On ajoute une variable artificielle pour disposer d'une base initiale." },
-            { question: "Définition : Méthode des pénalités (Grand M)", answer: "Pénalisation lourde des variables artificielles dans la fonction objectif (-M)." },
-            { question: "Propriété : Rôle des variables artificielles", answer: "À l'optimum d'un problème valide, toutes les variables artificielles doivent valoir zéro." },
-            { question: "Propriété : Contraintes saturées et prix duals", answer: "Les multiplicateurs indiquent la valeur marginale (shadow price) du second membre." }
-         */ ]
     }
 ];
 
