@@ -193,6 +193,182 @@ const decks = [
             { question: "Définition : Condition de complétude de la complémentarité", answer: "Produit nul entre la variable duale et la contrainte d'inégalité correspondante à l'optimum." },
             { question: "Propriété : Dualité en optimisation", answer: "Principe relationnel fort entre un problème primal de maximisation et un problème dual de minimisation." }
         ]
+    },
+
+    // ==========================================
+    // 4. NOUVEAU DECK : BDD & INTEROPERABILITE - CM1
+    // ==========================================
+    {
+        id: "bdd-cm1",
+        category: "BDD & INTEROPERABILITE",
+        title: "CM1 : Rappels fondamentaux, MCD & SQL de base",
+        color: "#8e44ad", // Violet
+        icon: "🗄️",
+        description: "Définitions des BDD, SGBD client/serveur, modélisation MCD, DDL, DML, DQL, jointures et fonctions d'agrégation.",
+        cards: [
+            { question: "Définition : Base de données (BDD)", answer: "Ensemble d'informations structurées mémorisées sur un support persistant[cite: 8]." },
+            { question: "Caractéristiques principales d'une BDD", answer: "Données organisées/stockées selon un modèle, partagées par différents utilisateurs, faible redondance, indépendance des données et facilement extensible[cite: 8]." },
+            { question: "Définition : SGBD (Système de Gestion de Base de Données)", answer: "Ensemble de programmes assurant la gestion et l'accès à une BDD (ajout, modification, recherche)[cite: 9]." },
+            { question: "Fonctionnement moderne des SGBD", answer: "Mode client/serveur : le serveur stocke les données et traite de manière concurrente les requêtes envoyées par plusieurs clients[cite: 9]." },
+            { question: "Définition : MCD (Modèle Conceptuel des Données)", answer: "Représentation graphique de haut niveau comprenant des entités, des propriétés, des associations et des cardinalités[cite: 10, 12]." },
+            { question: "Définition : Base de données relationnelle (RDB)", answer: "Méthode de structuration des informations dans des tables, lignes et colonnes, permettant d'établir des liens par jointures[cite: 13]." },
+            { question: "Que signifient DDL, DML et DQL en SQL ?", answer: "DDL : Langage de Définition de données ; DML : Langage de Manipulation de données ; DQL : Langage de Requête[cite: 15]." },
+            { question: "Sensibilité à la casse en SQL", answer: "Les mots-clés SQL ne sont pas sensibles à la casse (conseil : les écrire en MAJUSCULES). Les noms de tables/colonnes dépendent du SGBD et de l'OS[cite: 16]." },
+            { question: "Exemples de SGBD cités dans le cours", answer: "MySQL (open source, Oracle), PL/SQL (procédural propriétaire Oracle), T-SQL (extension Microsoft/Sybase)[cite: 17]." },
+            { question: "Commandes DDL de base pour les bases", answer: "CREATE DATABASE [IF NOT EXISTS] db_name; USE db_name; SHOW DATABASES; DROP DATABASE [IF EXISTS] db_name;[cite: 18]" },
+            { question: "Syntaxe de création d'une table", answer: "CREATE TABLE table_name (col1 datatype, col2 datatype, ..., PRIMARY KEY(col_pk));[cite: 19]" },
+            { question: "Différence entre DROP TABLE et TRUNCATE TABLE", answer: "DROP TABLE supprime la table entière (structure et données). TRUNCATE TABLE vide la table de ses données tout en conservant sa structure[cite: 21]." },
+            { question: "Utilité de la clause SELECT DISTINCT", answer: "Utilisée pour ne renvoyer que des valeurs uniques en éliminant les doublons d'une colonne[cite: 23]." },
+            { question: "Opérateurs disponibles dans la clause WHERE", answer: "Comparateurs (<, >, <=, >=, =, <>), logiques (AND, OR), textuels (LIKE), intervalles (BETWEEN ... AND ...), listes (IN (...)) et valeurs nulles (IS NULL / IS NOT NULL)[cite: 26]." },
+            { question: "Pourquoi '= NULL' est incorrect en SQL ?", answer: "NULL représente une valeur absente ou inconnue. On doit obligatoirement utiliser 'IS NULL' ou 'IS NOT NULL'[cite: 26]." },
+            { question: "Différence entre CHAR et VARCHAR", answer: "CHAR a une taille fixe (complété par des espaces, plus rapide pour tailles constantes). VARCHAR a une taille variable (économie d'espace, flexible)[cite: 29]." },
+            { question: "Syntaxe de l'insertion SQL (INSERT INTO)", answer: "INSERT INTO table_name (col1, col2) VALUES (val1, val2); ou INSERT INTO table_name VALUES (val1, val2, ...);[cite: 28]" },
+            { question: "Syntaxe de mise à jour (UPDATE)", answer: "UPDATE table_name SET col1 = val1, col2 = val2 WHERE condition; (Attention à ne pas oublier le WHERE sous peine de mettre à jour toute la table !)[cite: 32]" },
+            { question: "Modification structurelle d'une table (ALTER TABLE)", answer: "Permet d'ajouter (ADD), supprimer (DROP COLUMN) ou modifier (MODIFY COLUMN) des colonnes d'une table existante[cite: 34]." },
+            { question: "Utilité des alias SQL (AS)", answer: "Permettent de donner un nom temporaire plus lisible à une table ou à une colonne pour la durée d'une seule requête[cite: 35]." },
+            { question: "Rôles des contraintes en SQL", answer: "Garantir l'exactitude et la fiabilité des données. Exemples : NOT NULL, DEFAULT, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK[cite: 36]." },
+            { question: "Fonctionnement de la contrainte CHECK", answer: "Garantit que toutes les valeurs insérées dans une colonne respectent une condition logique précise (ex: CHECK (P_Id > 0))[cite: 37]." },
+            { question: "Utilité de la clause ORDER BY", answer: "Permet de trier le résultat d'une requête selon un ou plusieurs attributs, par défaut en ordre croissant (ASC) ou décroissant (DESC)[cite: 40]." },
+            { question: "Qu'est-ce qu'une jointure SQL (JOIN) ?", answer: "Opération permettant de combiner les lignes de deux tables ou plus sur la base de champs communs (colonnes de liaison)[cite: 41]." },
+            { question: "Différence entre INNER JOIN et LEFT JOIN", answer: "INNER JOIN ne renvoie que les lignes ayant une correspondance dans les deux tables. LEFT JOIN renvoie toutes les lignes de la table de gauche, même sans correspondance à droite[cite: 44]." },
+            { question: "Qu'est-ce qu'un NATURAL JOIN (jointure naturelle) ?", answer: "Jointure automatique basée sur l'égalité des attributs portant le même nom dans les deux tables, avec suppression des colonnes en double dans le résultat[cite: 46]." },
+            { question: "Rôle de GROUP BY et fonctions d'agrégation", answer: "GROUP BY regroupe un ensemble de résultats selon une ou plusieurs colonnes pour y appliquer des fonctions d'agrégation (AVG, COUNT, MAX, MIN, SUM)[cite: 47, 48]." },
+            { question: "Différence entre WHERE et HAVING", answer: "WHERE filtre les lignes avant le regroupement. HAVING filtre les groupes générés par la clause GROUP BY[cite: 51]." },
+            { question: "Utilité des sous-requêtes en SQL", answer: "Permettent d'imbriquer une requête dans une autre (dans le WHERE, le FROM ou pour comparer avec des agrégats) pour structurer des traitements complexes[cite: 53]." },
+            { question: "Rôle des opérateurs IN, ANY, ALL et EXISTS", answer: "IN teste l'appartenance à une liste ; ANY / ALL comparent à un ensemble de valeurs retournées ; EXISTS vérifie si une sous-requête ramène au moins un résultat[cite: 54, 55]." }
+        ]
+    },
+
+    // ==========================================
+    // 5. NOUVEAU DECK : BDD & INTEROPERABILITE - CM2
+    // ==========================================
+    {
+        id: "bdd-cm2",
+        category: "BDD & INTEROPERABILITE",
+        title: "CM2 : Vues, Index, Séquences & Optimisation",
+        color: "#16a085", // Vert Emeraude
+        icon: "📈",
+        description: "Tables virtuelles (vues), conditions de mise à jour, index denses/non denses, arbres B+ et séquences auto-incrémentées.",
+        cards: [
+            { question: "Définition d'une vue (View)", answer: "Table virtuelle qui ne stocke pas physiquement les données, mais enregistre une expression de requête SQL évaluée dynamiquement[cite: 59, 61, 74]." },
+            { question: "Principales raisons d'utiliser des vues", answer: "Simplifier et encapsuler les requêtes complexes, et renforcer la sécurité en masquant certaines données sensibles selon les utilisateurs[cite: 60]." },
+            { question: "Syntaxe de création et suppression d'une vue", answer: "CREATE VIEW view_name AS <requête SQL>; et DROP VIEW view_name; (la suppression n'efface pas les données sous-jacentes)[cite: 61, 71]." },
+            { question: "Conditions de modifiabilité d'une vue (vue actualisable)", answer: "La clause FROM ne contient qu'une seule table de base, pas de GROUP BY/HAVING, pas d'agrégats, pas de DISTINCT, et les attributs non listés tolèrent les valeurs NULL[cite: 70]." },
+            { question: "Pourquoi ne peut-on pas modifier une vue issue d'une jointure complexe ?", answer: "Car le SGBD ne peut pas déterminer de manière univoque quelle table de base mettre à jour simultanément (erreur 'Can not modify more than one base table through a join view')[cite: 69]." },
+            { question: "Rôle de l'indépendance logique via les vues", answer: "Permet de modifier le schéma physique d'une table (ex: la scinder en deux) tout en maintenant l'ancien schéma logique accessible via une vue avec jointure[cite: 73]." },
+            { question: "Qu'est-ce qu'une séquence en SQL / MySQL ?", answer: "Objet générant une suite automatique d'entiers (1, 2, 3...). MySQL simule ce comportement via l'attribut AUTO_INCREMENT[cite: 76]." },
+            { question: "Comment récupérer la dernière valeur auto-incrémentée ?", answer: "En exécutant la fonction SELECT LAST_INSERT_ID();[cite: 79]." },
+            { question: "Comment modifier le point de départ d'un auto-incrément ?", answer: "À l'aide de la commande ALTER TABLE table_name AUTO_INCREMENT = valeur;[cite: 79]." },
+            { question: "Définition d'un index informatique", answer: "Structure de recherche (type table de correspondance ou pointeur) utilisée par le moteur de base de données pour accélérer considérablement la récupération des données sans balayage séquentiel[cite: 83, 88]." },
+            { question: "Qu'est-ce qu'une entrée d'index ?", answer: "Un enregistrement constitué d'une paire de valeurs : [valeur_de_clé, adresse_physique] (adresse de bloc ou d'enregistrement)[cite: 89]." },
+            { question: "Définition : Index primaire (ou index clusterisé)", answer: "Index dont la clé de recherche définit l'ordre physique du stockage des données dans le fichier. Il n'y en a qu'un seul par table[cite: 84, 85]." },
+            { question: "Définition : Index secondaire (non clusterisé)", answer: "Index dont la clé de recherche spécifie un ordre logique différent de l'ordre physique de stockage des données[cite: 84]." },
+            { question: "Différence majeure entre Clé Primaire et Index Primaire", answer: "La clé primaire garantit l'unicité et l'intégrité logique sans imposer d'ordre physique. L'index primaire (clusterisé) trie physiquement les enregistrements sur disque[cite: 85]." },
+            { question: "Qu'est-ce qu'un index dense ?", answer: "Index qui possède une entrée pour chaque enregistrement (chaque valeur de clé) présent dans le fichier de données[cite: 95]." },
+            { question: "Qu'est-ce qu'un index non dense (clairsemé) ?", answer: "Index qui ne possède qu'une seule entrée par bloc de données (généralement pointant vers la plus petite clé du bloc)[cite: 97, 100]." },
+            { question: "Avantage et inconvénient de l'index non dense", answer: "Avantage : occupe beaucoup moins d'espace disque et de maintenance. Inconvénient : un peu plus lent qu'un index dense pour localiser des enregistrements isolés[cite: 100]." },
+            { question: "Qu'est-ce qu'un index multi-niveaux ?", answer: "Structure hiérarchique construite en indexant un index non dense de niveau inférieur, réduisant les accès disque par une recherche arborescente (de type dichotomique)[cite: 102, 103]." },
+            { question: "Définition d'un arbre B+ (B+-Tree)", answer: "Arbre équilibré de recherche, idéal pour les SGBD, où toutes les feuilles sont au même niveau et reliées entre elles par des pointeurs séquentiels, facilitant les recherches par intervalle[cite: 105, 108]." },
+            { question: "Structure d'un nœud interne dans un arbre B+", answer: "Contient des pointeurs vers les sous-arbres (enfants) et des clés de séparation ordonnées permettant de guider la recherche[cite: 107, 109]." },
+            { question: "Propriété d'équilibrage des arbres B+", answer: "Tous les chemins de la racine aux feuilles ont exactement la même longueur, garantissant des temps d'accès stables et performants[cite: 105, 146]." },
+            { question: "Que se passe-t-il lors de l'insertion dans un nœud B+ plein ?", answer: "On effectue une opération d'éclatement (split) du nœud pour respecter les bornes maximales d'éléments par nœud[cite: 117]." },
+            { question: "Que se passe-t-il lors de la suppression dans un arbre B+ ?", answer: "Si un nœud descend en dessous du nombre minimal de valeurs, on procède à des fusions ou des redistributions pour rééquilibrer l'arbre[cite: 140]." },
+            { question: "Pourquoi les SGBD utilisent-ils massivement les arbres B+ ?", answer: "Parce qu'ils minimisent les entrées/sorties (I/O) disque grâce à leur structure équilibrée de grande branching factor et supportent excellemment les recherches par clés et par plages[cite: 105]." },
+            { question: "Comment réinitialiser proprement une séquence auto-incrémentée en supprimant des lignes ?", answer: "Soit en modifiant l'index/auto-increment, soit en recréant la colonne ID avec la clause FIRST et PRIMARY KEY[cite: 80]." },
+            { question: "Quel est l'impact d'un index sur les opérations d'écriture (INSERT, UPDATE, DELETE) ?", answer: "Il accélère les lectures (SELECT), mais ralentit légèrement les écritures car l'index doit être mis à jour et réorganisé à chaque modification[cite: 100]." },
+            { question: "Qu'est-ce qu'une recherche par préfixe dans un index ?", answer: "Requête utilisant un opérateur comme LIKE 'M%' qui exploite l'ordre trié de l'index pour retrouver directement les entrées correspondantes[cite: 99]." },
+            { question: "Quelle est la taille approximative d'un index par rapport au fichier de données ?", answer: "Beaucoup plus petite (souvent 10 à 100 fois plus compacte), ce qui permet de charger fréquemment l'index directement en mémoire vive (RAM)[cite: 96, 101]." },
+            { question: "Peut-on créer un index sur plusieurs colonnes (index composite) ?", answer: "Oui, la clé d'indexation est alors une liste ordonnée de plusieurs attributs, très utile pour les requêtes filtrant sur plusieurs critères conjoints[cite: 89, 93]." },
+            { question: "Que contient la base d'un nœud feuille dans un arbre B+ ?", answer: "Des clés de recherche associées à des pointeurs directs vers les enregistrements de données (ou buckets) correspondants[cite: 107, 108]." }
+        ]
+    },
+
+    // ==========================================
+    // 6. NOUVEAU DECK : BDD & INTEROPERABILITE - CM3
+    // ==========================================
+    {
+        id: "bdd-cm3",
+        category: "BDD & INTEROPERABILITE",
+        title: "CM3 : PL/SQL (Langage Procédural & Triggers)",
+        color: "#d35400", // Orange Foncé / Rouille
+        icon: "⚙️",
+        description: "Blocs PL/SQL, variables, structures de contrôle, curseurs, gestion des exceptions, fonctions, procédures, packages et déclencheurs.",
+        cards: [
+            { question: "Qu'est-ce que le PL/SQL ?", answer: "Procedural Language/Structured Query Language : langage procédural propriétaire créé par Oracle, combinant SQL et structures de programmation[cite: 17, 158]." },
+            { question: "Quelles sont les trois sections d'un bloc PL/SQL ?", answer: "1. Section DECLARE (optionnelle) ; 2. Section BEGIN...END (obligatoire) ; 3. Section EXCEPTION (optionnelle)[cite: 159, 164]." },
+            { question: "Quels sont les différents types de blocs PL/SQL ?", answer: "Blocs anonymes, blocs nommés, sous-programmes (procédures, fonctions, packages) et triggers (déclencheurs)[cite: 160]." },
+            { question: "Comment déclarer une variable typée par référence à une colonne ?", answer: "nom_variable nom_table.nom_attribut%TYPE;[cite: 171]" },
+            { question: "Qu'est-ce qu'une variable de type %ROWTYPE ?", answer: "Variable enregistrement qui représente une ligne entière d'une table ou d'un curseur (ex: cn OEHR_COUNTRIES%ROWTYPE)[cite: 175]." },
+            { question: "Comment déclarer et utiliser une table en PL/SQL (index-by table) ?", answer: "TYPE nom_type IS TABLE OF type_elem INDEX BY BINARY_INTEGER; puis déclaration de la variable et manipulation via un indice entier[cite: 182, 183]." },
+            { question: "Quelles sont les structures alternatives en PL/SQL ?", answer: "IF-THEN, IF-THEN-ELSE et la structure CASE[cite: 185, 186, 187]." },
+            { question: "Quelles sont les boucles (structures répétitives) en PL/SQL ?", answer: "WHILE ... LOOP, FOR i IN min..max LOOP, et la boucle simple LOOP ... EXIT WHEN ... END LOOP[cite: 188, 189, 190]." },
+            { question: "Qu'est-ce qu'un curseur en PL/SQL ?", answer: "Structure de programmation permettant de parcourir et traiter les résultats d'une requête SQL ligne par ligne de manière itérative[cite: 191]." },
+            { question: "Quelles sont les étapes d'utilisation d'un curseur explicite ?", answer: "1. Déclaration (CURSOR c IS ...) ; 2. Ouverture (OPEN c) ; 3. Récupération itérative (FETCH c INTO ...) ; 4. Fermeture (CLOSE c)[cite: 192]." },
+            { question: "Comment détecter la fin d'un curseur avec une boucle ?", answer: "En testant la condition d'arrêt EXIT WHEN c%NOTFOUND;[cite: 192]." },
+            { question: "Quelles fonctions permettent de gérer les erreurs standard ?", answer: "SQLCODE (renvoie le code d'erreur numérique) et SQLERRM (renvoie le message textuel associé)[cite: 196]." },
+            { question: "Donnez des exemples d'exceptions prédéfinies en PL/SQL", answer: "NO_DATA_FOUND, DUP_VAL_ON_INDEX, VALUE_ERROR, ZERO_DIVIDE, TOO_MANY_ROWS[cite: 195, 198]." },
+            { question: "Syntaxe de définition d'une procédure stockée", answer: "CREATE [OR REPLACE] PROCEDURE nom_proc (param [IN/OUT] type) IS / AS BEGIN ... END nom_proc;[cite: 199]." },
+            { question: "Syntaxe de définition d'une fonction stockée", answer: "CREATE [OR REPLACE] FUNCTION nom_func (param IN type) RETURN type_retour IS / AS BEGIN ... RETURN val; END nom_func;[cite: 201]." },
+            { question: "Différence fondamentale entre Procédure et Fonction", answer: "Une fonction doit obligatoirement retourner une valeur (via RETURN) et ne possède que des paramètres d'entrée (IN). Une procédure ne retourne pas de valeur directe et gère les modes IN, OUT et IN OUT[cite: 201, 206]." },
+            { question: "Qu'est-ce qu'un package en PL/SQL ?", answer: "Objet de base de données regroupant des types, variables, curseurs, procédures et fonctions connexes en une seule unité (séparée en PACKAGE SPEC et PACKAGE BODY)[cite: 207, 208]." },
+            { question: "Qu'est-ce que la surcharge (overloading) dans un package ?", answer: "Possibilité de définir plusieurs procédures ou fonctions portant le même nom mais ayant des listes de paramètres différentes[cite: 213]." },
+            { question: "Qu'est-ce qu'un déclencheur (trigger) ?", answer: "Objet de base de données exécuté automatiquement (implicitement) en réponse à un événement DML (INSERT, UPDATE, DELETE) sur une table[cite: 214]." },
+            { question: "Combien existe-t-il de types de déclencheurs combinatoires ?", answer: "12 types au total, issus de la combinaison de 3 événements (INSERT, UPDATE, DELETE), 2 moments (BEFORE, AFTER) et 2 modes (Statement ou FOR EACH ROW)[cite: 215]." },
+            { question: "Que signifient :NEW et :OLD dans un trigger ligne ?", answer: ":OLD représente la valeur de la ligne avant la modification DML, et :NEW représente la nouvelle valeur après modification[cite: 221]." },
+            { question: "Quel est l'ordre d'exécution des déclencheurs sur une table ?", answer: "1. BEFORE Statement ; 2. BEFORE Row ; 3. Opération DML ; 4. AFTER Row ; 5. AFTER Statement[cite: 217]." },
+            { question: "Peut-on stocker un trigger à l'intérieur d'un package ?", answer: "Non, les déclencheurs ne peuvent pas être intégrés dans un package[cite: 214]." },
+            { question: "Que se passe-t-il si une exception non gérée survient dans un trigger BEFORE ?", answer: "L'opération DML déclenchante (ex: l'insertion) est entièrement annulée et échoue[cite: 219]." },
+            { question: "Comment désactiver temporairement un trigger ou tous les triggers d'une table ?", answer: "ALTER TRIGGER nom_trigger DISABLE; ou ALTER TABLE nom_table DISABLE ALL TRIGGERS;[cite: 224]" },
+            { question: "Comment s'effectue l'appel d'une fonction stockée en PL/SQL ?", answer: "v_result := nom_fonction(parametres); ou via les commandes interactives EXECUTE / SELECT[cite: 204]." },
+            { question: "Quelle est l'utilité des sous-programmes stockés (côté serveur) ?", answer: "Améliorer l'architecture client/serveur en évitant de transférer du code en boucle, en centralisant la logique métier et en optimisant les performances[cite: 158]." },
+            { question: "Comment gère-t-on les paramètres en sortie (OUT) dans une procédure ?", answer: "Le paramètre est passé par référence et reçoit une valeur modifiée à l'intérieur du bloc, récupérable par l'appelant[cite: 199, 206]." },
+            { question: "Comment intercepter toutes les autres erreurs non explicitement listées ?", answer: "En utilisant la clause WHEN OTHERS THEN dans la section EXCEPTION[cite: 197]." },
+            { question: "Quelle commande permet de supprimer un package complet ?", answer: "DROP PACKAGE nom_package; (ou DROP PACKAGE BODY nom_package; pour supprimer uniquement le corps)[cite: 212]." }
+        ]
+    },
+
+    // ==========================================
+    // 7. NOUVEAU DECK : BDD & INTEROPERABILITE - CM4
+    // ==========================================
+    {
+        id: "bdd-cm4",
+        category: "BDD & INTEROPERABILITE",
+        title: "CM4 : Management des Transactions & Concurrence",
+        color: "#c0392b", // Rouge Profond / Bordeaux
+        icon: "🔒",
+        description: "Propriétés ACID, exécutions concurrentes, anomalies transactionnelles, niveaux d'isolation, COMMIT, ROLLBACK et verrous.",
+        cards: [
+            { question: "Définition d'une transaction", answer: "Ensemble ordonné d'opérations de mise à jour (INSERT, UPDATE, DELETE) qui sera entièrement validé (COMMIT) ou entièrement annulé (ROLLBACK)[cite: 230]." },
+            { question: "Que signifient les propriétés ACID ?", answer: "Atomicité, Cohérence, Isolation et Durabilité[cite: 233]." },
+            { question: "Définissez l'Atomicité (A d'ACID)", answer: "Une transaction s'exécute complètement ou pas du tout (tout ou rien)[cite: 233]." },
+            { question: "Définissez la Cohérence (C d'ACID)", answer: "Une transaction garantit le passage d'un état valide (cohérent) de la base de données à un autre état valide[cite: 233]." },
+            { question: "Définissez l'Isolation (I d'ACID)", answer: "Les transactions concurrentes s'exécutent comme si chacune était seule sur la base, sans interférences indésirables[cite: 233]." },
+            { question: "Définissez la Durabilité (D d'ACID)", answer: "Une fois qu'une transaction a validé son COMMIT, ses résultats sont permanents et survivent à un incident ou une panne[cite: 233]." },
+            { question: "Quelles sont les 4 principales anomalies transactionnelles ?", answer: "1. Les mises à jour perdues ; 2. Les lectures sales (dirty reads) ; 3. Les lectures non répétables ; 4. Les lectures fantômes[cite: 234]." },
+            { question: "Qu'est-ce qu'une mise à jour perdue ?", answer: "Anomalie où deux transactions modifient les mêmes données en concurrence, et la dernière validation écrase et annule les modifications de la première[cite: 235]." },
+            { question: "Qu'est-ce qu'une lecture sale (dirty read) ?", answer: "Fait de lire dans une transaction des données modifiées par une autre transaction non encore validée, qui subira ensuite un ROLLBACK[cite: 242]." },
+            { question: "Qu'est-ce qu'une lecture non répétable ?", answer: "Fait de lire deux fois la même ligne au cours d'une même transaction et d'obtenir des valeurs différentes parce qu'une autre transaction a validé une modification entre-temps[cite: 244]." },
+            { question: "Qu'est-ce qu'une lecture fantôme ?", answer: "Fait de relancer une requête de sélection sur une plage de tuples et de voir apparaître de nouveaux enregistrements (fantômes) insérés et validés par une autre transaction concurrente[cite: 246, 248]." },
+            { question: "Quels sont les 4 niveaux d'isolation standard SQL ?", answer: "1. Read Uncommitted ; 2. Read Committed ; 3. Repeatable Read ; 4. Serializable[cite: 250]." },
+            { question: "Caractéristiques du niveau Read Uncommitted", answer: "Le plus laxiste : toutes les anomalies (lectures sales, non répétables, fantômes) sont possibles[cite: 263]." },
+            { question: "Caractéristiques du niveau Read Committed", answer: "Évite les lectures sales, mais autorise les mises à jour perdues, les lectures non répétables et les fantômes[cite: 257, 263]." },
+            { question: "Caractéristiques du niveau Repeatable Read", answer: "Évite les lectures sales et les lectures non répétables. Seules les lectures fantômes restent possibles (niveau par défaut sous MySQL InnoDB)[cite: 250, 261, 263]." },
+            { question: "Caractéristiques du niveau Serializable", answer: "Isolation totale et stricte : aucune anomalie possible, garantie de cohérence absolue, mais risque accru d'interblocages (deadlocks) et baisse de concurrence[cite: 262, 263]." },
+            { question: "Comment consulter le niveau d'isolation actuel dans MySQL ?", answer: "SELECT @@transaction_ISOLATION;[cite: 250]" },
+            { question: "Comment modifier le niveau d'isolation d'une session ?", answer: "SET SESSION TRANSACTION ISOLATION LEVEL [READ UNCOMMITTED | READ COMMITTED | REPEATABLE READ | SERIALIZABLE];[cite: 251, 258, 261, 262]" },
+            { question: "Comment débute-t-on une transaction explicitement en SQL ?", answer: "Avec la commande START TRANSACTION; (ce qui désactive l'autocommit jusqu'au prochain COMMIT ou ROLLBACK)[cite: 264]." },
+            { question: "Quel est l'effet de l'instruction COMMIT ?", answer: "Valide définitivement toutes les modifications effectuées au cours de la transaction en cours[cite: 230]." },
+            { question: "Quel est l'effet de l'instruction ROLLBACK ?", answer: "Annule l'ensemble des modifications non validées de la transaction en cours et rétablit l'état antérieur[cite: 230]." },
+            { question: "Qu'est-ce qu'un COMMIT implicite ?", answer: "Validation automatique et irréversible déclenchée par certaines commandes (notamment les instructions DDL comme CREATE, DROP, ALTER ou les verrouillages de tables)[cite: 265]." },
+            { question: "Peut-on faire un ROLLBACK après une instruction DDL (ex: DROP TABLE) ?", answer: "Non ! Les instructions DDL provoquent un commit implicite, rendant impossible l'annulation par ROLLBACK[cite: 265, 266]." },
+            { question: "Qu'est-ce qu'un interblocage (deadlock) ?", answer: "Situation où deux transactions s'attendent mutuellement en bloquant des ressources, rendant leur progression impossible sans l'intervention du SGBD qui en annule une[cite: 262]." },
+            { question: "Pourquoi l'exécution en série pure est-elle pénalisante ?", answer: "Parce qu'elle supprime toute concurrence en bloquant l'accès à la base pour chaque utilisateur, détruisant les performances globales[cite: 240]." },
+            { question: "Quelle clause SQL protège contre les mises à jour perdues en lecture répétable ?", answer: "La clause SELECT ... FOR UPDATE, qui pose un verrou exclusif sur les lignes lues pour empêcher toute modification concurrente[cite: 261]." },
+            { question: "Quel SGBD utilise par défaut le niveau Repeatable Read ?", answer: "MySQL (via son moteur de stockage InnoDB)[cite: 250]." },
+            { question: "Quel est le niveau d'isolation par défaut sous Oracle, SQL Server et PostgreSQL ?", answer: "Read Committed[cite: 250]." },
+            { question: "Que se passe-t-il si on omet la clause WHERE dans un UPDATE au sein d'une transaction ?", answer: "Toutes les lignes de la table sont mises à jour, ce qui peut corrompre l'état logique si la transaction n'est pas annulée par ROLLBACK[cite: 32]." },
+            { question: "Pourquoi les transactions concurrentes nécessitent-elles un contrôle strict ?", answer: "Pour empêcher la corruption des données, garantir la fiabilité financière/métier et maintenir les propriétés ACID malgré les entrelacements d'exécutions[cite: 233, 234]." }
+        ]
     }
 ];
 
