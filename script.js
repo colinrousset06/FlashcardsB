@@ -182,6 +182,7 @@ const decks = [
             { question: "Proposition 11.3 : Inégalité de Hölder", answer: "Pour 1/p + 1/p' = 1, f ∈ Lᵖ et g ∈ Lᵖ', on a f·g ∈ L¹ et ∥f·g∥_L¹ ≤ ∥f∥_Lᵖ · ∥g∥_Lᵖ' (soit ∫_Ω |fg| dx ≤ ∥f∥_Lᵖ ∥g∥_Lᵖ')." },
             { question: "Lemme 11.1 : Inégalité de Young", answer: "Pour 1/p + 1/p' = 1 et a, b ≥ 0, on a a·b ≤ (1/p) aᵖ + (1/p') bᵖ', avec égalité si aᵖ = bᵖ'." },
             { question: "Proposition 11.4 : Propriété d'inclusion des espaces Lᵖ sur domaine boré de mesure finie", answer: "Si |Ω| < ∞ et 1 ≤ p ≤ q ≤ ∞, alors L**q(Ω) ↪ Lᵖ(Ω) continûment, avec ∥f∥_Lᵖ ≤ (|Ω|^(1/p - 1/q))*(∥f∥_L**q)." },
+            { question: "Exemple 11.2. Si fn → f dans Lp et (fn) est bornée dans Lq : ", answer : "alors fn → f dans tout Lr avec p ≤ r < q."},
             
             { question: "Théorème 11.2 : Inégalité d'interpolation", answer: "Si f ∈ Lᵖ ∩ Lʲ avec 1 ≤ p ≤ r ≤ j ≤ ∞, alors ∥f∥_Lʳ ≤ ∥f∥_Lᵖ^α · ∥f∥_Lʲ^(1-α) où 1/r = α/p + (1-α)/j avec α ∈ [0,1]." },
             { question: "Théorème 11.3 : Densité des fonctions continues dans L¹ sur un compact", answer: "Pour tout compact K ⊂ ℝⁿ et f ∈ L¹(K), ∀ ε > 0, ∃ φ ∈ 𝒞(K) telle que ∫_K |f(x) - φ(x)| dx < ε." },
