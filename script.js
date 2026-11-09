@@ -294,7 +294,177 @@ const decks = [
             { question: "Complexité théorique et pratique de l'Algorithme du Simplexe", answer: "Complexité théorique pire des cas : exponentielle (O(2ⁿ)). En pratique : très efficace et quasi-linéaire par rapport au nombre de contraintes." }
         ]
     },
+    // ==========================================
+    // 1. BASES DE PYTHON & NOTIONS FONDAMENTALES
+    // ==========================================
+    {
+        id: "python-bases",
+        category: "LANGAGE PYTHON",
+        title: "Bases de Python & Fondamentaux",
+        color: "#3572A5", // Python Blue
+        icon: "🐍",
+        description: "Bases de la syntaxe, types de données, structures de contrôle, fonctions, collections, fichiers et POO de base.",
+        cards: [
+            // --- Introduction & Environnement ---
+            { question: "Mode d'exécution : Interprété vs Compilé", answer: "Python est traduit à la volée en bytecode puis exécuté par l'interpréteur instruction par instruction. Une erreur n'apparaît qu'à l'exécution de la ligne fautive (contrairement au C# compilé)." },
+            { question: "Style officiel : PEP 8", answer: "Convention de style officielle de Python préconisant l'utilisation du snake_case pour les noms et de 4 espaces pour l'indentation." },
+            { question: "Rôle de l'indentation", answer: "L'indentation (4 espaces) délimite les blocs de code suite au symbole ':'. Une mauvaise indentation provoque une 'IndentationError'." },
+            { question: "Commentaires et Docstrings", answer: "Les commentaires s'écrivent avec '#' et les docstrings avec triple guillemets (\"\"\"Docstring\"\"\") pour décrire un module, une classe ou une fonction." },
+            { question: "Distribution Anaconda", answer: "Distribution incluant Python, le gestionnaire conda, des IDE (Spyder, Jupyter) et des bibliothèques scientifiques (NumPy, pandas, Matplotlib)." },
+            { question: "Avantages de Spyder", answer: "IDE adapté au calcul scientifique affichant sur un seul écran l'éditeur, l'explorateur de variables, la console IPython et le débogueur." },
 
+            // --- Variables & Opérations ---
+            { question: "Typage dynamique des variables", answer: "Pas de déclaration de type. La variable naît à sa 1re affectation et le type est porté par la valeur (obtenu via type())." },
+            { question: "Types de données élémentaires", answer: "int (entiers), float (décimaux), str (chaînes), bool (booléens : True/False)." },
+            { question: "Division réelle vs entière", answer: "'/' renvoie toujours un float (ex: 17/5 = 3.4). '//' réalise la division entière (ex: 17//5 = 3)." },
+            { question: "Modulo et Puissance", answer: "'%' donne le reste de la division (17 % 5 = 2) et '**' calcule la puissance (17 ** 2 = 289)." },
+            { question: "Opérateurs logiques", answer: "and (ET), or (OU), not (NON). Les comparaisons sont chaînables (ex: 5 < x < 10)." },
+            { question: "Incrémentation en Python", answer: "Pas d'opérateur ++ ou --. On utilise l'affectation augmentée (ex: x += 1)." },
+            { question: "Affectation multiple et échange", answer: "On peut affecter ou échanger en une ligne : a, b = 1, 2 puis a, b = b, a." },
+            { question: "La valeur None", answer: "Représente l'absence de valeur. On la teste toujours avec l'opérateur d'identité 'is' (ex: result is None)." },
+
+            // --- Entrées / Sorties & Formats ---
+            { question: "Fonction print() : séparateur et fin", answer: "print(*objects, sep=' ', end='\\n'). Permet de modifier le séparateur d'affichage et le caractère de fin de ligne." },
+            { question: "Fonction input()", answer: "Lit une saisie utilisateur et renvoie TOUJOURS une chaîne (str). Nécessite une conversion (int(), float())." },
+            { question: "Vérification de chaîne numérique", answer: "text.isdigit() renvoie True si tous les caractères sont des chiffres entiers positifs." },
+            { question: "Danger de eval()", answer: "eval(input()) ne doit JAMAIS être utilisé car il exécute n'importe quel code Python injecté." },
+            { question: "f-strings (Formatage)", answer: "Syntaxe f\"{valeur:format}\". Exemples : f\"{price:.2f}\" (2 décimales), f\"{qty:05d}\" (remplissage 0), f\"{1000000:,}\" (séparateur milliers), f\"{qty*2=}\" (débogage)." },
+
+            // --- Control Flow (Conditions & Boucles) ---
+            { question: "Conditions : if, elif, else", answer: "Structure conditionnelle sans parenthèses obligatoires, délimitée par ':' et l'indentation." },
+            { question: "Opérateur ternaire", answer: "Expression conditionnelle : valeur_si_vrai if condition else valeur_si_faux." },
+            { question: "Match / Case (Python 3.10+)", answer: "Équivalent du switch : match var: case val1: ... case val2: ... case _: (cas par défaut)." },
+            { question: "Valeurs évaluées à Faux (Truthy/Falsy)", answer: "0, 0.0, \"\", [], {}, set(), None et False sont tous évalués à Faux dans un test booléen." },
+            { question: "Boucle for et range()", answer: "Parcourt les éléments d'une séquence. range(début, fin, pas) génère des entiers (la borne de fin est toujours exclue)." },
+            { question: "Boucle while", answer: "Répète un bloc tant que la condition est True. La logique d'arrêt doit être portée par la condition." },
+            { question: "Algorithme de recherche sans break", answer: "while index < len(lst) and lst[index] != target: index += 1. L'évaluation paresseuse du 'and' protège contre l'IndexError." },
+
+            // --- Fonctions (Bases) ---
+            { question: "Définition d'une fonction", answer: "def nom_fonction(paramètres): suivi d'un bloc indenté. Renvoie None si aucun 'return' n'est exécuté." },
+            { question: "Annotations de type (Type Hints)", answer: "Documente le type des paramètres et du retour sans obligation à l'exécution : def power(base: float, exponent: int = 2) -> float:" },
+            { question: "Paramètres par défaut et arguments nommés", answer: "Les paramètres par défaut doivent être placés à la fin. Lors de l'appel, les arguments nommés s'affranchissent de l'ordre." },
+            { question: "Piège des arguments par défaut modifiables", answer: "Ne jamais utiliser d'objet modifiable ([] ou {}) comme valeur par défaut d'une fonction. Utiliser None et l'initialiser dans la fonction." },
+            { question: "Variable d'arguments positionnels *args", answer: "Regroupe un nombre variable d'arguments positionnels non nommés sous forme de tuple." },
+            { question: "Variable d'arguments nommés **kwargs", answer: "Regroupe un nombre variable d'arguments nommés sous forme de dictionnaire." },
+            { question: "Récursivité", answer: "Fonction qui s'appelle elle-même. Nécessite au moins un cas de base pour stopper l'empilement des appels." },
+
+            // --- Séquences & Collections (Bases) ---
+            { question: "Propriétés communes aux séquences", answer: "Partagées par str, list, tuple, range : in, +, *, len(), min(), max(), .index(), .count(), indexation s[i]." },
+            { question: "Indexation négative", answer: "s[-1] accède au dernier élément d'une séquence, s[-2] à l'avant-dernier." },
+            { question: "Slicing (Tranches)", answer: "s[début:fin:pas] (fin exclue). s[::-1] inverse la séquence. Une tranche hors limites ne produit PAS d'IndexError." },
+            { question: "Chaîne de caractères (str)", answer: "Séquence IMMUABLE de caractères. Les modifications créent toujours une nouvelle instance." },
+            { question: "Méthodes de str fondamentales", answer: ".lower(), .upper(), .strip() (enlève espaces aux bords), .replace(old, new), .startswith(), .endswith(), .isdigit()." },
+            { question: "Méthodes str : split() vs split(' ')", answer: "split() coupe sur tout blanc et ignore les espaces consécutifs. split(' ') coupe à chaque espace strict, créant des chaînes vides." },
+            { question: "Méthode str : join()", answer: "Rassemble la liste de chaînes avec un séparateur : \"-\".join([\"a\", \"b\"]) produit \"a-b\"." },
+            { question: "Liste (list)", answer: "Collection ordonnée et MODIFIABLE d'éléments. Syntaxe : [1, 2, 3]." },
+            { question: "Méthodes principales de list", answer: ".append(x) (ajoute à la fin), .insert(i, x), .extend(seq) ou +=, .remove(x) (supprime 1re occurence), .pop() (retire et renvoie le dernier)." },
+            { question: "Copie de liste : alias vs copie", answer: "b = a crée un alias (même objet en mémoire). b = a.copy() ou b = a[:] crée une copie superficielle." },
+            { question: "Copie superficielle vs Copie profonde", answer: "Copie superficielle (list.copy(), [:]) duplique le conteneur mais partage les sous-objets. copy.deepcopy() duplique tout récursivement." },
+            { question: "Tuple (tuple)", answer: "Collection ordonnée et IMMUABLE. Syntaxe : (1, 2). Un tuple d'un seul élément nécessite une virgule : (42,)." },
+            { question: "Déballage (Unpacking)", answer: "Extraction directe des éléments d'un tuple ou liste dans des variables : x, y = (3, 4)." },
+            { question: "Dictionnaire (dict)", answer: "Collection de paires clé/valeur. Clés uniques et hachables (immuables). Syntaxe : {\"k\": v}." },
+            { question: "Accès et sécurité dans dict", answer: "dict[key] lève une KeyError si la clé est absente. dict.get(key, default) renvoie la valeur par défaut si elle n'existe pas." },
+            { question: "Vues de dictionnaire", answer: "dict.keys(), dict.values(), dict.items() renvoient des vues dynamiques (qui reflètent les modifications du dictionnaire) et non des copies." },
+            { question: "Fusion de dictionnaires (Python 3.9+)", answer: "L'opérateur '|' fusionne deux dictionnaires : c = a | b. En cas de clé commune, la valeur de droite (b) prévaut." },
+            { question: "Ensemble (set)", answer: "Collection NON ORDONNÉE d'éléments UNIQUES. Doublons automatiquement ignorés. Syntaxe : {1, 2}." },
+            { question: "Création d'un set vide", answer: "{} crée un dictionnaire vide. Pour créer un ensemble vide, il faut impérativement écrire set()." },
+            { question: "Opérations ensemblistes", answer: "| (union), & (intersection), - (différence), ^ (différence symétrique), <= (inclusion). Pas d'opérateur '+'." },
+            { question: "Méthodes de set : remove vs discard", answer: "set.remove(x) lève une KeyError si x est absent. set.discard(x) ne lève pas d'erreur." },
+            { question: "Conversions entre collections", answer: "list(), tuple(), set() convertissent n'importe quel itérable. set(lst) supprime les doublons." },
+
+            // --- Fichiers (Bases) ---
+            { question: "Gestionnaire de contexte avec (with)", answer: "Garantit la fermeture automatique du fichier à la sortie du bloc, même en cas d'exception." },
+            { question: "Modes d'ouverture de fichiers", answer: "'r' (lecture), 'w' (écriture avec écrasement), 'a' (ajout à la fin), 'x' (création exclusive, échoue si le fichier existe)." },
+            { question: "Encodage des fichiers", answer: "Toujours expliciter l'encodage lors de l'ouverture d'un fichier texte : encoding=\"utf-8\"." },
+
+            // --- Programmation Orientée Objet (Bases) ---
+            { question: "Définition d'une classe et constructeur", answer: "class NomClasse: puis def __init__(self, arg): pour initialiser les attributs d'instance. Pas de mot-clé 'new'." },
+            { question: "Rôle de self", answer: "Représente l'instance courante de l'objet. Doit être le premier paramètre explicite de toutes les méthodes d'instance." },
+            { question: "Encapsulation et convention privée", answer: "Python n'a pas de modificateur 'private'. Un préfixe par un souligné (_attribut) signale un usage interne." },
+            { question: "Attribut d'instance vs Attribut de classe", answer: "L'attribut d'instance (self.x) est propre à chaque objet. L'attribut de classe est défini dans le corps de la classe et partagé par toutes les instances." },
+            { question: "Méthodes spéciales d'affichage : __str__ et __repr__", answer: "__str__ définit le texte lisible pour l'utilisateur (print(), str()). __repr__ définit le texte précis pour le développeur." },
+            { question: "Surcharge d'opérateurs", answer: "Exemples de méthodes spéciales : __add__ (+), __eq__ (==), __len__ (len()), __getitem__ (indexation [])." }
+        ]
+    },
+
+    // ==========================================
+    // 2. PYTHON AVANCÉ - AVANCER PLUS LOIN
+    // ==========================================
+    {
+        id: "python-avance",
+        category: "LANGAGE PYTHON",
+        title: "Python Avancé & Fonctionnalités Avancées",
+        color: "#2b5b84",
+        icon: "🚀",
+        description: "Compréhensions, fonctions intégrées, lambdas, générateurs, portée LEGB, héritage multiple, exceptions et sérialisation.",
+        cards: [
+            // --- Compréhensions ---
+            { question: "Compréhension de liste (Syntaxe)", answer: "[expression for item in iterable if condition]. Crée une nouvelle liste de façon concise." },
+            { question: "Position du 'if' dans une compréhension", answer: "À la fin : sert de filtre (ex: [x for x in nums if x > 0]). Au début avec 'else' : transforme la valeur (ex: [x if x > 0 else 0 for x in nums])." },
+            { question: "Compréhension avec for imbriqués", answer: "[x for row in matrix for x in row]. L'ordre des 'for' respecte l'ordre d'imbrication des boucles classiques." },
+            { question: "Compréhension de dictionnaire", answer: "{cle: valeur for item in iterable if condition}. Exemple : {w: len(w) for w in words}." },
+            { question: "Compréhension d'ensemble", answer: "{expression for item in iterable}. Produit un ensemble sans doublons (distingué du dictionnaire par l'absence de ':')." },
+            { question: "Quand éviter les compréhensions ?", answer: "Ne pas l'utiliser pour exécuter des effets de bord (ex: [print(x) for x in list]). Revenir à des boucles si la lisibilité est dégradée ou s'il y a plus de 2 'for/if'." },
+
+            // --- Fonctions Intégrées Avancées ---
+            { question: "Fonctions any() et all()", answer: "any(iterable) renvoie True si au moins un élément est True. all(iterable) renvoie True si TOUS les éléments sont True. Évaluation paresseuse (s'arrête dès que la réponse est connue)." },
+            { question: "Fonctions min() / max() avec key et default", answer: "key=f spécifie une fonction critère (ex: max(words, key=len)). default=v évite une ValueError sur un itérable vide." },
+            { question: "enumerate() et zip() avancés", answer: "enumerate(seq, start=1) fournit (indice, élément). zip(*pairs) réalise l'opération inverse (défaire un zip)." },
+            { question: "Fonctions map() et filter()", answer: "map(f, seq) applique f à chaque élément. filter(f, seq) ne garde que les éléments où f(x) est Vrai. Renvoient des itérateurs paresseux." },
+            { question: "filter(None, sequence)", answer: "Garde uniquement les éléments évalués à Vrai dans la séquence (supprime "", 0, None, False, [])." },
+            { question: "functools.reduce()", answer: "Combiner les éléments deux à deux de manière cumulative : reduce(f, [1,2,3,4]) calcule f(f(f(1,2),3),4)." },
+            { question: "reversed() vs list[::-1] vs list.reverse()", answer: "reversed(s) renvoie un itérateur paresseux sans copie. s[::-1] crée une nouvelle liste inversée. s.reverse() inverse la liste sur place et renvoie None." },
+            { question: "sorted() vs list.sort()", answer: "sorted(iterable) renvoie une nouvelle liste triée sans modifier l'original. list.sort() trie la liste sur place et renvoie None." },
+            { question: "Stabilité des tri", answer: "Le tri en Python est stable : l'ordre relatif d'origine des éléments ayant la même clé de tri est préservé." },
+
+            // --- Fonctions First-Class & Lambdas ---
+            { question: "Fonctions comme objets (First-Class Functions)", answer: "Une fonction peut être assignée à une variable, passée en argument d'une autre fonction (ex: key=) ou renvoyée par une fonction." },
+            { question: "Lambda expressions (Syntaxe & Limites)", answer: "lambda param1, param2: expression. Fonction anonyme restreinte à une SEULE expression. Pas de return, d'affectation ni de boucle." },
+            { question: "Recommandation PEP 8 pour lambda", answer: "Ne jamais faire d'affectation 'f = lambda x: ...'. Privilégier la définition standard 'def f(x):' pour garder les noms explicites dans les tracebacks." },
+
+            // --- Générateurs & yield ---
+            { question: "Expression génératrice", answer: "Syntaxe entre parenthèses : (n*n for n in range(1000)). Ne stocke pas les résultats en mémoire, produit les valeurs à la demande." },
+            { question: "Gain mémoire des générateurs", answer: "Consommation mémoire constante (O(1)) quelle que soit la quantité de données générées (contrairement aux listes O(N))." },
+            { question: "Usage unique des générateurs", answer: "Un générateur s'épuise après un parcours complet. Une deuxième lecture renverra un itérable vide." },
+            { question: "Fonction génératrice et mot-clé yield", answer: "Une fonction contenant 'yield' suspend son exécution, renvoie la valeur courante et conserve son état local pour l'appel next() suivant." },
+            { question: "Fonctionnement de next() et StopIteration", answer: "next(gen) avance le générateur jusqu'au prochain yield. Quand la fonction se termine, Python lève une exception StopIteration." },
+            { question: "Pipeline de générateurs", answer: "Chaînage de fonctions génératrices se consommant les unes les autres (ex: evens(read_numbers(file))). Traite de gros volumes de données sans charger tout le fichier en mémoire." },
+
+            // --- Portée des Noms (Règle LEGB) ---
+            { question: "Règle LEGB (Ordre de recherche)", answer: "Recherche des variables de l'intérieur vers l'extérieur : Local -> Enclosing (englobante) -> Global (module) -> Built-in (intégré)." },
+            { question: "Erreur UnboundLocalError", answer: "Survient si une fonction tente de lire une variable globale puis de lui affecter une valeur dans le même corps sans l'avoir déclarée 'global'." },
+            { question: "Mot-clé global", answer: "Déclare au sein d'une fonction qu'un nom fait référence à la variable du niveau module (global) afin de pouvoir la modifier." },
+            { question: "Mot-clé nonlocal et Fermetures (Closures)", answer: "nonlocal permet de modifier une variable appartenant à la portée de la fonction englobante (Enclosing). Permet de créer un état persistant." },
+            { question: "Masquage de Built-ins (Built-in Shadowing)", answer: "Créer une variable nommée comme une fonction intégrée (ex: sum = 10) masque le Built-in et provoque une TypeError lors d'un appel futur. 'del sum' restaure l'accès." },
+
+            // --- POO Avancée & Héritage Multiple ---
+            { question: "Héritage multiple", answer: "Une classe peut hériter de plusieurs classes mères : class Duck(Flyer, Swimmer):." },
+            { question: "Problème du diamant (Diamond Problem)", answer: "Ambigüité survenue lorsqu'une classe hérite de deux classes ayant une même classe mère en commun." },
+            { question: "MRO (Method Resolution Order)", answer: "Ordre algorithmique (C3 linearization) dans lequel Python parcourt les classes pour trouver une méthode ou un attribut. Accessible via Classe.__mro__." },
+            { question: "Règles de la MRO", answer: "1. Une classe fille passe avant ses parents. 2. L'ordre de déclaration des parents est conservé. 3. Un parent commun passe après tous ses enfants." },
+            { question: "Fonction super() en héritage multiple", answer: "super() n'appelle pas le parent direct mais la CLASSE SUIVANTE dans la MRO du type réel de l'instance courante." },
+
+            // --- Exceptions Avancées ---
+            { question: "Hiérarchie des exceptions", answer: "Toutes les exceptions dérivent de BaseException. Les erreurs applicatives dérivent d'Exception (KeyboardInterrupt et SystemExit dérivent directement de BaseException)." },
+            { question: "Bloc try / except / else / finally", answer: "try: code à risque. except: gestion d'erreur. else: s'exécute SI AUCUNE erreur ne survient. finally: s'exécute TOUJOURS (libération de ressources)." },
+            { question: "Levée d'exception avec raise", answer: "raise ValueError(\"message\") interrompt le flux et lève une exception. Un 'raise' seul dans un except relance l'exception courante." },
+            { question: "Exceptions personnalisées", answer: "Créées en créant une sous-classe d'Exception : class MyError(Exception): pass." },
+            { question: "Chaining d'exceptions avec raise ... from", answer: "raise NewException(...) from e permet d'encapsuler une erreur bas niveau dans une erreur métier tout en conservant la cause d'origine dans __cause__." },
+            { question: "Bonnes pratiques : Jamais de 'except:' nu", answer: "Ne jamais intercepter toutes les exceptions sans type (except: nu) car cela masque les erreurs de syntaxe, les bugs et le Ctrl+C. Intercepter des exceptions précises." },
+            { question: "Style EAFP vs LBYL", answer: "Python privilégie le style EAFP ('Easier to ask for forgiveness than permission' via try/except) au LBYL ('Look before you leap' avec des séries de if)." },
+
+            // --- Sérialisation (JSON & Pickle) ---
+            { question: "Sérialisation JSON (Module json)", answer: "Format texte universel et lisible. json.dumps()/loads() (chaîne), json.dump()/load() (fichier). ensure_ascii=False préserve les accents, indent=2 formate." },
+            { question: "Limites de JSON", answer: "Ne gère que les types de base (dict, list, str, int, float, bool, None). Les clés sont converties en str, les tuples deviennent des listes. Les sets et objets custom lèvent une TypeError." },
+            { question: "Sérialisation Pickle (Module pickle)", answer: "Format binaire spécifique à Python. Permet de sauvegarder presque n'importe quel objet (instances, tuples, ensembles). Nécessite d'ouvrir les fichiers en mode binaire ('rb', 'wb')." },
+            { question: "Danger de sécurité de Pickle", answer: "Ne JAMAIS dé-sérialiser (pickle.load) des données d'origine inconnue. Pickle peut exécuter du code arbitraire malveillant lors du chargement !" },
+            { question: "JSON vs Pickle (Récapitulatif)", answer: "JSON : Texte, universel, sécurisé, idéal pour le web et la config. Pickle : Binaire, Python uniquement, non sécurisé avec de l'inconnu, idéal pour le cache/état Python interne." }
+        ]
+    },
+
+
+
+    
     // ==========================================
     // 4. NOUVEAU DECK : BDD & INTEROPERABILITE - CM1
     // ==========================================
