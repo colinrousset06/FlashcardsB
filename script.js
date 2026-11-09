@@ -411,7 +411,7 @@ const decks = [
             { question: "Fonctions min() / max() avec key et default", answer: "key=f spécifie une fonction critère (ex: max(words, key=len)). default=v évite une ValueError sur un itérable vide." },
             { question: "enumerate() et zip() avancés", answer: "enumerate(seq, start=1) fournit (indice, élément). zip(*pairs) réalise l'opération inverse (défaire un zip)." },
             { question: "Fonctions map() et filter()", answer: "map(f, seq) applique f à chaque élément. filter(f, seq) ne garde que les éléments où f(x) est Vrai. Renvoient des itérateurs paresseux." },
-            { question: "filter(None, sequence)", answer: "Garde uniquement les éléments évalués à Vrai dans la séquence (supprime "", 0, None, False, crochets)." },
+            { question: "filter(None, sequence)", answer: "Garde uniquement les éléments évalués à Vrai dans la séquence (supprime guillements, 0, None, False, crochets)." },
             { question: "functools.reduce()", answer: "Combiner les éléments deux à deux de manière cumulative : reduce(f, [1,2,3,4]) calcule f(f(f(1,2),3),4)." },
             { question: "reversed() vs list[::-1] vs list.reverse()", answer: "reversed(s) renvoie un itérateur paresseux sans copie. s[::-1] crée une nouvelle liste inversée. s.reverse() inverse la liste sur place et renvoie None." },
             { question: "sorted() vs list.sort()", answer: "sorted(iterable) renvoie une nouvelle liste triée sans modifier l'original. list.sort() trie la liste sur place et renvoie None." },
