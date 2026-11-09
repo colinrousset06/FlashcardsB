@@ -214,7 +214,7 @@ const decks = [
             { question: "Définition : Programme d'optimisation", answer: "Recherche d'un extremum (minimum ou maximum) d'une fonction objectif sous un ensemble de contraintes." },
             { question: "Condition Nécessaire du 1er ordre (CN1)", answer: "Si x* est un extremum local d'une fonction différentiable, alors le gradient s'annule : grad f(x*) = 0." },
             { question: "Conditions Suffisantes du 2nd ordre (CS2)", answer: "Si grad f(x*) = 0, un hessien défini positif implique un minimum local, et un hessien défini négatif implique un maximum local." },
-            { question: "Définition : Matrice Hessienne", answer: "Matrice symétrique des dérivées partielles secondes d'une fonction deux fois différentiable." }
+            { question: "Définition : Matrice Hessienne", answer: "Matrice symétrique des dérivées partielles secondes d'une fonction deux fois différentiable." },
             { question: "Définition : Mineurs principaux d’une matrice", answer: "Soit H de dim (n,n). Un mineur principal d’ordre k est le déterminant de la sous-matrice de H d’ordre k obtenue en supprimant n −k lignes et les n−k colonnes correspondantes dans H."},
             { question: "Def : Mineurs principaux diagonaux d’une matrice", answer: "Soit H de dim (n,n). Le mineur principal diagonal d’ordre k de la matrice H est le déterminant de la matrice de taille (k,k) obtenue en éliminant les n − k dernières lignes et n − k dernières colonnes de la matrice H."},
             { question: "Caractérisation par les mineurs principaux 1", answer: "Une matrice est définie positive/négative si tous ses mineurs principaux diagonaux sont strictement positifs/alterne de signe (pair >0)." },
